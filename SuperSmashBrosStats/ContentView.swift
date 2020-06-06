@@ -15,11 +15,11 @@ struct ContentView: View {
     var body: some View {
         List {
             if !viewModel.characters.isEmpty {
-                ForEach(viewModel.characters, id: \.self) { character in
-                    Text(character.DisplayName)
+                ForEach(viewModel.characters) { character in
+                    Text(character.displayName)
                 }
             } else {
-                Text("Shit is empty bro")
+                Text("Loading...")
             }
         }
         .onAppear(perform: onContentViewAppear)
@@ -40,7 +40,6 @@ class ContentViewModel: ObservableObject {
                 print(failure)
             case .success(let characters):
                 DispatchQueue.main.async {
-                    print(characters.count)
                     self.characters = characters
                 }
             }
@@ -48,9 +47,46 @@ class ContentViewModel: ObservableObject {
     }
 }
 
-struct Character: Codable, Hashable {
-    let ColorTheme: String
-    let DisplayName: String
+struct Character: Codable, Hashable, Identifiable {
+    let colorTheme: String
+    let displayName: String
+    let id: String
+    let ownerId: Int
+    let fullUrl: String
+    let mainImageUrl: String
+    let thumbnailUrl: String
+    let game: String
+    let related: Related
+
+    struct Related: Codable, Hashable {
+        let ultimate: Ultimate
+
+        struct Ultimate: Codable, Hashable {
+            let itSelf: String
+            let moves: String
+
+            private enum CodingKeys: String, CodingKey {
+                case itSelf = "Self"
+                case moves = "Moves"
+            }
+        }
+
+        private enum CodingKeys: String, CodingKey {
+            case ultimate = "Ultimate"
+        }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case colorTheme = "ColorTheme"
+        case displayName = "DisplayName"
+        case id = "InstanceId"
+        case ownerId = "OwnerId"
+        case fullUrl = "FullUrl"
+        case mainImageUrl = "MainImageUrl"
+        case thumbnailUrl = "ThumbnailUrl"
+        case game = "Game"
+        case related = "Related"
+    }
 }
 
 class Networker {

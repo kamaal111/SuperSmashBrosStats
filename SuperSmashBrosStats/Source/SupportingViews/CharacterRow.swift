@@ -12,7 +12,7 @@ struct CharacterRow: View {
     var character: Character
 
     var body: some View {
-        HStack(spacing: 0) {
+        HStack {
             Text(character.displayName)
         }
         .listRowBackground(colorTheme)
@@ -32,16 +32,14 @@ struct CharacterRow_Previews: PreviewProvider {
             CharacterRow(character: Character(
                 colorTheme: "#A79FE5",
                 displayName: "Bayonetta",
+                name: "Bayonetta",
                 id: "950946fe358646498030139a7612afd2",
                 ownerId: 1,
                 fullUrl: "https://kuroganehammer.com/Smash4/Bayonetta",
                 mainImageUrl: "https://kuroganehammer.com/images/smash4/logo2/Bayonetta.png",
                 thumbnailUrl: "https://kuroganehammer.com/images/smash4/character/character-bayonetta3.png",
                 game: "smash4",
-                related: Character.Related(
-                    ultimate: Character.Related.Ultimate(
-                        itSelf: "http://api.kuroganehammer.com/api/characters/name/Bayonetta?game=ultimate",
-                        moves: "http://api.kuroganehammer.com/api/characters/name/Bayonetta/moves?game=ultimate"))))
+                related: Related(ultimate: nil, smash4: nil)))
         }
         .previewLayout(.sizeThatFits)
     }

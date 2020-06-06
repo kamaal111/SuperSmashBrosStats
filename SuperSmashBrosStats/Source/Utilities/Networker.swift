@@ -27,7 +27,8 @@ struct Networker {
         }
     }
 
-    static private let baseUrl = "https://api.kuroganehammer.com/api"
+//    static private let baseUrl = "https://api.kuroganehammer.com/api"
+    static private let baseUrl = "http://192.168.2.4:400/v1/api"
 
     static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> ()) {
         guard let url = URL(string: "\(Self.baseUrl)\(path)") else {

@@ -14,14 +14,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let contentView = ContentView(viewModel: ContentViewModel())
-
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = homeScreenViewController()
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+
+    func homeScreenViewController() -> UIViewController {
+        let viewModel = HomeScreenViewModel()
+        let contentView = HomeScreenContentView(viewModel: viewModel)
+        let viewController = HomeScreenViewController(rootView: contentView)
+        return viewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }

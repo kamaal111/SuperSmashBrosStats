@@ -23,6 +23,7 @@
 		608FD8FB248C126000307B6C /* characters-smash4.json in Resources */ = {isa = PBXBuildFile; fileRef = 608FD8FA248C126000307B6C /* characters-smash4.json */; };
 		608FD8FD248C37F400307B6C /* CharacterMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD8FC248C37F400307B6C /* CharacterMove.swift */; };
 		608FD8FF248C3B5500307B6C /* Related.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD8FE248C3B5500307B6C /* Related.swift */; };
+		608FD901248C3EE500307B6C /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD900248C3EE500307B6C /* UrlImageView.swift */; };
 		609F247F248BE46000E2EF5F /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F247E248BE46000E2EF5F /* HomeScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		608FD8FA248C126000307B6C /* characters-smash4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characters-smash4.json"; sourceTree = "<group>"; };
 		608FD8FC248C37F400307B6C /* CharacterMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMove.swift; sourceTree = "<group>"; };
 		608FD8FE248C3B5500307B6C /* Related.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Related.swift; sourceTree = "<group>"; };
+		608FD900248C3EE500307B6C /* UrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
 		609F247E248BE46000E2EF5F /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				608FD8F6248C07FE00307B6C /* CharacterRow.swift */,
+				608FD900248C3EE500307B6C /* UrlImageView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				608FD8F7248C07FE00307B6C /* CharacterRow.swift in Sources */,
+				608FD901248C3EE500307B6C /* UrlImageView.swift in Sources */,
 				60249027248BC151009D8E75 /* AppDelegate.swift in Sources */,
 				608FD8F1248BFDA700307B6C /* RedGreenBlue.swift in Sources */,
 				60249045248BE142009D8E75 /* Networker.swift in Sources */,

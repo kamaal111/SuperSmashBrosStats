@@ -13,9 +13,10 @@ struct CharacterRow: View {
 
     var body: some View {
         HStack {
+            UrlImageView(imageUrl: character.thumbnailUrl, colorTheme: colorTheme)
             Text(character.displayName)
+                .font(.headline)
         }
-        .listRowBackground(colorTheme)
     }
 
     private var colorTheme: Color {

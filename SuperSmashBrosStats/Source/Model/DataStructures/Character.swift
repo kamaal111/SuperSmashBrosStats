@@ -19,6 +19,10 @@ struct Character: Codable, Hashable, Identifiable {
     let game: String
     let related: Related
 
+    var colorThemeRGB: RedGreenBlue {
+        return ColorHelper.hexToRGB(hexString: colorTheme)
+    }
+
     struct Related: Codable, Hashable {
         let ultimate: Ultimate
 

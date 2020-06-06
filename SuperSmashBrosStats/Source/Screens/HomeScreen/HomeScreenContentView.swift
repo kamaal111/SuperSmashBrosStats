@@ -16,7 +16,7 @@ struct HomeScreenContentView: View {
         List {
             if !viewModel.characters.isEmpty {
                 ForEach(viewModel.characters) { character in
-                    Text(character.displayName)
+                    CharacterRow(character: character)
                 }
             } else {
                 Text("Loading...")
@@ -30,3 +30,4 @@ struct HomeScreenContentView_Previews: PreviewProvider {
         HomeScreenContentView(viewModel: HomeScreenViewModel())
     }
 }
+

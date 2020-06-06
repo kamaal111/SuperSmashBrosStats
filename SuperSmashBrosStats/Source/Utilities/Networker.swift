@@ -8,12 +8,22 @@
 
 import Foundation
 
-class Networker {
+enum Game: String {
+    case ultimate
+    case smash4
+}
+
+struct Networker {
 
     static func getCharacters(completion: @escaping (Result<[Character], Error>) -> ()) {
         DispatchQueue(label: "api-call-thread", qos: .utility, attributes: .concurrent).async {
-            let charactersData: [Character] = load("characters.json")
-            completion(.success(charactersData))
+            let smash4CharactersData: [Character] = Self.load("characters-\(Game.smash4.rawValue).json")
+            var ultimateCharactersData: [Character] = Self.load("characters-\(Game.ultimate.rawValue).json")
+            for smash4Character in smash4CharactersData
+                where !ultimateCharactersData.contains(where: { $0.displayName == smash4Character.displayName }) {
+                    ultimateCharactersData.append(smash4Character)
+            }
+            completion(.success(ultimateCharactersData))
         }
     }
 
@@ -46,24 +56,24 @@ class Networker {
         }.resume()
     }
 
-}
+    static func load<T: Decodable>(_ filename: String) -> T {
+        let data: Data
 
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+            else { fatalError("Couldn't find \(filename) in main bundle.") }
 
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else { fatalError("Couldn't find \(filename) in main bundle.") }
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        }
 
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+        }
     }
 
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
 }

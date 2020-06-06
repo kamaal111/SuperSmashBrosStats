@@ -24,8 +24,8 @@ class HomeScreenViewController: UIHostingController<HomeScreenContentView> {
         populateCharacters()
     }
 
-    func populateCharacters() {
-        Networker.getCharacters { [weak self]result in
+    private func populateCharacters() {
+        Networker.getCharacters { [weak self] result in
             switch result {
             case .failure(let failure):
                 print(failure)

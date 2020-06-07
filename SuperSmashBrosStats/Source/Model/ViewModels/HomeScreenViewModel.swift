@@ -12,7 +12,7 @@ import SwiftUI
 class HomeScreenViewModel: ObservableObject {
     @Published var characters = [Character]()
 
-    func populateCharacters(cachedImages: [CachedImage]?) {
+    func populateCharacters(cachedImages: [CachedImage]) {
         Networker.getCharacters { [weak self] result in
             switch result {
             case .failure(_):
@@ -26,17 +26,13 @@ class HomeScreenViewModel: ObservableObject {
         }
     }
 
-    private func modifyCharacters(characters: [CodableCharacter], cachedImages: [CachedImage]?) -> [Character] {
+    private func modifyCharacters(characters: [CodableCharacter], cachedImages: [CachedImage]) -> [Character] {
         var modifiedCharacters = [Character]()
-        if let unwrappedCachedImages = cachedImages {
-            modifiedCharacters = characters.map { character in
-                let thumbnailCache = self.extractThumbnailImageFromCache(
-                    character: character,
-                    cachedImages: unwrappedCachedImages)
-                return Character(id: character.id, character: character, cachedThumbnailUrl: thumbnailCache)
-            }
-        } else {
-            modifiedCharacters = characters.map { Character(id: $0.id, character: $0) }
+        modifiedCharacters = characters.map { character in
+            let thumbnailCache = self.extractThumbnailImageFromCache(
+                character: character,
+                cachedImages: cachedImages)
+            return Character(id: character.id, character: character, cachedThumbnailUrl: thumbnailCache)
         }
         return modifiedCharacters
     }

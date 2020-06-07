@@ -15,20 +15,25 @@ struct HomeScreenContentView: View {
     private let coreDataManager = CoreDataManager.shared
 
     var body: some View {
-        List {
-            if !viewModel.characters.isEmpty {
+        ZStack {
+            List {
                 ForEach(viewModel.characters) { character in
-                    CharacterRow(characterWithImage: character)
+                    NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
+                        CharacterRow(characterWithImage: character)
+                    }
                 }
-            } else {
+            }
+            if viewModel.characters.isEmpty {
                 Text("Loading...")
             }
         }
         .onAppear(perform: self.onHomeScreenContentViewAppear)
+        .navigationBarTitle(Text("SSBU Roster"))
     }
 
     private func onHomeScreenContentViewAppear() {
-        let cachedImages = try? self.coreDataManager.fetch(CachedImage.self)
-        self.viewModel.populateCharacters(cachedImages: cachedImages)
+        if let cachedImages = try? self.coreDataManager.fetch(CachedImage.self) {
+            self.viewModel.populateCharacters(cachedImages: cachedImages)
+        }
     }
 }

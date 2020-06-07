@@ -37,10 +37,3 @@ struct UrlImageView: View {
     static var defaultImage = UIImage(systemName: "photo")
     static var thumbnailSize = CGSize(width: 48, height: 48)
 }
-
-struct UrlImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        UrlImageView(imageUrl: nil, cachedThumbnailImage: nil, colorTheme: .red)
-            .previewLayout(.sizeThatFits)
-    }
-}

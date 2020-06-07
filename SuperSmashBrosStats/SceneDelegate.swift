@@ -27,7 +27,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let contentView = HomeScreenContentView(viewModel: viewModel)
             .environment(\.managedObjectContext, CoreDataManager.shared.context!)
         let hostinController = UIHostingController(rootView: contentView)
-        return hostinController
+        let navigationController = UINavigationController(rootViewController: hostinController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        return navigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }

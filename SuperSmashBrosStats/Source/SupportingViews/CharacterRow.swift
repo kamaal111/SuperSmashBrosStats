@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CharacterRow: View {
-    var characterWithImage: CharacterWithImage
+    var characterWithImage: Character
 
     var body: some View {
         HStack {

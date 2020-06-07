@@ -15,14 +15,16 @@ enum Game: String {
 
 struct Networker {
 
-    static func getCharacters(completion: @escaping (Result<[Character], Error>) -> ()) {
+    static private let baseUrl = "https://api.kuroganehammer.com/api"
+
+    static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue(label: "api-call-thread", qos: .utility, attributes: .concurrent).async {
-            let smash4CharactersData: [Character] = load("characters-\(Game.smash4.rawValue).json")
-            var ultimateCharactersData: [Character] = load("characters-\(Game.ultimate.rawValue).json")
-            for smash4Character in smash4CharactersData
-                where !ultimateCharactersData.contains(where: { $0.displayName == smash4Character.displayName }) {
-                    ultimateCharactersData.append(smash4Character)
+            var smash4CharactersData: [CodableCharacter] = load("characters-\(Game.smash4.rawValue).json")
+            var ultimateCharactersData: [CodableCharacter] = load("characters-\(Game.ultimate.rawValue).json")
+            smash4CharactersData = smash4CharactersData.filter { smash4Character in
+                !ultimateCharactersData.contains(where: { $0.displayName == smash4Character.displayName })
             }
+            ultimateCharactersData = ultimateCharactersData + smash4CharactersData
             completion(.success(ultimateCharactersData))
         }
     }
@@ -38,6 +40,10 @@ struct Networker {
                     completion(.failure(error))
                     return
                 }
+                guard (response as? HTTPURLResponse) != nil else {
+                    completion(.failure(NSError(domain: "response code error", code: 400, userInfo: nil)))
+                    return
+                }
                 guard let dataResponse = data else {
                     completion(.failure(NSError(domain: "data error", code: 400, userInfo: nil)))
                     return
@@ -47,8 +53,6 @@ struct Networker {
             .resume()
         }
     }
-
-    static private let baseUrl = "https://api.kuroganehammer.com/api"
 
     static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> ()) {
         guard let url = URL(string: "\(Self.baseUrl)\(path)") else {

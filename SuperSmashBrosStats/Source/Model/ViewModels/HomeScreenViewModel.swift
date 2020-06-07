@@ -10,47 +10,42 @@ import Combine
 import SwiftUI
 
 class HomeScreenViewModel: ObservableObject {
-    @Published var characters = [CharacterWithImage]()
+    @Published var characters = [Character]()
 
     func populateCharacters(cachedImages: [CachedImage]?) {
-        Networker.getCharacters { result in
+        Networker.getCharacters { [weak self] result in
             switch result {
-            case .failure(let failure):
-                print(failure)
+            case .failure(_):
+                print("Failed to get characters")
             case .success(let characters):
-                var modifiedCharacters = [CharacterWithImage]()
-                if let unwrappedCachedImages = cachedImages {
-                    modifiedCharacters = characters.map { character in
-                        let characterToReturn = character
-                        var thumbnailCache: Data?
-                        if unwrappedCachedImages.contains(where: { $0.key == characterToReturn.thumbnailUrl }) {
-                            for cachedImage in unwrappedCachedImages where cachedImage.key == characterToReturn.thumbnailUrl {
-                                thumbnailCache = cachedImage.data
-                            }
-                        }
-                        return CharacterWithImage(id: characterToReturn.id, character: characterToReturn, cachedThumbnailUrl: thumbnailCache)
-                    }
-                } else {
-                    modifiedCharacters = characters.map { character in
-                        return CharacterWithImage(id: character.id, character: character)
-                    }
-                }
+                let modifiedCharacters = self?.modifyCharacters(characters: characters, cachedImages: cachedImages) ?? []
                 DispatchQueue.main.async {
-                    self.characters = modifiedCharacters
+                    self?.characters = modifiedCharacters
                 }
             }
         }
     }
-}
 
-struct CharacterWithImage: Hashable, Identifiable {
-    let id: String
-    let character: Character
-    var cachedThumbnailUrl: Data? = nil
+    private func modifyCharacters(characters: [CodableCharacter], cachedImages: [CachedImage]?) -> [Character] {
+        var modifiedCharacters = [Character]()
+        if let unwrappedCachedImages = cachedImages {
+            modifiedCharacters = characters.map { character in
+                let thumbnailCache = self.extractThumbnailImageFromCache(
+                    character: character,
+                    cachedImages: unwrappedCachedImages)
+                return Character(id: character.id, character: character, cachedThumbnailUrl: thumbnailCache)
+            }
+        } else {
+            modifiedCharacters = characters.map { Character(id: $0.id, character: $0) }
+        }
+        return modifiedCharacters
+    }
 
-    init(id: String, character: Character, cachedThumbnailUrl: Data? = nil) {
-        self.id = id
-        self.character = character
-        self.cachedThumbnailUrl = cachedThumbnailUrl
+    private func extractThumbnailImageFromCache(character: CodableCharacter, cachedImages: [CachedImage]) -> Data? {
+        guard cachedImages.contains(where: { $0.key == character.thumbnailUrl }) else { return nil }
+        for cachedImage in cachedImages where cachedImage.key == character.thumbnailUrl {
+            return cachedImage.data
+        }
+        return nil
     }
 }

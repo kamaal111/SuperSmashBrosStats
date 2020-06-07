@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Character: Codable, Hashable, Identifiable {
+struct CodableCharacter: Codable, Hashable, Identifiable {
     let colorTheme: String
     let displayName: String
     let name: String
     let id: String
     let ownerId: Int
     let fullUrl: String
-    var mainImageUrl: String
-    var thumbnailUrl: String
+    let mainImageUrl: String
+    let thumbnailUrl: String
     let game: String
-    let related: Related
+    let related: CodableRelated
 
     var colorThemeRGB: RedGreenBlue {
         return ColorHelper.hexToRGB(hexString: colorTheme)
@@ -35,5 +35,17 @@ struct Character: Codable, Hashable, Identifiable {
         case thumbnailUrl = "ThumbnailUrl"
         case game = "Game"
         case related = "Related"
+    }
+}
+
+struct Character: Hashable, Identifiable {
+    let id: String
+    let character: CodableCharacter
+    var cachedThumbnailUrl: Data?
+
+    init(id: String, character: CodableCharacter, cachedThumbnailUrl: Data? = nil) {
+        self.id = id
+        self.character = character
+        self.cachedThumbnailUrl = cachedThumbnailUrl
     }
 }

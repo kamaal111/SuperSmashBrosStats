@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Related: Codable, Hashable {
-    let ultimate: RelatedLinks?
-    let smash4: RelatedLinks?
+struct CodableRelated: Codable, Hashable {
+    let ultimate: CodableRelatedLinks?
+    let smash4: CodableRelatedLinks?
 
     private enum CodingKeys: String, CodingKey {
         case ultimate = "Ultimate"
@@ -18,7 +18,7 @@ struct Related: Codable, Hashable {
     }
 }
 
-struct RelatedLinks: Codable, Hashable {
+struct CodableRelatedLinks: Codable, Hashable {
     let itSelf: String
     let moves: String
 

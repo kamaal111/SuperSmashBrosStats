@@ -24,9 +24,11 @@ struct HomeScreenContentView: View {
                 Text("Loading...")
             }
         }
-        .onAppear(perform: {
-            let cachedImages = try? self.coreDataManager.fetch(CachedImage.self)
-            self.viewModel.populateCharacters(cachedImages: cachedImages)
-        })
+        .onAppear(perform: self.onHomeScreenContentViewAppear)
+    }
+
+    private func onHomeScreenContentViewAppear() {
+        let cachedImages = try? self.coreDataManager.fetch(CachedImage.self)
+        self.viewModel.populateCharacters(cachedImages: cachedImages)
     }
 }

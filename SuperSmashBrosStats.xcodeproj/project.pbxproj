@@ -30,6 +30,8 @@
 		608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD91B248D177C00307B6C /* CoreDataManager.swift */; };
 		608FD923248D18D200307B6C /* CachedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */; };
 		608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */; };
+		60C7CB4F248D5042007F43E8 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7CB4E248D5042007F43E8 /* UrlImageModel.swift */; };
+		60C7CB51248D508B007F43E8 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7CB50248D508B007F43E8 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		608FD91B248D177C00307B6C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		60C7CB4E248D5042007F43E8 /* UrlImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
+		60C7CB50248D508B007F43E8 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				60249044248BE142009D8E75 /* Networker.swift */,
 				608FD8F2248C048300307B6C /* ColorHelper.swift */,
 				608FD91B248D177C00307B6C /* CoreDataManager.swift */,
+				60C7CB50248D508B007F43E8 /* ImageCache.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				6024903F248BE0B2009D8E75 /* HomeScreenViewModel.swift */,
+				60C7CB4E248D5042007F43E8 /* UrlImageModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				6024903D248BE05D009D8E75 /* HomeScreenContentView.swift in Sources */,
 				608FD8F3248C048300307B6C /* ColorHelper.swift in Sources */,
 				608FD8FD248C37F400307B6C /* CharacterMove.swift in Sources */,
+				60C7CB51248D508B007F43E8 /* ImageCache.swift in Sources */,
 				60249029248BC151009D8E75 /* SceneDelegate.swift in Sources */,
 				60249042248BE116009D8E75 /* Character.swift in Sources */,
 				608FD8FF248C3B5500307B6C /* Related.swift in Sources */,
@@ -309,6 +316,7 @@
 				608FD918248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld in Sources */,
 				608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */,
 				608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */,
+				60C7CB4F248D5042007F43E8 /* UrlImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

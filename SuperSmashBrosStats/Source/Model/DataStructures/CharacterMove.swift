@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CharacterMove: Codable {
+struct CodableCharacterMove: Codable {
     let id: String
     let name: String
     let ownerId: Int
@@ -24,7 +24,7 @@ struct CharacterMove: Codable {
     let moveType: String
     let isWeightDependent: Bool
     let game: String
-    let related: Related
+    let related: CodableRelated
 
     private enum CodingKeys: String, CodingKey {
         case id = "InstanceId"

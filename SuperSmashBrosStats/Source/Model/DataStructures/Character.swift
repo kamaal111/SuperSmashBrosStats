@@ -15,8 +15,8 @@ struct Character: Codable, Hashable, Identifiable {
     let id: String
     let ownerId: Int
     let fullUrl: String
-    let mainImageUrl: String
-    let thumbnailUrl: String
+    var mainImageUrl: String
+    var thumbnailUrl: String
     let game: String
     let related: Related
 

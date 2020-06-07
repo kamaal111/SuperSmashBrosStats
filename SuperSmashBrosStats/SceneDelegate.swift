@@ -25,8 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func homeScreenViewController() -> UIViewController {
         let viewModel = HomeScreenViewModel()
         let contentView = HomeScreenContentView(viewModel: viewModel)
-        let viewController = HomeScreenViewController(rootView: contentView)
-        return viewController
+            .environment(\.managedObjectContext, CoreDataManager.shared.context!)
+        let hostinController = UIHostingController(rootView: contentView)
+        return hostinController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) { }

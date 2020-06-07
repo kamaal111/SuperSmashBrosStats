@@ -14,9 +14,10 @@ struct UrlImageView: View {
     var urlImageModal: UrlImageModel
 
     var colorTheme: Color
+    var cachedThumbnailImage: Data?
 
-    init(imageUrl: String?, colorTheme: Color) {
-        self.urlImageModal = UrlImageModel(urlString: imageUrl)
+    init(imageUrl: String?, cachedThumbnailImage: Data?, colorTheme: Color) {
+        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedThumbnailImage: cachedThumbnailImage)
         self.colorTheme = colorTheme
     }
 
@@ -40,10 +41,13 @@ class UrlImageModel: ObservableObject {
     @Published var image: UIImage?
 
     var urlString: String?
+    var cachedThumbnailImage: Data?
+
     var imageCache = ImageCache.getImageCache()
 
-    init(urlString: String?) {
+    init(urlString: String?, cachedThumbnailImage: Data?) {
         self.urlString = urlString
+        self.cachedThumbnailImage = cachedThumbnailImage
         let loaded = loadImageFromCache()
         if loaded { return }
         self.loadImage()
@@ -58,18 +62,37 @@ class UrlImageModel: ObservableObject {
 
     func loadImage() {
         guard let urlString = self.urlString else { return }
-        Networker.loadImage(from: urlString) { result in
-            switch result {
-            case .failure(let failure):
-                print(failure)
-            case .success(let imageData):
-                guard let image = UIImage(data: imageData) else { return }
-                DispatchQueue.main.async {
-                    self.imageCache.set(forKey: urlString, image: image)
-                    self.image = image
+        if let cachedThumbnailImage = self.cachedThumbnailImage {
+            guard let image = UIImage(data: cachedThumbnailImage) else { return }
+            DispatchQueue.main.async {
+                self.image = image
+            }
+        } else {
+            Networker.loadImage(from: urlString) { result in
+                switch result {
+                case .failure(let failure):
+                    print(failure)
+                case .success(let imageData):
+                    let cachedImage = CachedImage(context: CoreDataManager.shared.context!)
+                    cachedImage.createdDate = Date()
+                    cachedImage.data = imageData
+                    cachedImage.key = urlString
+                    cachedImage.id = UUID()
+                    cachedImage.updatedDate = Date()
+                    do {
+                        try CoreDataManager.shared.save()
+                        guard let image = UIImage(data: imageData) else { return }
+                        DispatchQueue.main.async {
+                            self.imageCache.set(forKey: urlString, image: image)
+                            self.image = image
+                        }
+                    } catch {
+                        print(error)
+                    }
                 }
             }
         }
+
     }
 }
 
@@ -93,7 +116,7 @@ class ImageCache {
 
 struct UrlImageView_Previews: PreviewProvider {
     static var previews: some View {
-        UrlImageView(imageUrl: nil, colorTheme: .red)
+        UrlImageView(imageUrl: nil, cachedThumbnailImage: nil, colorTheme: .red)
             .previewLayout(.sizeThatFits)
     }
 }

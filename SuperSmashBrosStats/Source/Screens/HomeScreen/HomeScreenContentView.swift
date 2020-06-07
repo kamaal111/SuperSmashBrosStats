@@ -12,22 +12,21 @@ struct HomeScreenContentView: View {
     @ObservedObject
     var viewModel: HomeScreenViewModel
 
+    private let coreDataManager = CoreDataManager.shared
+
     var body: some View {
         List {
             if !viewModel.characters.isEmpty {
                 ForEach(viewModel.characters) { character in
-                    CharacterRow(character: character)
+                    CharacterRow(characterWithImage: character)
                 }
             } else {
                 Text("Loading...")
             }
         }
+        .onAppear(perform: {
+            let cachedImages = try? self.coreDataManager.fetch(CachedImage.self)
+            self.viewModel.populateCharacters(cachedImages: cachedImages)
+        })
     }
 }
-
-struct HomeScreenContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreenContentView(viewModel: HomeScreenViewModel())
-    }
-}
-

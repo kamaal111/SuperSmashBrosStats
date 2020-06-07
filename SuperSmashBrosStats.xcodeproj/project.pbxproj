@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,7 +24,12 @@
 		608FD8FD248C37F400307B6C /* CharacterMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD8FC248C37F400307B6C /* CharacterMove.swift */; };
 		608FD8FF248C3B5500307B6C /* Related.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD8FE248C3B5500307B6C /* Related.swift */; };
 		608FD901248C3EE500307B6C /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD900248C3EE500307B6C /* UrlImageView.swift */; };
-		609F247F248BE46000E2EF5F /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F247E248BE46000E2EF5F /* HomeScreenViewController.swift */; };
+		608FD914248D16E500307B6C /* PersistanceManager in Frameworks */ = {isa = PBXBuildFile; productRef = 608FD913248D16E500307B6C /* PersistanceManager */; };
+		608FD918248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 608FD916248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld */; };
+		608FD91A248D174700307B6C /* CONFIG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD919248D174700307B6C /* CONFIG.swift */; };
+		608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD91B248D177C00307B6C /* CoreDataManager.swift */; };
+		608FD923248D18D200307B6C /* CachedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */; };
+		608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +52,11 @@
 		608FD8FC248C37F400307B6C /* CharacterMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMove.swift; sourceTree = "<group>"; };
 		608FD8FE248C3B5500307B6C /* Related.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Related.swift; sourceTree = "<group>"; };
 		608FD900248C3EE500307B6C /* UrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
-		609F247E248BE46000E2EF5F /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		608FD917248D173100307B6C /* SuperSmashBrosStats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SuperSmashBrosStats.xcdatamodel; sourceTree = "<group>"; };
+		608FD919248D174700307B6C /* CONFIG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CONFIG.swift; sourceTree = "<group>"; };
+		608FD91B248D177C00307B6C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608FD914248D16E500307B6C /* PersistanceManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +93,7 @@
 				6024903A248BE025009D8E75 /* Source */,
 				60249026248BC151009D8E75 /* AppDelegate.swift */,
 				60249028248BC151009D8E75 /* SceneDelegate.swift */,
+				608FD919248D174700307B6C /* CONFIG.swift */,
 				6024902C248BC152009D8E75 /* Assets.xcassets */,
 				60249031248BC152009D8E75 /* LaunchScreen.storyboard */,
 				60249034248BC152009D8E75 /* Info.plist */,
@@ -122,6 +133,7 @@
 		6024903E248BE09E009D8E75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				608FD915248D16F300307B6C /* CoreData */,
 				60249047248BE17D009D8E75 /* DataStructures */,
 				60249046248BE173009D8E75 /* ViewModels */,
 			);
@@ -133,6 +145,7 @@
 			children = (
 				60249044248BE142009D8E75 /* Networker.swift */,
 				608FD8F2248C048300307B6C /* ColorHelper.swift */,
+				608FD91B248D177C00307B6C /* CoreDataManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -174,11 +187,28 @@
 			path = SupportingViews;
 			sourceTree = "<group>";
 		};
+		608FD915248D16F300307B6C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				608FD925248D18F300307B6C /* CachedImage */,
+				608FD916248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		608FD925248D18F300307B6C /* CachedImage */ = {
+			isa = PBXGroup;
+			children = (
+				608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */,
+				608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */,
+			);
+			path = CachedImage;
+			sourceTree = "<group>";
+		};
 		609F247D248BE45200E2EF5F /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
 				6024903C248BE05D009D8E75 /* HomeScreenContentView.swift */,
-				609F247E248BE46000E2EF5F /* HomeScreenViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -199,6 +229,9 @@
 			dependencies = (
 			);
 			name = SuperSmashBrosStats;
+			packageProductDependencies = (
+				608FD913248D16E500307B6C /* PersistanceManager */,
+			);
 			productName = SuperSmashBrosStats;
 			productReference = 60249023248BC151009D8E75 /* SuperSmashBrosStats.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 6024901A248BC151009D8E75;
+			packageReferences = (
+				608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */,
+			);
 			productRefGroup = 60249024248BC151009D8E75 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +294,7 @@
 			files = (
 				608FD8F7248C07FE00307B6C /* CharacterRow.swift in Sources */,
 				608FD901248C3EE500307B6C /* UrlImageView.swift in Sources */,
+				608FD91A248D174700307B6C /* CONFIG.swift in Sources */,
 				60249027248BC151009D8E75 /* AppDelegate.swift in Sources */,
 				608FD8F1248BFDA700307B6C /* RedGreenBlue.swift in Sources */,
 				60249045248BE142009D8E75 /* Networker.swift in Sources */,
@@ -267,8 +304,11 @@
 				60249029248BC151009D8E75 /* SceneDelegate.swift in Sources */,
 				60249042248BE116009D8E75 /* Character.swift in Sources */,
 				608FD8FF248C3B5500307B6C /* Related.swift in Sources */,
+				608FD923248D18D200307B6C /* CachedImage+CoreDataClass.swift in Sources */,
 				60249040248BE0B2009D8E75 /* HomeScreenViewModel.swift in Sources */,
-				609F247F248BE46000E2EF5F /* HomeScreenViewController.swift in Sources */,
+				608FD918248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld in Sources */,
+				608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */,
+				608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +502,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/PersistanceManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		608FD913248D16E500307B6C /* PersistanceManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */;
+			productName = PersistanceManager;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		608FD916248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				608FD917248D173100307B6C /* SuperSmashBrosStats.xcdatamodel */,
+			);
+			currentVersion = 608FD917248D173100307B6C /* SuperSmashBrosStats.xcdatamodel */;
+			path = SuperSmashBrosStats.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6024901B248BC151009D8E75 /* Project object */;
 }

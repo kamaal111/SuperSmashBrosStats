@@ -13,10 +13,18 @@ struct CharacterRow: View {
 
     var body: some View {
         HStack {
-            UrlImageView(
-                imageUrl: characterWithImage.character.thumbnailUrl,
-                cachedThumbnailImage: characterWithImage.cachedThumbnailUrl,
-                colorTheme: colorTheme)
+            ZStack {
+                Circle()
+                    .frame(width: 48, height: 48)
+                    .foregroundColor(colorTheme)
+                UrlImageView(
+                    imageUrl: characterWithImage.character.thumbnailUrl,
+                    cachedDataImage: characterWithImage.cachedThumbnailUrl)
+                    .scaledToFit()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
+            }
+            
             Text(characterWithImage.character.displayName)
                 .font(.headline)
         }

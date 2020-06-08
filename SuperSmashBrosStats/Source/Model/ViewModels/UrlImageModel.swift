@@ -13,14 +13,14 @@ class UrlImageModel: ObservableObject {
     @Published var image: UIImage?
 
     private var urlString: String?
-    private var cachedThumbnailImage: Data?
+    private var cachedDataImage: Data?
 
     private var imageCache = ImageCache.getImageCache()
     private let coreDataManager = CoreDataManager.shared
 
     init(urlString: String?, cachedThumbnailImage: Data?) {
         self.urlString = urlString
-        self.cachedThumbnailImage = cachedThumbnailImage
+        self.cachedDataImage = cachedThumbnailImage
         let loaded = loadImageFromCache()
         if loaded { return }
         self.loadImage()
@@ -34,7 +34,7 @@ class UrlImageModel: ObservableObject {
 
     func loadImage() {
         guard let urlString = self.urlString else { return }
-        if let cachedThumbnailImage = self.cachedThumbnailImage {
+        if let cachedThumbnailImage = self.cachedDataImage {
             guard let image = UIImage(data: cachedThumbnailImage) else { return }
             DispatchQueue.main.async {
                 self.image = image

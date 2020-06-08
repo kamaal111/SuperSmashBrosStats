@@ -13,27 +13,16 @@ struct UrlImageView: View {
     @ObservedObject
     var urlImageModal: UrlImageModel
 
-    var colorTheme: Color
-    var cachedThumbnailImage: Data?
+    var cachedDataImage: Data?
 
-    init(imageUrl: String?, cachedThumbnailImage: Data?, colorTheme: Color) {
-        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedThumbnailImage: cachedThumbnailImage)
-        self.colorTheme = colorTheme
+    init(imageUrl: String?, cachedDataImage: Data?) {
+        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedThumbnailImage: cachedDataImage)
     }
 
-    var body: some View {
-        ZStack {
-            Circle()
-                .frame(width: Self.thumbnailSize.width, height: Self.thumbnailSize.height)
-                .foregroundColor(colorTheme)
-            Image(uiImage: urlImageModal.image ?? Self.defaultImage!)
-                .resizable()
-                .scaledToFit()
-                .frame(width: Self.thumbnailSize.width, height: Self.thumbnailSize.height)
-                .clipShape(Circle())
-        }
+    var body: Image {
+        Image(uiImage: urlImageModal.image ?? Self.defaultImage!)
+            .resizable()
     }
 
     static var defaultImage = UIImage(systemName: "photo")
-    static var thumbnailSize = CGSize(width: 48, height: 48)
 }

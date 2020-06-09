@@ -18,19 +18,25 @@ struct Networker {
     static private let baseUrl = "https://api.kuroganehammer.com/api"
 
     static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
-        DispatchQueue(label: "api-call-thread", qos: .utility, attributes: .concurrent).async {
-            var smash4CharactersData: [CodableCharacter] = load("characters-\(Game.smash4.rawValue).json")
-            var ultimateCharactersData: [CodableCharacter] = load("characters-\(Game.ultimate.rawValue).json")
-            smash4CharactersData = smash4CharactersData.filter { smash4Character in
+        DispatchQueue.apiCallThread.async {
+            var combinendSmashCharacters = smash4CharactersData.filter { smash4Character in
                 !ultimateCharactersData.contains(where: { $0.displayName == smash4Character.displayName })
             }
-            ultimateCharactersData = ultimateCharactersData + smash4CharactersData
-            completion(.success(ultimateCharactersData))
+            combinendSmashCharacters = ultimateCharactersData + combinendSmashCharacters
+            completion(.success(combinendSmashCharacters))
+        }
+    }
+
+    static func getCharacterMoves(characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> ()) {
+        DispatchQueue.apiCallThread.async {
+            Self.get([CodableCharacterMoves].self, from: "/characters/ultimate/moves/\(characterId)") { result in
+                completion(result)
+            }
         }
     }
 
     static func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> ()) {
-        DispatchQueue(label: "load-image-thread", qos: .utility, attributes: .concurrent).async {
+        DispatchQueue.loadImageThread.async {
             guard let url = URL(string: imageUrl) else {
                 completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
                 return
@@ -80,25 +86,5 @@ struct Networker {
             }
         }
         .resume()
-    }
-}
-
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else { fatalError("Couldn't find \(filename) in main bundle.") }
-
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }

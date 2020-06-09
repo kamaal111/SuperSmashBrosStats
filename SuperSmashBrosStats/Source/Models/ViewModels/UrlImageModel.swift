@@ -47,7 +47,7 @@ class UrlImageModel: ObservableObject {
             Networker.loadImage(from: urlString) { [weak self] result in
                 switch result {
                 case .failure(_):
-                    print("Failed to load image of \(urlString)")
+                    self?.analyse("Failed to load image of \(urlString)")
                 case .success(let imageData):
                     self?.saveAndSetCachedImage(imageData: imageData, urlString: urlString)
                 }

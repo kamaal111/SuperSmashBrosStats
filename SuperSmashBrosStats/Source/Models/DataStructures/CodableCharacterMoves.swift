@@ -1,5 +1,5 @@
 //
-//  CharacterMove.swift
+//  CharacterMoves.swift
 //  SuperSmashBrosStats
 //
 //  Created by Kamaal Farah on 06/06/2020.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct CodableCharacterMove: Codable {
+struct CodableCharacterMoves: Codable {
     let id: String
     let name: String
     let ownerId: Int
     let owner: String
-    let hitboxActive: String
-    let firstActionableFrame: String
+    let hitboxActive: String?
+    let firstActionableFrame: String?
     let baseDamage: String
     let angle: String
     let baseKnockBackSetKnockback: String
@@ -43,5 +43,25 @@ struct CodableCharacterMove: Codable {
         case isWeightDependent = "IsWeightDependent"
         case game = "Game"
         case related = "Related"
+    }
+
+    struct CodableRelated: Codable, Hashable {
+        let ultimate: CodableRelatedLinks?
+        let smash4: CodableRelatedLinks?
+
+        private enum CodingKeys: String, CodingKey {
+            case ultimate = "Ultimate"
+            case smash4 = "Smash4"
+        }
+    }
+
+    struct CodableRelatedLinks: Codable, Hashable {
+        let itSelf: String?
+        let character: String?
+
+        private enum CodingKeys: String, CodingKey {
+            case itSelf = "Self"
+            case character = "Character"
+        }
     }
 }

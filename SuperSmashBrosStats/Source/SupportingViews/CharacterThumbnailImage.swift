@@ -48,7 +48,7 @@ struct CharacterThumbnailImage_Previews: PreviewProvider {
                 mainImageUrl: "https://kuroganehammer.comhttp://kuroganehammer.com/Ultimate/logo2/Young Link.png",
                 thumbnailUrl: "https://kuroganehammer.com/images/ultimate/character/young_link.png",
                 game: "Ultimate",
-                related: CodableRelated(ultimate: nil, smash4: nil))))
+                related: CodableCharacter.CodableRelated(ultimate: nil, smash4: nil))))
             .previewLayout(.sizeThatFits)
     }
 }

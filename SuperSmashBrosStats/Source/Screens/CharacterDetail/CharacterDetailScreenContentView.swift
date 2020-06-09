@@ -40,6 +40,7 @@ struct CharacterDetailScreenContentView: View {
             }
             Spacer()
         }
+        .onAppear(perform: self.onCharacterDetailScreenContentViewAppear)
         .navigationBarTitle(Text(self.character.character.displayName), displayMode: .inline)
     }
 
@@ -56,24 +57,16 @@ struct CharacterDetailScreenContentView: View {
     private func favoriteAction() {
         self.favorited.toggle()
     }
+
+    private func onCharacterDetailScreenContentViewAppear() {
+        self.viewModel.populateCharacterMoves(of: self.character.character.ownerId)
+    }
 }
 
 struct CharacterDetailScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CharacterDetailScreenContentView(character: Character(
-                id: "93e73d42db7d46ee909cb5c427b11f61",
-                character: CodableCharacter(
-                    colorTheme: "A5D160",
-                    displayName: "Young Link",
-                    name: "YoungLink",
-                    id: "93e73d42db7d46ee909cb5c427b11f61",
-                    ownerId: 79,
-                    fullUrl: "https://kuroganehammer.com/Ultimate/Young%20Link",
-                    mainImageUrl: "https://kuroganehammer.comhttp://kuroganehammer.com/Ultimate/logo2/Young Link.png",
-                    thumbnailUrl: "https://kuroganehammer.com/images/ultimate/character/young_link.png",
-                    game: "Ultimate",
-                    related: CodableRelated(ultimate: nil, smash4: nil))))
+            CharacterDetailScreenContentView(character: Character(id: "bla", character: ultimateCharactersData[0]))
         }
     }
 }

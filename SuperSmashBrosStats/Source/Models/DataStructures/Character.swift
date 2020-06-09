@@ -36,6 +36,26 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
         case game = "Game"
         case related = "Related"
     }
+
+    struct CodableRelated: Codable, Hashable {
+        let ultimate: CodableRelatedLinks?
+        let smash4: CodableRelatedLinks?
+
+        private enum CodingKeys: String, CodingKey {
+            case ultimate = "Ultimate"
+            case smash4 = "Smash4"
+        }
+    }
+
+    struct CodableRelatedLinks: Codable, Hashable {
+        let itSelf: String
+        let moves: String
+
+        private enum CodingKeys: String, CodingKey {
+            case itSelf = "Self"
+            case moves = "Moves"
+        }
+    }
 }
 
 struct Character: Hashable, Identifiable {

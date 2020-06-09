@@ -13,27 +13,9 @@ struct CharacterRow: View {
 
     var body: some View {
         HStack {
-            ZStack {
-                Circle()
-                    .frame(width: 48, height: 48)
-                    .foregroundColor(colorTheme)
-                UrlImageView(
-                    imageUrl: characterWithImage.character.thumbnailUrl,
-                    cachedDataImage: characterWithImage.cachedThumbnailUrl)
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-            }
-            
+            CharacterThumbnailImage(character: self.characterWithImage)
             Text(characterWithImage.character.displayName)
                 .font(.headline)
         }
-    }
-
-    private var colorTheme: Color {
-        return Color(
-            red: characterWithImage.character.colorThemeRGB.red / 255,
-            green: characterWithImage.character.colorThemeRGB.green / 255,
-            blue: characterWithImage.character.colorThemeRGB.blue / 255)
     }
 }

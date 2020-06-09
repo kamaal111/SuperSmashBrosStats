@@ -12,21 +12,49 @@ struct CharacterDetailScreenContentView: View {
     @ObservedObject
     private var viewModel = CharacterDetailScreenViewModel()
 
+    @State private var favorited = false
+
     var character: Character
 
     var body: some View {
         VStack {
-            backgroundColor
-                .frame(height: 200)
-            Text(character.character.displayName)
+            ZStack {
+                backgroundColor
+                UrlImageView(
+                    imageUrl: self.character.character.mainImageUrl,
+                    cachedDataImage: nil,
+                    placeHolderColor: backgroundColor)
+            }
+            .frame(height: 200)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text(self.character.character.displayName)
+                        .font(.title)
+                        .padding(.leading, 24)
+                    Button(action: self.favoriteAction) {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(self.favoritedStarColor)
+                    }
+                    Spacer()
+                }
+            }
             Spacer()
         }
-        .navigationBarTitle(Text(character.character.displayName), displayMode: .inline)
+        .navigationBarTitle(Text(self.character.character.displayName), displayMode: .inline)
     }
 
     private var backgroundColor: Color {
-        let colorThemeRGB = character.character.colorThemeRGB
+        let colorThemeRGB = self.character.character.colorThemeRGB
         return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
+    }
+
+    private var favoritedStarColor: Color {
+        if self.favorited { return .yellow }
+        return .gray
+    }
+
+    private func favoriteAction() {
+        self.favorited.toggle()
     }
 }
 

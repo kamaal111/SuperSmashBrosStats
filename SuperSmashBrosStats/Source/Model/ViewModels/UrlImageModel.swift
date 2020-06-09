@@ -18,10 +18,14 @@ class UrlImageModel: ObservableObject {
     private var imageCache = ImageCache.getImageCache()
     private let coreDataManager = CoreDataManager.shared
 
-    init(urlString: String?, cachedThumbnailImage: Data?) {
+    private var kowalskiAnalysis: Bool
+
+    init(urlString: String?, cachedDataImage: Data?, kowalskiAnalysis: Bool = false) {
+        self.kowalskiAnalysis = kowalskiAnalysis
         self.urlString = urlString
-        self.cachedDataImage = cachedThumbnailImage
+        self.cachedDataImage = cachedDataImage
         let loaded = loadImageFromCache()
+        self.analyse("\(self.urlString ?? "") loaded from NSCache")
         if loaded { return }
         self.loadImage()
     }
@@ -67,6 +71,12 @@ class UrlImageModel: ObservableObject {
             }
         } catch {
             print(error)
+        }
+    }
+
+    private func analyse(_ message: String) {
+        if self.kowalskiAnalysis {
+            print(message)
         }
     }
 }

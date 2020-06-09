@@ -7,22 +7,31 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct UrlImageView: View {
     @ObservedObject
-    var urlImageModal: UrlImageModel
+    private var urlImageModal: UrlImageModel
 
-    var cachedDataImage: Data?
+    private var cachedDataImage: Data?
+    private var placeHolderColor: Color
 
-    init(imageUrl: String?, cachedDataImage: Data?) {
-        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedThumbnailImage: cachedDataImage)
+    init(imageUrl: String?, cachedDataImage: Data?, placeHolderColor: Color) {
+        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedDataImage: cachedDataImage)
+        self.placeHolderColor = placeHolderColor
     }
 
-    var body: Image {
-        Image(uiImage: urlImageModal.image ?? Self.defaultImage!)
+    var body: some View {
+        self.image
             .resizable()
+            .foregroundColor(self.placeHolderColor)
     }
 
-    static var defaultImage = UIImage(systemName: "photo")
+    var image: Image {
+        if let urlImage = self.urlImageModal.image {
+            return Image(uiImage: urlImage)
+        }
+        return Self.defaultImage
+    }
+
+    static private var defaultImage = Image(systemName: "photo")
 }

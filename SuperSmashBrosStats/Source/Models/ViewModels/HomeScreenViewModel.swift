@@ -37,7 +37,7 @@ class HomeScreenViewModel: ObservableObject {
             let thumbnailCache = self.extractThumbnailImageFromCache(
                 character: character,
                 cachedImages: cachedImages)
-            return Character(id: character.id, character: character, cachedThumbnailUrl: thumbnailCache)
+            return Character(id: character.id, details: character, cachedThumbnailUrl: thumbnailCache)
         }
         return modifiedCharacters
     }

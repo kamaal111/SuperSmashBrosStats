@@ -15,10 +15,10 @@ struct CharacterThumbnailImage: View {
         ZStack {
             Circle()
                 .frame(width: 48, height: 48)
-                .foregroundColor(colorTheme)
+                .foregroundColor(self.colorTheme)
             UrlImageView(
-                imageUrl: character.character.thumbnailUrl,
-                cachedDataImage: character.cachedThumbnailUrl,
+                imageUrl: self.character.details.thumbnailUrl,
+                cachedDataImage: self.character.cachedThumbnailUrl,
                 placeHolderColor: .gray)
                 .scaledToFit()
                 .frame(width: 48, height: 48)
@@ -27,10 +27,8 @@ struct CharacterThumbnailImage: View {
     }
 
     private var colorTheme: Color {
-        return Color(
-            red: character.character.colorThemeRGB.red / 255,
-            green: character.character.colorThemeRGB.green / 255,
-            blue: character.character.colorThemeRGB.blue / 255)
+        let rgb = self.character.details.colorThemeRGB
+        return Color(red: rgb.red / 255, green: rgb.green / 255, blue: rgb.blue / 255)
     }
 }
 
@@ -38,7 +36,7 @@ struct CharacterThumbnailImage_Previews: PreviewProvider {
     static var previews: some View {
         CharacterThumbnailImage(character: Character(
             id: "93e73d42db7d46ee909cb5c427b11f61",
-            character: CodableCharacter(
+            details: CodableCharacter(
             colorTheme: "A5D160",
                 displayName: "Young Link",
                 name: "YoungLink",

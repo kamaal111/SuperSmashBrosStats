@@ -60,12 +60,12 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
 
 struct Character: Hashable, Identifiable {
     let id: String
-    let character: CodableCharacter
+    let details: CodableCharacter
     var cachedThumbnailUrl: Data?
 
-    init(id: String, character: CodableCharacter, cachedThumbnailUrl: Data? = nil) {
+    init(id: String, details: CodableCharacter, cachedThumbnailUrl: Data? = nil) {
         self.id = id
-        self.character = character
+        self.details = details
         self.cachedThumbnailUrl = cachedThumbnailUrl
     }
 }

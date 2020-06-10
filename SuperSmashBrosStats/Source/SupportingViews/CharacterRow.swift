@@ -14,7 +14,7 @@ struct CharacterRow: View {
     var body: some View {
         HStack {
             CharacterThumbnailImage(character: self.characterWithImage)
-            Text(characterWithImage.character.displayName)
+            Text(self.characterWithImage.details.displayName)
                 .font(.headline)
         }
     }

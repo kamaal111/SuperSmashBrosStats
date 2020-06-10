@@ -21,15 +21,22 @@ class CharacterDetailScreenViewModel: ObservableObject {
 
     func populateCharacterMoves(of characterId: Int) {
         print("characterId", characterId)
-        Networker.getCharacterMoves(characterId: characterId) { result in
+        Networker.getCharacterMoves(characterId: characterId) { [weak self] result in
             switch result {
             case .failure(let failure):
-                print("failure", failure)
+                self?.analys("failure \(failure)")
             case .success(let characterMoves):
+                self?.analys("characterMoves: \(characterMoves)")
                 DispatchQueue.main.async {
-                    self.characterMoves = characterMoves
+                    self?.characterMoves = characterMoves
                 }
             }
+        }
+    }
+
+    private func analys(_ message: String) {
+        if kowalskiAnalysis {
+            print(message)
         }
     }
 

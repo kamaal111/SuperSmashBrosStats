@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CharacterDetailScreenContentView: View {
     @ObservedObject
-    private var viewModel = CharacterDetailScreenViewModel()
+    private var viewModel = CharacterDetailScreenViewModel(kowalskiAnalysis: false)
 
     @State private var favorited = false
 
@@ -21,32 +21,39 @@ struct CharacterDetailScreenContentView: View {
             ZStack {
                 backgroundColor
                 UrlImageView(
-                    imageUrl: self.character.character.mainImageUrl,
+                    imageUrl: self.character.details.mainImageUrl,
                     cachedDataImage: nil,
                     placeHolderColor: backgroundColor)
             }
             .frame(height: 200)
             VStack(alignment: .leading) {
                 HStack {
-                    Text(self.character.character.displayName)
+                    Text(self.character.details.displayName)
                         .font(.title)
                         .padding(.leading, 24)
-                    Button(action: self.favoriteAction) {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(self.favoritedStarColor)
-                    }
+                    FavoriteButton(action: self.favoriteAction, color: self.favoritedStarColor)
                     Spacer()
+                }
+            }
+            Form {
+                ForEach(self.categories.keys.sorted(), id: \.self) { key in
+                    MovesSection(characterMoves: self.categories[key] ?? [])
                 }
             }
             Spacer()
         }
         .onAppear(perform: self.onCharacterDetailScreenContentViewAppear)
-        .navigationBarTitle(Text(self.character.character.displayName), displayMode: .inline)
+        .navigationBarTitle(Text(self.character.details.displayName), displayMode: .inline)
     }
 
     private var backgroundColor: Color {
-        let colorThemeRGB = self.character.character.colorThemeRGB
+        let colorThemeRGB = self.character.details.colorThemeRGB
         return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
+    }
+    
+    private var categories: [String: [CodableCharacterMoves]] {
+        let characterMoves = self.viewModel.characterMoves
+        return Dictionary(grouping: characterMoves, by: { $0.moveType.rawValue })
     }
 
     private var favoritedStarColor: Color {
@@ -59,14 +66,14 @@ struct CharacterDetailScreenContentView: View {
     }
 
     private func onCharacterDetailScreenContentViewAppear() {
-        self.viewModel.populateCharacterMoves(of: self.character.character.ownerId)
+        self.viewModel.populateCharacterMoves(of: self.character.details.ownerId)
     }
 }
 
 struct CharacterDetailScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CharacterDetailScreenContentView(character: Character(id: "bla", character: ultimateCharactersData[0]))
+            CharacterDetailScreenContentView(character: Character(id: "bla", details: ultimateCharactersData[0]))
         }
     }
 }

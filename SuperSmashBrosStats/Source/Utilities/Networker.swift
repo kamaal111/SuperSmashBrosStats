@@ -15,7 +15,8 @@ enum Game: String {
 
 struct Networker {
 
-    static private let baseUrl = "https://api.kuroganehammer.com/api"
+//    static private let baseUrl = "https://api.kuroganehammer.com/api"
+    static private let baseUrl = "http://127.0.0.1:4000/v1/api"
 
     static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {

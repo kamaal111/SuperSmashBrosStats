@@ -10,11 +10,16 @@ import SwiftUI
 
 struct CharacterDetailScreenContentView: View {
     @ObservedObject
-    private var viewModel = CharacterDetailScreenViewModel(kowalskiAnalysis: false)
+    private var viewModel: CharacterDetailScreenViewModel
 
     @State private var favorited = false
 
     var character: Character
+
+    init(character: Character) {
+        self.character = character
+        self.viewModel = CharacterDetailScreenViewModel(character: character, kowalskiAnalysis: true)
+    }
 
     var body: some View {
         VStack {
@@ -36,8 +41,8 @@ struct CharacterDetailScreenContentView: View {
                 }
             }
             Form {
-                ForEach(self.categories.keys.sorted(), id: \.self) { key in
-                    MovesSection(characterMoves: self.categories[key] ?? [])
+                ForEach(self.viewModel.categorizedCharacterMoves.keys.sorted(), id: \.self) { key in
+                    MovesSection(characterMoves: self.viewModel.categorizedCharacterMoves[key] ?? [])
                 }
             }
             Spacer()
@@ -50,11 +55,6 @@ struct CharacterDetailScreenContentView: View {
         let colorThemeRGB = self.character.details.colorThemeRGB
         return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
     }
-    
-    private var categories: [String: [CodableCharacterMoves]] {
-        let characterMoves = self.viewModel.characterMoves
-        return Dictionary(grouping: characterMoves, by: { $0.moveType.rawValue })
-    }
 
     private var favoritedStarColor: Color {
         if self.favorited { return .yellow }
@@ -66,7 +66,7 @@ struct CharacterDetailScreenContentView: View {
     }
 
     private func onCharacterDetailScreenContentViewAppear() {
-        self.viewModel.populateCharacterMoves(of: self.character.details.ownerId)
+        self.viewModel.populateCharacterMoves()
     }
 }
 

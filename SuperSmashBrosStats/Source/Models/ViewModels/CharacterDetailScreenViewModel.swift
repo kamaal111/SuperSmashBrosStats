@@ -13,20 +13,28 @@ class CharacterDetailScreenViewModel: ObservableObject {
 
     @Published  var characterMoves = [CodableCharacterMoves]()
 
+    var character: Character
+
     private var kowalskiAnalysis: Bool
 
-    init(kowalskiAnalysis: Bool = false) {
+    init(character: Character, kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+        self.character = character
     }
 
-    func populateCharacterMoves(of characterId: Int) {
-        print("characterId", characterId)
-        Networker.getCharacterMoves(characterId: characterId) { [weak self] result in
+    var categorizedCharacterMoves: [String: [CodableCharacterMoves]] {
+        let characterMoves = self.characterMoves
+        return Dictionary(grouping: characterMoves, by: { $0.moveType.rawValue })
+    }
+
+    func populateCharacterMoves() {
+        self.analys("Owner id: \(self.character.details.ownerId)")
+        Networker.getCharacterMoves(characterId: self.character.details.ownerId) { [weak self] result in
             switch result {
             case .failure(let failure):
                 self?.analys("failure \(failure)")
             case .success(let characterMoves):
-                self?.analys("characterMoves: \(characterMoves)")
+                self?.analys("characterMoves: \(characterMoves[0])")
                 DispatchQueue.main.async {
                     self?.characterMoves = characterMoves
                 }

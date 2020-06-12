@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6007B57024913E66009FD263 /* CharacterAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6007B56F24913E65009FD263 /* CharacterAttributes.swift */; };
 		60249027248BC151009D8E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249026248BC151009D8E75 /* AppDelegate.swift */; };
 		60249029248BC151009D8E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249028248BC151009D8E75 /* SceneDelegate.swift */; };
 		6024902D248BC152009D8E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6024902C248BC152009D8E75 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6007B56F24913E65009FD263 /* CharacterAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributes.swift; sourceTree = "<group>"; };
 		60249023248BC151009D8E75 /* SuperSmashBrosStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSmashBrosStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60249026248BC151009D8E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60249028248BC151009D8E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				60249041248BE116009D8E75 /* Character.swift */,
 				608FD8FC248C37F400307B6C /* CodableCharacterMoves.swift */,
+				6007B56F24913E65009FD263 /* CharacterAttributes.swift */,
 				608FD8F0248BFDA700307B6C /* RedGreenBlue.swift */,
 			);
 			path = DataStructures;
@@ -372,6 +375,7 @@
 				608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */,
 				60453BBC248D6FB400224303 /* CharacterDetailScreenViewModel.swift in Sources */,
 				6075E27C248E9BF90038744B /* CharacterThumbnailImage.swift in Sources */,
+				6007B57024913E66009FD263 /* CharacterAttributes.swift in Sources */,
 				60C7CB4F248D5042007F43E8 /* UrlImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,15 @@ struct Networker {
 
     static func getCharacterMoves(characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
-            Self.get([CodableCharacterMoves].self, from: "/characters/ultimate/moves/\(characterId)") { result in
+            Self.get([CodableCharacterMoves].self, from: "/characters/\(Game.ultimate.rawValue)/moves/\(characterId)") { result in
+                completion(result)
+            }
+        }
+    }
+
+    static func getCharacterAttributes(characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> ()) {
+        DispatchQueue.apiCallThread.async {
+            Self.get([CodableCharacterAttributes].self, from: "/characters/\(Game.ultimate.rawValue)/characterattributes/\(characterId)") { result in
                 completion(result)
             }
         }

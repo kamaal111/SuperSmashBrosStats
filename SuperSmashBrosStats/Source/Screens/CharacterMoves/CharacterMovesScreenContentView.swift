@@ -1,26 +1,23 @@
 //
-//  CharacterDetailScreenContentView.swift
+//  CharacterMovesScreenContentView.swift
 //  SuperSmashBrosStats
 //
-//  Created by Kamaal Farah on 07/06/2020.
+//  Created by Kamaal Farah on 12/06/2020.
 //  Copyright © 2020 Kamaal. All rights reserved.
 //
 
 import SwiftUI
 
-struct CharacterDetailScreenContentView: View {
+struct CharacterMovesScreenContentView: View {
     @ObservedObject
-    private var viewModel: CharacterDetailScreenViewModel
-
-    @State private var favorited = false
+    private var viewModel: CharacterMovesScreenViewModel
 
     var character: Character
 
     init(character: Character) {
         self.character = character
-        self.viewModel = CharacterDetailScreenViewModel(character: character, kowalskiAnalysis: true)
+        self.viewModel = CharacterMovesScreenViewModel(character: character)
     }
-
     var body: some View {
         VStack {
             ZStack {
@@ -36,19 +33,16 @@ struct CharacterDetailScreenContentView: View {
                     Text(self.character.details.displayName)
                         .font(.title)
                         .padding(.leading, 24)
-                    FavoriteButton(action: self.favoriteAction, color: self.favoritedStarColor)
-                    Spacer()
                 }
             }
             List {
-                NavigationLink(destination: CharacterMovesScreenContentView(character: character)) {
-                    Text("Character Moves")
-                        .font(.headline)
+                ForEach(self.viewModel.categorizedCharacterMoves.keys.sorted(), id: \.self) { key in
+                    MovesSection(characterMoves: self.viewModel.categorizedCharacterMoves[key] ?? [])
                 }
             }
             Spacer()
         }
-        .onAppear(perform: self.onCharacterDetailScreenContentViewAppear)
+        .onAppear(perform: self.onCharacterMovesScreenContentViewAppear)
         .navigationBarTitle(Text(self.character.details.displayName), displayMode: .inline)
     }
 
@@ -57,24 +51,13 @@ struct CharacterDetailScreenContentView: View {
         return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
     }
 
-    private var favoritedStarColor: Color {
-        if self.favorited { return .yellow }
-        return .gray
-    }
-
-    private func favoriteAction() {
-        self.favorited.toggle()
-    }
-
-    private func onCharacterDetailScreenContentViewAppear() {
-        self.viewModel.populateCharacterAttributes()
+    private func onCharacterMovesScreenContentViewAppear() {
+        self.viewModel.populateCharacterMoves()
     }
 }
 
-struct CharacterDetailScreenContentView_Previews: PreviewProvider {
+struct CharacterMovesScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            CharacterDetailScreenContentView(character: Character(id: "bla", details: ultimateCharactersData[0]))
-        }
+        CharacterMovesScreenContentView(character: Character(id: "bla", details: ultimateCharactersData[0]))
     }
 }

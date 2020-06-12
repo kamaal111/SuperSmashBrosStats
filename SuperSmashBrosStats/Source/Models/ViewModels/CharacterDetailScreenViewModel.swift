@@ -11,7 +11,6 @@ import SwiftUI
 
 class CharacterDetailScreenViewModel: ObservableObject {
 
-    @Published var characterMoves = [CodableCharacterMoves]()
     @Published var characterAttributes = [CodableCharacterAttributes]()
 
     var character: Character
@@ -23,29 +22,10 @@ class CharacterDetailScreenViewModel: ObservableObject {
         self.character = character
     }
 
-    var categorizedCharacterMoves: [String: [CodableCharacterMoves]] {
-        let characterMoves = self.characterMoves
-        return Dictionary(grouping: characterMoves, by: { $0.moveType.rawValue })
-    }
-
-    func populateCharacterMoves() {
+    func populateCharacterAttributes() {
         self.analys("Owner id: \(self.character.details.ownerId)")
-        Networker.getCharacterMoves(characterId: self.character.details.ownerId) { [weak self] result in
-            self?.handleCharacterMovesResult(result: result)
-        }
         Networker.getCharacterAttributes(characterId: self.character.details.ownerId) { [weak self] result in
             self?.handleCharacterAttributesResult(result: result)
-        }
-    }
-
-    private func handleCharacterMovesResult(result: Result<[CodableCharacterMoves], Error>) {
-        switch result {
-        case .failure(let failure):
-            self.analys("*** Failure -> \(failure)")
-        case .success(let characterMoves):
-            DispatchQueue.main.async {
-                self.characterMoves = characterMoves
-            }
         }
     }
 

@@ -21,6 +21,9 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     init(character: Character, kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.character = character
+        if let characterAttributes = ResponderHolder.shared.getCharacterAttributes(game: .ultimate, characterId: character.details.ownerId) {
+            self.characterAttributes = characterAttributes
+        }
     }
 
     var uniqueAttributes: [CodableCharacterAttributes] {

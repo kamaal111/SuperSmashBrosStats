@@ -20,17 +20,23 @@ struct HomeScreenContentView: View {
     var body: some View {
         ZStack {
             List {
-                ForEach(viewModel.characters) { (character: Character) in
-                    NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
-                        CharacterRow(
-                            characterWithImage: character,
-                            isFavorited: self.userData.checkIfCharacterIsFavorite(
-                                characterId: character.details.ownerId,
-                                game: character.details.game))
+                Toggle(isOn: self.$viewModel.showFavoritesOnly) {
+                    Text("Favorites Only")
+                        .font(.body)
+                }
+                Section(header: Text("Characters").font(.headline)) {
+                    ForEach(self.viewModel.filteredCharacters(favoritedCharacters: self.userData.favoritedCharacters)) { (character: Character) in
+                        NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
+                            CharacterRow(
+                                characterWithImage: character,
+                                isFavorited: self.userData.checkIfCharacterIsFavorite(
+                                    characterId: character.details.ownerId,
+                                    game: character.details.game))
+                        }
                     }
                 }
             }
-            if viewModel.characters.isEmpty {
+            if self.viewModel.characters.isEmpty {
                 Text("Loading...")
             }
         }

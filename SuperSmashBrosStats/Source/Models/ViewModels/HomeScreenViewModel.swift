@@ -10,12 +10,26 @@ import Combine
 import SwiftUI
 
 final class HomeScreenViewModel: ObservableObject {
+
     @Published var characters = [Character]()
+    @Published var showFavoritesOnly = false
 
     private var kowalskiAnalysis: Bool
 
     init(kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+    }
+
+    func filteredCharacters(favoritedCharacters: [FavoritedCharacter]) -> [Character] {
+        if !self.showFavoritesOnly { return self.characters }
+        return self.characters.filter { (character: Character) in
+            let characterDetails = character.details
+            let characterId = characterDetails.ownerId
+            let game = characterDetails.game
+            return favoritedCharacters.contains(where: {
+                Int($0.characterId) == characterId && $0.game == game
+            })
+        }
     }
 
     func populateCharacters(cachedImages: [CachedImage]) {
@@ -56,4 +70,5 @@ final class HomeScreenViewModel: ObservableObject {
             print(message)
         }
     }
+
 }

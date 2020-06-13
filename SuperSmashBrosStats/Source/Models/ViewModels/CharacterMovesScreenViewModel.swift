@@ -9,7 +9,7 @@
 import Combine
 import SwiftUI
 
-class CharacterMovesScreenViewModel: ObservableObject {
+final class CharacterMovesScreenViewModel: ObservableObject {
 
     @Published var characterMoves = [CodableCharacterMoves]()
 

@@ -9,7 +9,7 @@
 import Combine
 import SwiftUI
 
-class HomeScreenViewModel: ObservableObject {
+final class HomeScreenViewModel: ObservableObject {
     @Published var characters = [Character]()
 
     private var kowalskiAnalysis: Bool

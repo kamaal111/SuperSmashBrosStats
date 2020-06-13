@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class UrlImageModel: ObservableObject {
+final class UrlImageModel: ObservableObject {
     @Published var image: UIImage?
 
     private var urlString: String?
@@ -61,7 +61,6 @@ class UrlImageModel: ObservableObject {
         cachedImage.data = imageData
         cachedImage.key = urlString
         cachedImage.id = UUID()
-        cachedImage.updatedDate = Date()
         do {
             try self.coreDataManager.save()
             guard let image = UIImage(data: imageData) else { return }

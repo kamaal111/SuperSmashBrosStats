@@ -12,17 +12,11 @@ struct CharacterDetailScreenContentView: View {
     @Environment(\.managedObjectContext)
     private var managedObjectContext
 
+    @EnvironmentObject
+    private var userData: UserDataModel
+
     @ObservedObject
     private var viewModel: CharacterDetailScreenViewModel
-
-    @State private var settingFavorite = false
-    @State private var favorited = false {
-        didSet {
-            if self.settingFavorite {
-                self.settingFavorite = false
-            }
-        }
-    }
 
     var character: Character
 
@@ -49,7 +43,7 @@ struct CharacterDetailScreenContentView: View {
                         .font(.title)
                         .padding(.leading, 24)
                     FavoriteButton(action: self.favoriteAction, color: self.favoritedStarColor)
-                        .disabled(self.settingFavorite)
+                        .disabled(self.viewModel.settingFavorite)
                     Spacer()
                 }
                 .padding(.vertical, 8)
@@ -78,40 +72,23 @@ struct CharacterDetailScreenContentView: View {
     }
 
     private var favoritedStarColor: Color {
-        guard let favoritedCharacters = try? coreDataManager.fetch(FavoritedCharacter.self) else { return .red }
         let characterDetails = self.character.details
-        let favoritedCharactersContainCharacter = favoritedCharacters
-            .contains(where: { $0.characterId == Int64(characterDetails.ownerId) && $0.game == characterDetails.game })
-        if favoritedCharactersContainCharacter {
+        let isFavorite = self.userData.checkIfCharacterIsFavorite(characterId: characterDetails.ownerId, game: characterDetails.game)
+        if isFavorite {
             return .yellow
         }
         return .gray
     }
 
     private func favoriteAction() {
-        self.settingFavorite = true
-        guard let favoritedCharacters = try? coreDataManager.fetch(FavoritedCharacter.self) else { return }
-        var favoriteCharacterToDelete: FavoritedCharacter?
+        self.viewModel.settingFavorite = true
         let characterDetails = self.character.details
-        let characterId = characterDetails.ownerId, game = characterDetails.game
-        for favoritedCharacter in favoritedCharacters
-            where favoritedCharacter.characterId == Int64(characterId) && favoritedCharacter.game == game {
-                favoriteCharacterToDelete = favoritedCharacter
-                break
-        }
-        if favoriteCharacterToDelete != nil {
-            try? self.coreDataManager.delete(favoriteCharacterToDelete!)
-            self.favorited = false
-        } else {
-            FavoritedCharacter.insert(
-                characterId: characterId,
-                game: game,
-                managedObjectContext: managedObjectContext)
-            self.favorited = true
-        }
+        self.userData.editFavorites(characterId: characterDetails.ownerId, game: characterDetails.game)
+        self.viewModel.settingFavorite = false
     }
 
     private func onCharacterDetailScreenContentViewAppear() {
+        print(self.userData.favoritedCharacters)
         self.viewModel.populateCharacterAttributes()
     }
 }

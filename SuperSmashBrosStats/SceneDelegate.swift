@@ -24,8 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func homeScreenViewController() -> UIViewController {
         let viewModel = HomeScreenViewModel()
+        let userDataModel = UserDataModel()
         let contentView = HomeScreenContentView(viewModel: viewModel)
             .environment(\.managedObjectContext, CoreDataManager.shared.context!)
+            .environmentObject(userDataModel)
         let hostinController = UIHostingController(rootView: contentView)
         let navigationController = UINavigationController(rootViewController: hostinController)
         navigationController.navigationBar.prefersLargeTitles = true

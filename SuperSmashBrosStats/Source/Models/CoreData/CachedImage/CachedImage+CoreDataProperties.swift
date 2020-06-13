@@ -19,6 +19,5 @@ extension CachedImage {
     @NSManaged public var data: Data
     @NSManaged public var key: String
     @NSManaged public var createdDate: Date
-    @NSManaged public var updatedDate: Date
     @NSManaged public var id: UUID
 }

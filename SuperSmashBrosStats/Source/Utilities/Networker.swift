@@ -16,7 +16,7 @@ enum Game: String {
 struct Networker {
 
 //    static private let baseUrl = "https://api.kuroganehammer.com/api"
-    static private let baseUrl = "http://172.20.10.3:4000/v1/api"
+    static private let baseUrl = "http://127.0.0.1:4000/v1/api"
 
     static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
@@ -80,7 +80,8 @@ struct Networker {
                     completion(.failure(NSError(domain: "data error", code: 400, userInfo: nil)))
                     return
                 }
-                let jsonResponse = try JSONDecoder().decode(type, from: dataResponse)
+                let decoder = JSONDecoder()
+                let jsonResponse = try decoder.decode(type, from: dataResponse)
                 guard (response as? HTTPURLResponse) != nil else {
                     completion(.failure(NSError(domain: "response error", code: 400, userInfo: nil)))
                     return

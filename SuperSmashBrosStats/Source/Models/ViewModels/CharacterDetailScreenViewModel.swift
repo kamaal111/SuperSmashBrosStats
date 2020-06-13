@@ -9,9 +9,10 @@
 import Combine
 import SwiftUI
 
-class CharacterDetailScreenViewModel: ObservableObject {
+final class CharacterDetailScreenViewModel: ObservableObject {
 
     @Published var characterAttributes = [CodableCharacterAttributes]()
+    @Published var settingFavorite = false
 
     var character: Character
 

@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct HomeScreenContentView: View {
+    @EnvironmentObject
+    private var userData: UserDataModel
+
     @ObservedObject
     var viewModel: HomeScreenViewModel
 
@@ -17,9 +20,13 @@ struct HomeScreenContentView: View {
     var body: some View {
         ZStack {
             List {
-                ForEach(viewModel.characters) { character in
+                ForEach(viewModel.characters) { (character: Character) in
                     NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
-                        CharacterRow(characterWithImage: character)
+                        CharacterRow(
+                            characterWithImage: character,
+                            isFavorited: self.userData.checkIfCharacterIsFavorite(
+                                characterId: character.details.ownerId,
+                                game: character.details.game))
                     }
                 }
             }

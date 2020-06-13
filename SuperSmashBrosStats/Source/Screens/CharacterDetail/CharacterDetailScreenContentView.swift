@@ -9,9 +9,6 @@
 import SwiftUI
 
 struct CharacterDetailScreenContentView: View {
-    @Environment(\.managedObjectContext)
-    private var managedObjectContext
-
     @EnvironmentObject
     private var userData: UserDataModel
 
@@ -19,8 +16,6 @@ struct CharacterDetailScreenContentView: View {
     private var viewModel: CharacterDetailScreenViewModel
 
     var character: Character
-
-    private let coreDataManager = CoreDataManager.shared
 
     init(character: Character) {
         self.character = character
@@ -73,11 +68,8 @@ struct CharacterDetailScreenContentView: View {
 
     private var favoritedStarColor: Color {
         let characterDetails = self.character.details
-        let isFavorite = self.userData.checkIfCharacterIsFavorite(characterId: characterDetails.ownerId, game: characterDetails.game)
-        if isFavorite {
-            return .yellow
-        }
-        return .gray
+        let isFavoriteColor = self.userData.favoritedStarColor(characterId: characterDetails.ownerId, game: characterDetails.game)
+        return isFavoriteColor
     }
 
     private func favoriteAction() {
@@ -88,7 +80,6 @@ struct CharacterDetailScreenContentView: View {
     }
 
     private func onCharacterDetailScreenContentViewAppear() {
-        print(self.userData.favoritedCharacters)
         self.viewModel.populateCharacterAttributes()
     }
 }

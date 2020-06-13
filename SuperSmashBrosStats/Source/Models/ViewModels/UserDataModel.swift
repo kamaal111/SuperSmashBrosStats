@@ -7,6 +7,7 @@
 //
 
 import Combine
+import SwiftUI
 
 final class UserDataModel: ObservableObject {
     @Published var favoritedCharacters = [FavoritedCharacter]()
@@ -17,6 +18,14 @@ final class UserDataModel: ObservableObject {
         if let favoritedCharacters = try? self.coreDataManager.fetch(FavoritedCharacter.self) {
             self.favoritedCharacters = favoritedCharacters
         }
+    }
+
+    func favoritedStarColor(characterId: Int, game: String) -> Color {
+        let isFavorite = self.checkIfCharacterIsFavorite(characterId: characterId, game: game)
+        if isFavorite {
+            return .yellow
+        }
+        return .gray
     }
 
     func checkIfCharacterIsFavorite(characterId: Int, game: String) -> Bool {

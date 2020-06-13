@@ -25,7 +25,7 @@ class CharacterDetailScreenViewModel: ObservableObject {
     var uniqueAttributes: [CodableCharacterAttributes] {
         var uniqueValues = [CodableCharacterAttributes]()
         var uniqueAttributeNames = [String]()
-        for stats in self.characterAttributes where !uniqueAttributeNames.contains(stats.name) {
+        for stats in self.characterAttributes.reversed() where !uniqueAttributeNames.contains(stats.name) {
             uniqueValues.append(stats)
             uniqueAttributeNames.append(stats.name)
         }

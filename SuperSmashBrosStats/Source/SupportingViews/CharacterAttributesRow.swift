@@ -12,15 +12,31 @@ struct CharacterAttributesRow: View {
     var stats: CodableCharacterAttributes
 
     var body: some View {
-        NavigationLink(destination: Text(stats.name)) {
-            HStack {
-                Text(stats.name)
+        NavigationLink(destination: Text(self.stats.name)) {
+            VStack(alignment: .leading) {
+                Text(self.stats.name)
                     .font(.body)
                     .foregroundColor(.accentColor)
-                Text(stats.values.last?.value ?? "")
-                    .font(.body)
+                ForEach(self.firstThreeValues, id: \.self) { (value: CodableCharacterAttributes.Values) in
+                    HStack {
+                        Text("\(value.name.capitalized):")
+                            .font(.body)
+                        Text(value.value)
+                            .font(.body)
+                    }
+                }
             }
         }
+    }
+
+    var firstThreeValues: ArraySlice<CodableCharacterAttributes.Values> {
+        let values = self.stats.values
+        let length = values.count
+        let limit = 3
+        if length < limit {
+            return values[0..<length]
+        }
+        return values[0..<limit]
     }
 }
 

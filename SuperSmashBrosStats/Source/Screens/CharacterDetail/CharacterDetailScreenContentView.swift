@@ -22,16 +22,16 @@ struct CharacterDetailScreenContentView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ZStack {
-                backgroundColor
+                self.backgroundColor
                 UrlImageView(
                     imageUrl: self.character.details.mainImageUrl,
                     cachedDataImage: nil,
-                    placeHolderColor: backgroundColor)
+                    placeHolderColor: self.backgroundColor)
             }
-            .frame(height: 200)
-            VStack(alignment: .leading) {
+            .frame(maxHeight: 200)
+            VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text(self.character.details.displayName)
                         .font(.title)
@@ -39,11 +39,18 @@ struct CharacterDetailScreenContentView: View {
                     FavoriteButton(action: self.favoriteAction, color: self.favoritedStarColor)
                     Spacer()
                 }
+                .padding(.vertical, 8)
             }
             List {
-                NavigationLink(destination: CharacterMovesScreenContentView(character: character)) {
+                NavigationLink(destination: CharacterMovesScreenContentView(character: self.character)) {
                     Text("Character Moves")
-                        .font(.headline)
+                        .font(.body)
+                        .foregroundColor(.accentColor)
+                }
+                Section(header: Text("Statistics").font(.headline)) {
+                    ForEach(self.viewModel.uniqueAttributes) { (stats: CodableCharacterAttributes) in
+                        CharacterAttributesRow(stats: stats)
+                    }
                 }
             }
             Spacer()

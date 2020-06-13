@@ -16,7 +16,7 @@ struct CharacterMovesScreenContentView: View {
 
     init(character: Character) {
         self.character = character
-        self.viewModel = CharacterMovesScreenViewModel(character: character)
+        self.viewModel = CharacterMovesScreenViewModel(character: character, kowalskiAnalysis: true)
     }
     var body: some View {
         VStack {

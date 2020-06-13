@@ -22,6 +22,16 @@ class CharacterDetailScreenViewModel: ObservableObject {
         self.character = character
     }
 
+    var uniqueAttributes: [CodableCharacterAttributes] {
+        var uniqueValues = [CodableCharacterAttributes]()
+        var uniqueAttributeNames = [String]()
+        for stats in self.characterAttributes where !uniqueAttributeNames.contains(stats.name) {
+            uniqueValues.append(stats)
+            uniqueAttributeNames.append(stats.name)
+        }
+        return uniqueValues
+    }
+
     func populateCharacterAttributes() {
         self.analys("Owner id: \(self.character.details.ownerId)")
         Networker.getCharacterAttributes(characterId: self.character.details.ownerId) { [weak self] result in

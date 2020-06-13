@@ -20,11 +20,7 @@ struct Networker {
 
     static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
-            var combinendSmashCharacters = smash4CharactersData.filter { smash4Character in
-                !ultimateCharactersData.contains(where: { $0.displayName == smash4Character.displayName })
-            }
-            combinendSmashCharacters = ultimateCharactersData + combinendSmashCharacters
-            completion(.success(combinendSmashCharacters))
+            completion(.success(ultimateCharactersData))
         }
     }
 
@@ -55,7 +51,7 @@ struct Networker {
                     completion(.failure(error))
                     return
                 }
-                guard (response as? HTTPURLResponse) != nil else {
+                guard let response = response as? HTTPURLResponse else {
                     completion(.failure(NSError(domain: "response code error", code: 400, userInfo: nil)))
                     return
                 }

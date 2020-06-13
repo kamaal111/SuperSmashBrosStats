@@ -28,17 +28,20 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     }
 
     func populateCharacterMoves() {
-        self.analys("Owner id: \(self.character.details.ownerId)")
-        Networker.getCharacterMoves(characterId: self.character.details.ownerId) { [weak self] result in
-            self?.handleCharacterMovesResult(result: result)
+        let characterId = self.character.details.ownerId
+        self.analys("Owner id: \(characterId)")
+        let game: Game = .ultimate
+        Networker.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
+            self?.handleCharacterMovesResult(game: game, characterId: characterId, result: result)
         }
     }
 
-    private func handleCharacterMovesResult(result: Result<[CodableCharacterMoves], Error>) {
+    private func handleCharacterMovesResult(game: Game, characterId: Int, result: Result<[CodableCharacterMoves], Error>) {
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")
         case .success(let characterMoves):
+            ResponderHolder.shared.setCharacterMoves(game: game, characterId: characterId, characterMoves: characterMoves)
             DispatchQueue.main.async {
                 self.characterMoves = characterMoves
             }

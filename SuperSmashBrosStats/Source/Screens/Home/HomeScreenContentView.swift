@@ -49,7 +49,7 @@ struct HomeScreenContentView: View {
             let cachedImages = try self.coreDataManager.fetch(CachedImage.self)
             self.viewModel.populateCharacters(cachedImages: cachedImages!)
         } catch {
-            fatalError("Could not retrieve chached images from core data \(error)")
+            print("Could not retrieve chached images from core data", error)
         }
     }
 }

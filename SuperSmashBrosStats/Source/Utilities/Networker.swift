@@ -18,24 +18,37 @@ struct Networker {
 //    static private let baseUrl = "https://api.kuroganehammer.com/api"
     static private let baseUrl = "http://127.0.0.1:4000/v1/api"
 
-    static func getCharacters(completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
+    static func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
-            completion(.success(ultimateCharactersData))
-        }
-    }
-
-    static func getCharacterMoves(characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> ()) {
-        DispatchQueue.apiCallThread.async {
-            Self.get([CodableCharacterMoves].self, from: "/characters/\(Game.ultimate.rawValue)/moves/\(characterId)") { result in
-                completion(result)
+            switch game {
+            case .smash4:
+                completion(.success(smash4CharactersData))
+            case .ultimate:
+                completion(.success(ultimateCharactersData))
             }
         }
     }
 
-    static func getCharacterAttributes(characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> ()) {
+    static func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
-            Self.get([CodableCharacterAttributes].self, from: "/characters/\(Game.ultimate.rawValue)/characterattributes/\(characterId)") { result in
-                completion(result)
+            if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: game, characterId: characterId) {
+                completion(.success(characterMoves))
+            } else {
+                Self.get([CodableCharacterMoves].self, from: "/characters/\(game.rawValue)/moves/\(characterId)") { result in
+                    completion(result)
+                }
+            }
+        }
+    }
+
+    static func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> ()) {
+        DispatchQueue.apiCallThread.async {
+            if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(game: game, characterId: characterId) {
+                completion(.success(characterAttribute))
+            } else {
+                Self.get([CodableCharacterAttributes].self, from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
+                    completion(result)
+                }
             }
         }
     }

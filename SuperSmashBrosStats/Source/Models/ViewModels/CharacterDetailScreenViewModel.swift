@@ -34,18 +34,24 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     }
 
     func populateCharacterAttributes() {
-        self.analys("Owner id: \(self.character.details.ownerId)")
-        Networker.getCharacterAttributes(characterId: self.character.details.ownerId) { [weak self] result in
-            self?.handleCharacterAttributesResult(result: result)
+        let characterId = self.character.details.ownerId
+        self.analys("Owner id: \(characterId)")
+        let game: Game = .ultimate
+        Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
+            self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
         }
     }
 
-    private func handleCharacterAttributesResult(result: Result<[CodableCharacterAttributes], Error>) {
+    private func handleCharacterAttributesResult(game: Game, characterId: Int, result: Result<[CodableCharacterAttributes], Error>) {
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")
         case .success(let characterAttributes):
             DispatchQueue.main.async {
+                ResponderHolder.shared.setCharacterAttributes(
+                    game: game,
+                    characterId: characterId,
+                    characterAttributes: characterAttributes)
                 self.characterAttributes = characterAttributes
             }
         }

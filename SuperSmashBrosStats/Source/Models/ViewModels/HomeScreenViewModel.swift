@@ -33,7 +33,7 @@ final class HomeScreenViewModel: ObservableObject {
     }
 
     func populateCharacters(cachedImages: [CachedImage]) {
-        Networker.getCharacters { [weak self] result in
+        Networker.getCharacters(game: .ultimate) { [weak self] result in
             switch result {
             case .failure(_):
                 self?.analyse("Failed to get characters")

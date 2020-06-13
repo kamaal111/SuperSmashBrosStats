@@ -1,0 +1,448 @@
+[
+  {
+    "InstanceId": "f31da7259fc149b3a6dd2c426ba1c078",
+    "Name": "AirAcceleration",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "0.07",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX ADDITIONAL"
+      },
+      {
+        "Value": "0.01",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "BASE VALUE"
+      },
+      { "Value": "0.08", "Owner": "Bowser", "OwnerId": 2, "Name": "TOTAL" }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/f31da7259fc149b3a6dd2c426ba1c078?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/f31da7259fc149b3a6dd2c426ba1c078?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "32178c301783492e8e391ee49a540edb",
+    "Name": "AirAcceleration",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "0.04",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX ADDITIONAL"
+      },
+      {
+        "Value": "0.01",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "BASE VALUE"
+      },
+      { "Value": "0.05", "Owner": "Bowser", "OwnerId": 2, "Name": "TOTAL" }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/32178c301783492e8e391ee49a540edb?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/32178c301783492e8e391ee49a540edb?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "664dc216853646bb9f95279325c27647",
+    "Name": "AirSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "1.155",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX AIR SPEED VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/664dc216853646bb9f95279325c27647?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/664dc216853646bb9f95279325c27647?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "e34b0537b51f46c9880ea594150b4a54",
+    "Name": "AirSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "1.134",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX AIR SPEED VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/e34b0537b51f46c9880ea594150b4a54?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/e34b0537b51f46c9880ea594150b4a54?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "2f28dacf048444d6a4ffb2322b47daaa",
+    "Name": "FallSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "1.77",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX FALL SPEED"
+      },
+      {
+        "Value": "2.832",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "FAST FALL SPEED"
+      },
+      {
+        "Value": "60%",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "SPEED INCREASE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/2f28dacf048444d6a4ffb2322b47daaa?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/2f28dacf048444d6a4ffb2322b47daaa?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "d330405c482942baa79d9d9c28055fa7",
+    "Name": "FallSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "1.65",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX FALL SPEED"
+      },
+      {
+        "Value": "2.64",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "FAST FALL SPEED"
+      },
+      {
+        "Value": "60%",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "SPEED INCREASE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/d330405c482942baa79d9d9c28055fa7?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/d330405c482942baa79d9d9c28055fa7?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "e364e6252ea543f8b1e114b1e1c550ab",
+    "Name": "RunSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "2.255",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "INITIAL DASH VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/e364e6252ea543f8b1e114b1e1c550ab?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/e364e6252ea543f8b1e114b1e1c550ab?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "c6e2422bcded4df2821e83130f43e0e2",
+    "Name": "RunSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "1.76",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "INITIAL DASH VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/c6e2422bcded4df2821e83130f43e0e2?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/c6e2422bcded4df2821e83130f43e0e2?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "4ab77fe1ee84479a9e2b6a7ba51239b1",
+    "Name": "WalkSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "0.924",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX WALK SPEED VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/4ab77fe1ee84479a9e2b6a7ba51239b1?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/4ab77fe1ee84479a9e2b6a7ba51239b1?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "8934b320685149189bf5baca767080d1",
+    "Name": "WalkSpeed",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "0.901",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "MAX WALK SPEED VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/8934b320685149189bf5baca767080d1?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/8934b320685149189bf5baca767080d1?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "06eb5638ab4c4894b606ee76c5488eb8",
+    "Name": "Weight",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "135",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "WEIGHT VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/06eb5638ab4c4894b606ee76c5488eb8?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/06eb5638ab4c4894b606ee76c5488eb8?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  },
+  {
+    "InstanceId": "79975faf2c0c46fe99d8daa885caceaf",
+    "Name": "Weight",
+    "OwnerId": 2,
+    "Owner": "Bowser",
+    "Values": [
+      {
+        "Value": "108",
+        "Owner": "Bowser",
+        "OwnerId": 2,
+        "Name": "WEIGHT VALUE"
+      }
+    ],
+    "Game": "Ultimate",
+    "Related": {
+      "Smash4": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=smash4"
+      },
+      "Ultimate": {
+        "Character": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate",
+        "Self": "http://api.kuroganehammer.com/api/characterattributes/79975faf2c0c46fe99d8daa885caceaf?game=ultimate"
+      }
+    },
+    "Links": [
+      {
+        "Rel": "self",
+        "Href": "http://api.kuroganehammer.com/api/characterattributes/79975faf2c0c46fe99d8daa885caceaf?game=ultimate"
+      },
+      {
+        "Rel": "character",
+        "Href": "http://api.kuroganehammer.com/api/characters/name/Bowser?game=ultimate"
+      }
+    ]
+  }
+]

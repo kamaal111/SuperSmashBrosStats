@@ -12,7 +12,7 @@ struct CharacterAttributesRow: View {
     var stats: CodableCharacterAttributes
 
     var body: some View {
-        NavigationLink(destination: Text(self.stats.name)) {
+        NavigationLink(destination: CharacterTopList(attribute: self.stats)) {
             VStack(alignment: .leading) {
                 Text(self.stats.name)
                     .font(.body)

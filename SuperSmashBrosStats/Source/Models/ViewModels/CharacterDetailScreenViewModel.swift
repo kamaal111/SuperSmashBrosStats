@@ -37,11 +37,13 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     }
 
     func populateCharacterAttributes() {
-        let characterId = self.character.details.ownerId
-        self.analys("Owner id: \(characterId)")
-        let game: Game = .ultimate
-        Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
-            self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
+        if self.characterAttributes.isEmpty {
+            let characterId = self.character.details.ownerId
+            self.analys("Owner id: \(characterId)")
+            let game: Game = .ultimate
+            Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
+                self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
+            }
         }
     }
 

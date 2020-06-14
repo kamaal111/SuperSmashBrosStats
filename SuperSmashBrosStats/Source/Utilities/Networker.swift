@@ -44,8 +44,15 @@ struct Networker {
             if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(game: game, characterId: characterId) {
                 completion(.success(characterAttribute))
             } else {
-                let characterData: [CodableCharacterAttributes] = load("characterAttributes-\(game.rawValue)-\(characterId).json")
-                completion(.success(characterData))
+                switch game {
+                case .smash4:
+                    Self.get([CodableCharacterAttributes].self, from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
+                        completion(result)
+                    }
+                case .ultimate:
+                    let characterData: [CodableCharacterAttributes] = load("characterAttributes-\(game.rawValue)-\(characterId).json")
+                    completion(.success(characterData))
+                }
             }
         }
     }

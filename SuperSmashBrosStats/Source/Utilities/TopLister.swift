@@ -37,27 +37,31 @@ class TopLister {
     func getTopListItems(of attribute: String, game: String) -> [TopListItem] {
         guard let filesList = self.topListFiles[game] else { return [] }
         guard self.topListItems[attribute] == nil else { return self.topListItems[attribute]! }
-        for file in filesList {
+        filesList.forEach { file in
             let characterId = file.characterId
             if let game = Game(rawValue: file.game) {
                 if let characterAttributes = self.responderHolder.getCharacterAttributes(game: game, characterId: characterId) {
-                    for attributes in characterAttributes where attributes.name == attribute {
+                    var uniqueAttributeNames = [String]()
+                    for attributes in characterAttributes where attributes.name == attribute && !uniqueAttributeNames.contains(attributes.name) {
                         let ownerName = attributes.owner
                         if self.topListItems[attribute] == nil { self.topListItems[attribute] = [] }
                         attributes.values.forEach { value in
                             let topListItem = TopListItem(owner: ownerName, valueName: value.name, value: value.value)
                             self.topListItems[attribute]?.append(topListItem)
+                            uniqueAttributeNames.append(attributes.name)
                         }
                     }
                 } else {
                     let characterAttributes: [CodableCharacterAttributes] = load("characterAttributes-\(game)-\(characterId).json")
+                    var uniqueAttributeNames = [String]()
                     self.responderHolder.setCharacterAttributes(game: game, characterId: characterId, characterAttributes: characterAttributes)
-                    for attributes in characterAttributes where attributes.name == attribute {
+                    for attributes in characterAttributes where attributes.name == attribute && !uniqueAttributeNames.contains(attributes.name) {
                         let ownerName = attributes.owner
                         if self.topListItems[attribute] == nil { self.topListItems[attribute] = [] }
                         attributes.values.forEach { value in
                             let topListItem = TopListItem(owner: ownerName, valueName: value.name, value: value.value)
                             self.topListItems[attribute]?.append(topListItem)
+                            uniqueAttributeNames.append(attributes.name)
                         }
                     }
                 }

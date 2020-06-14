@@ -22,22 +22,26 @@ struct CharacterTopList: View {
                     ForEach(self.categorizedTopList[key]!, id: \.self) { (item: TopListItem) in
                         HStack {
                             Text(item.owner)
+                                .foregroundColor(self.attribute.owner == item.owner ? .accentColor : .primary)
                             Text(item.value)
                         }
                     }
                 }
             }
         }
-        .onAppear(perform: {
-            let topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
-            self.topListItems = topListItems
-        })
+        .onAppear(perform: self.onCharacterTopListAppear)
+        .navigationBarTitle(Text(self.attribute.name), displayMode: .inline)
     }
 
     private var categorizedTopList: [String: [TopListItem]] {
         return Dictionary(grouping: self.topListItems, by: { (item: TopListItem) in
             item.valueName
         })
+    }
+
+    private func onCharacterTopListAppear() {
+        let topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
+        self.topListItems = topListItems
     }
 }
 

@@ -10,16 +10,21 @@ import SwiftUI
 
 struct CharacterTopList: View {
     @State private var topListItems = [String: [TopListItem]]()
+    @State private var showSortActionSheet = false
 
-    var attribute: CodableCharacterAttributes
+    let attribute: CodableCharacterAttributes
 
     private let topLister = TopLister.shared
+
+    init(attribute: CodableCharacterAttributes) {
+        self.attribute = attribute
+    }
 
     var body: some View {
         List {
             ForEach(self.topListItems.keys.sorted(), id: \.self) { key in
                 Section(header: Text(key).font(.headline)) {
-                    ForEach(self.topListItems[key]!.sorted(by: self.sortTopListBy(a:b:)), id: \.self) { (item: TopListItem) in
+                    ForEach(self.topListItems[key]!, id: \.self) { (item: TopListItem) in
                         HStack {
                             Text(item.owner)
                                 .foregroundColor(self.attribute.owner == item.owner ? .accentColor : .primary)
@@ -30,23 +35,30 @@ struct CharacterTopList: View {
             }
         }
         .onAppear(perform: self.onCharacterTopListAppear)
+        .actionSheet(isPresented: self.$showSortActionSheet, content: {
+            ActionSheet(title: Text("Sort Attributes By"), buttons: [
+                .default(Text("Descending"), action: {
+                    self.topLister.setSortingMethod(to: .descending)
+                    self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
+                }),
+                .default(Text("Ascending"), action: {
+                    self.topLister.setSortingMethod(to: .ascending)
+                    self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
+                })
+                ,
+                .cancel()
+            ])
+        })
         .navigationBarTitle(Text(self.attribute.name), displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: {
+            self.showSortActionSheet = true
+        }) {
+            Image(systemName: "arrow.up.arrow.down")
+        })
     }
 
     private func onCharacterTopListAppear() {
-        let topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
-        self.topListItems = topListItems
-    }
-
-    private func sortTopListBy(a: TopListItem, b: TopListItem) -> Bool {
-        switch a.valueType {
-        case .normalNumber:
-            guard let valueA = Double(a.value), let valueB = Double(b.value) else { return false }
-            return  valueA > valueB
-        case .percentage, .times:
-            guard let valueA = Double(a.value.dropLast()), let valueB = Double(b.value.dropLast()) else { return false }
-            return  valueA > valueB
-        }
+        self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
     }
 }
 

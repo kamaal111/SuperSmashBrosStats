@@ -12,6 +12,7 @@ class TopLister {
 
     private var topListFiles = [String: [TopListFile]]()
     private var topListItems = [String: [TopListItem]]()
+    private var sortMethod: SortListMethod = .descending
 
     private let responderHolder = ResponderHolder.shared
 
@@ -51,9 +52,37 @@ class TopLister {
         return self.categorizeTopList(topList: self.topListItems[attribute] ?? [])
     }
 
+    func setSortingMethod(to sortingMethod: SortListMethod) {
+        self.sortMethod = sortingMethod
+    }
+
+    func getSortingMethod() -> SortListMethod {
+        return self.sortMethod
+    }
+
     private func categorizeTopList(topList: [TopListItem]) -> [String: [TopListItem]] {
-        return Dictionary(grouping: topList) { (item: TopListItem) in
-            item.valueName
+        let categorizedTopList = Dictionary(grouping: topList) { $0.valueName }
+            .mapValues { $0.sorted(by: self.sortTopListBy(a:b:)) }
+        return categorizedTopList
+    }
+
+    private func sortTopListBy(a: TopListItem, b: TopListItem) -> Bool {
+        switch a.valueType {
+        case .normalNumber:
+            guard let valueA = Double(a.value), let valueB = Double(b.value) else { return false }
+            return self.compareForSort(a: valueA, b: valueB)
+        case .percentage, .times:
+            guard let valueA = Double(a.value.dropLast()), let valueB = Double(b.value.dropLast()) else { return false }
+            return self.compareForSort(a: valueA, b: valueB)
+        }
+    }
+
+    private func compareForSort(a: Double, b: Double) -> Bool {
+        switch self.sortMethod {
+        case .descending:
+            return a > b
+        case .ascending:
+            return a < b
         }
     }
 
@@ -83,6 +112,11 @@ enum TopListItemValueType {
     case normalNumber
     case percentage
     case times
+}
+
+enum SortListMethod {
+    case descending
+    case ascending
 }
 
 struct TopListItem: Hashable {

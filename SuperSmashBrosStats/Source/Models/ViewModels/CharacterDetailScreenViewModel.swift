@@ -29,7 +29,7 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     var uniqueAttributes: [CodableCharacterAttributes] {
         var uniqueValues = [CodableCharacterAttributes]()
         var uniqueAttributeNames = [String]()
-        for stats in self.characterAttributes.reversed() where !uniqueAttributeNames.contains(stats.name) {
+        for stats in self.characterAttributes where !uniqueAttributeNames.contains(stats.name) {
             uniqueValues.append(stats)
             uniqueAttributeNames.append(stats.name)
         }
@@ -37,11 +37,13 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     }
 
     func populateCharacterAttributes() {
-        let characterId = self.character.details.ownerId
-        self.analys("Owner id: \(characterId)")
-        let game: Game = .ultimate
-        Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
-            self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
+        if self.characterAttributes.isEmpty {
+            let characterId = self.character.details.ownerId
+            self.analys("Owner id: \(characterId)")
+            let game: Game = .ultimate
+            Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
+                self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
+            }
         }
     }
 

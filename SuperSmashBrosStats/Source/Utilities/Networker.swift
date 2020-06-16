@@ -14,7 +14,7 @@ enum Game: String {
 }
 
 struct Networker {
-    static private let baseUrl = "http://192.168.2.4:4000/v1/api"
+    static private let baseUrl = "http://127.0.0.1:4000/v1/api"
 
     static func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
         DispatchQueue.apiCallThread.async {
@@ -44,8 +44,14 @@ struct Networker {
             if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(game: game, characterId: characterId) {
                 completion(.success(characterAttribute))
             } else {
-                Self.get([CodableCharacterAttributes].self, from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
-                    completion(result)
+                switch game {
+                case .smash4:
+                    Self.get([CodableCharacterAttributes].self, from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
+                        completion(result)
+                    }
+                case .ultimate:
+                    let characterData: [CodableCharacterAttributes] = load("characterAttributes-\(game.rawValue)-\(characterId).json")
+                    completion(.success(characterData))
                 }
             }
         }

@@ -10,6 +10,7 @@ import Combine
 import SwiftUI
 
 final class UserDataModel: ObservableObject {
+
     @Published var favoritedCharacters = [FavoritedCharacter]()
 
     private var coreDataManager = CoreDataManager.shared
@@ -58,4 +59,5 @@ final class UserDataModel: ObservableObject {
         }
         return favoriteCharacterToDelete
     }
+
 }

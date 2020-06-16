@@ -7,51 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60050000249566110037C6DF /* character-ultimate-15.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD4249566110037C6DF /* character-ultimate-15.json */; };
-		60050001249566110037C6DF /* character-ultimate-42.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD5249566110037C6DF /* character-ultimate-42.json */; };
-		60050002249566110037C6DF /* character-ultimate-54.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD6249566110037C6DF /* character-ultimate-54.json */; };
-		60050003249566110037C6DF /* character-ultimate-65.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD7249566110037C6DF /* character-ultimate-65.json */; };
-		60050004249566110037C6DF /* character-ultimate-73.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD8249566110037C6DF /* character-ultimate-73.json */; };
-		60050005249566110037C6DF /* character-ultimate-45.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD9249566110037C6DF /* character-ultimate-45.json */; };
-		60050006249566110037C6DF /* character-ultimate-69.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDA249566110037C6DF /* character-ultimate-69.json */; };
-		60050007249566110037C6DF /* character-ultimate-28.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDB249566110037C6DF /* character-ultimate-28.json */; };
-		60050008249566110037C6DF /* character-ultimate-68.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDC249566110037C6DF /* character-ultimate-68.json */; };
-		60050009249566110037C6DF /* character-ultimate-13.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDD249566110037C6DF /* character-ultimate-13.json */; };
-		6005000A249566110037C6DF /* character-ultimate-72.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDE249566110037C6DF /* character-ultimate-72.json */; };
-		6005000B249566110037C6DF /* character-ultimate-25.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDF249566110037C6DF /* character-ultimate-25.json */; };
-		6005000C249566110037C6DF /* character-ultimate-64.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFE0249566110037C6DF /* character-ultimate-64.json */; };
+		60050000249566110037C6DF /* characterAttributes-ultimate-15.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD4249566110037C6DF /* characterAttributes-ultimate-15.json */; };
+		60050001249566110037C6DF /* characterAttributes-ultimate-42.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD5249566110037C6DF /* characterAttributes-ultimate-42.json */; };
+		60050002249566110037C6DF /* characterAttributes-ultimate-54.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD6249566110037C6DF /* characterAttributes-ultimate-54.json */; };
+		60050003249566110037C6DF /* characterAttributes-ultimate-65.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD7249566110037C6DF /* characterAttributes-ultimate-65.json */; };
+		60050004249566110037C6DF /* characterAttributes-ultimate-73.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD8249566110037C6DF /* characterAttributes-ultimate-73.json */; };
+		60050005249566110037C6DF /* characterAttributes-ultimate-45.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD9249566110037C6DF /* characterAttributes-ultimate-45.json */; };
+		60050006249566110037C6DF /* characterAttributes-ultimate-69.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDA249566110037C6DF /* characterAttributes-ultimate-69.json */; };
+		60050007249566110037C6DF /* characterAttributes-ultimate-28.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDB249566110037C6DF /* characterAttributes-ultimate-28.json */; };
+		60050008249566110037C6DF /* characterAttributes-ultimate-68.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDC249566110037C6DF /* characterAttributes-ultimate-68.json */; };
+		60050009249566110037C6DF /* characterAttributes-ultimate-13.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDD249566110037C6DF /* characterAttributes-ultimate-13.json */; };
+		6005000A249566110037C6DF /* characterAttributes-ultimate-72.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDE249566110037C6DF /* characterAttributes-ultimate-72.json */; };
+		6005000B249566110037C6DF /* characterAttributes-ultimate-25.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFDF249566110037C6DF /* characterAttributes-ultimate-25.json */; };
+		6005000C249566110037C6DF /* characterAttributes-ultimate-64.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFE0249566110037C6DF /* characterAttributes-ultimate-64.json */; };
 		6005000E249574570037C6DF /* ResponderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6005000D249574570037C6DF /* ResponderHolder.swift */; };
-		6005FFE1249566110037C6DF /* character-ultimate-71.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB5249566110037C6DF /* character-ultimate-71.json */; };
-		6005FFE2249566110037C6DF /* character-ultimate-30.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB6249566110037C6DF /* character-ultimate-30.json */; };
-		6005FFE3249566110037C6DF /* character-ultimate-67.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB7249566110037C6DF /* character-ultimate-67.json */; };
-		6005FFE4249566110037C6DF /* character-ultimate-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB8249566110037C6DF /* character-ultimate-2.json */; };
-		6005FFE5249566110037C6DF /* character-ultimate-47.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB9249566110037C6DF /* character-ultimate-47.json */; };
-		6005FFE6249566110037C6DF /* character-ultimate-50.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBA249566110037C6DF /* character-ultimate-50.json */; };
-		6005FFE7249566110037C6DF /* character-ultimate-46.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBB249566110037C6DF /* character-ultimate-46.json */; };
-		6005FFE8249566110037C6DF /* character-ultimate-66.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBC249566110037C6DF /* character-ultimate-66.json */; };
-		6005FFE9249566110037C6DF /* character-ultimate-31.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBD249566110037C6DF /* character-ultimate-31.json */; };
-		6005FFEA249566110037C6DF /* character-ultimate-70.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBE249566110037C6DF /* character-ultimate-70.json */; };
-		6005FFEB249566110037C6DF /* character-ultimate-16.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBF249566110037C6DF /* character-ultimate-16.json */; };
-		6005FFEC249566110037C6DF /* character-ultimate-8.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC0249566110037C6DF /* character-ultimate-8.json */; };
-		6005FFED249566110037C6DF /* character-ultimate-57.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC1249566110037C6DF /* character-ultimate-57.json */; };
-		6005FFEE249566110037C6DF /* character-ultimate-77.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC2249566110037C6DF /* character-ultimate-77.json */; };
-		6005FFEF249566110037C6DF /* character-ultimate-20.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC3249566110037C6DF /* character-ultimate-20.json */; };
-		6005FFF0249566110037C6DF /* character-ultimate-61.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC4249566110037C6DF /* character-ultimate-61.json */; };
-		6005FFF1249566110037C6DF /* character-ultimate-60.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC5249566110037C6DF /* character-ultimate-60.json */; };
-		6005FFF2249566110037C6DF /* character-ultimate-76.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC6249566110037C6DF /* character-ultimate-76.json */; };
-		6005FFF3249566110037C6DF /* character-ultimate-40.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC7249566110037C6DF /* character-ultimate-40.json */; };
-		6005FFF4249566110037C6DF /* character-ultimate-17.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC8249566110037C6DF /* character-ultimate-17.json */; };
-		6005FFF5249566110037C6DF /* character-ultimate-43.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC9249566110037C6DF /* character-ultimate-43.json */; };
-		6005FFF6249566110037C6DF /* character-ultimate-14.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCA249566110037C6DF /* character-ultimate-14.json */; };
-		6005FFF7249566110037C6DF /* character-ultimate-79.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCB249566110037C6DF /* character-ultimate-79.json */; };
-		6005FFF8249566110037C6DF /* character-ultimate-59.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCC249566110037C6DF /* character-ultimate-59.json */; };
-		6005FFF9249566110037C6DF /* character-ultimate-63.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCD249566110037C6DF /* character-ultimate-63.json */; };
-		6005FFFA249566110037C6DF /* character-ultimate-22.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCE249566110037C6DF /* character-ultimate-22.json */; };
-		6005FFFB249566110037C6DF /* character-ultimate-75.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCF249566110037C6DF /* character-ultimate-75.json */; };
-		6005FFFC249566110037C6DF /* character-ultimate-74.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD0249566110037C6DF /* character-ultimate-74.json */; };
-		6005FFFD249566110037C6DF /* character-ultimate-62.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD1249566110037C6DF /* character-ultimate-62.json */; };
-		6005FFFE249566110037C6DF /* character-ultimate-78.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD2249566110037C6DF /* character-ultimate-78.json */; };
-		6005FFFF249566110037C6DF /* character-ultimate-39.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD3249566110037C6DF /* character-ultimate-39.json */; };
+		6005FFE1249566110037C6DF /* characterAttributes-ultimate-71.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB5249566110037C6DF /* characterAttributes-ultimate-71.json */; };
+		6005FFE2249566110037C6DF /* characterAttributes-ultimate-30.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB6249566110037C6DF /* characterAttributes-ultimate-30.json */; };
+		6005FFE3249566110037C6DF /* characterAttributes-ultimate-67.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB7249566110037C6DF /* characterAttributes-ultimate-67.json */; };
+		6005FFE4249566110037C6DF /* characterAttributes-ultimate-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB8249566110037C6DF /* characterAttributes-ultimate-2.json */; };
+		6005FFE5249566110037C6DF /* characterAttributes-ultimate-47.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFB9249566110037C6DF /* characterAttributes-ultimate-47.json */; };
+		6005FFE6249566110037C6DF /* characterAttributes-ultimate-50.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBA249566110037C6DF /* characterAttributes-ultimate-50.json */; };
+		6005FFE7249566110037C6DF /* characterAttributes-ultimate-46.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBB249566110037C6DF /* characterAttributes-ultimate-46.json */; };
+		6005FFE8249566110037C6DF /* characterAttributes-ultimate-66.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBC249566110037C6DF /* characterAttributes-ultimate-66.json */; };
+		6005FFE9249566110037C6DF /* characterAttributes-ultimate-31.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBD249566110037C6DF /* characterAttributes-ultimate-31.json */; };
+		6005FFEA249566110037C6DF /* characterAttributes-ultimate-70.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBE249566110037C6DF /* characterAttributes-ultimate-70.json */; };
+		6005FFEB249566110037C6DF /* characterAttributes-ultimate-16.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFBF249566110037C6DF /* characterAttributes-ultimate-16.json */; };
+		6005FFEC249566110037C6DF /* characterAttributes-ultimate-8.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC0249566110037C6DF /* characterAttributes-ultimate-8.json */; };
+		6005FFED249566110037C6DF /* characterAttributes-ultimate-57.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC1249566110037C6DF /* characterAttributes-ultimate-57.json */; };
+		6005FFEE249566110037C6DF /* characterAttributes-ultimate-77.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC2249566110037C6DF /* characterAttributes-ultimate-77.json */; };
+		6005FFEF249566110037C6DF /* characterAttributes-ultimate-20.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC3249566110037C6DF /* characterAttributes-ultimate-20.json */; };
+		6005FFF0249566110037C6DF /* characterAttributes-ultimate-61.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC4249566110037C6DF /* characterAttributes-ultimate-61.json */; };
+		6005FFF1249566110037C6DF /* characterAttributes-ultimate-60.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC5249566110037C6DF /* characterAttributes-ultimate-60.json */; };
+		6005FFF2249566110037C6DF /* characterAttributes-ultimate-76.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC6249566110037C6DF /* characterAttributes-ultimate-76.json */; };
+		6005FFF3249566110037C6DF /* characterAttributes-ultimate-40.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC7249566110037C6DF /* characterAttributes-ultimate-40.json */; };
+		6005FFF4249566110037C6DF /* characterAttributes-ultimate-17.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC8249566110037C6DF /* characterAttributes-ultimate-17.json */; };
+		6005FFF5249566110037C6DF /* characterAttributes-ultimate-43.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFC9249566110037C6DF /* characterAttributes-ultimate-43.json */; };
+		6005FFF6249566110037C6DF /* characterAttributes-ultimate-14.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCA249566110037C6DF /* characterAttributes-ultimate-14.json */; };
+		6005FFF7249566110037C6DF /* characterAttributes-ultimate-79.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCB249566110037C6DF /* characterAttributes-ultimate-79.json */; };
+		6005FFF8249566110037C6DF /* characterAttributes-ultimate-59.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCC249566110037C6DF /* characterAttributes-ultimate-59.json */; };
+		6005FFF9249566110037C6DF /* characterAttributes-ultimate-63.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCD249566110037C6DF /* characterAttributes-ultimate-63.json */; };
+		6005FFFA249566110037C6DF /* characterAttributes-ultimate-22.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCE249566110037C6DF /* characterAttributes-ultimate-22.json */; };
+		6005FFFB249566110037C6DF /* characterAttributes-ultimate-75.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFCF249566110037C6DF /* characterAttributes-ultimate-75.json */; };
+		6005FFFC249566110037C6DF /* characterAttributes-ultimate-74.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD0249566110037C6DF /* characterAttributes-ultimate-74.json */; };
+		6005FFFD249566110037C6DF /* characterAttributes-ultimate-62.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD1249566110037C6DF /* characterAttributes-ultimate-62.json */; };
+		6005FFFE249566110037C6DF /* characterAttributes-ultimate-78.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD2249566110037C6DF /* characterAttributes-ultimate-78.json */; };
+		6005FFFF249566110037C6DF /* characterAttributes-ultimate-39.json in Resources */ = {isa = PBXBuildFile; fileRef = 6005FFD3249566110037C6DF /* characterAttributes-ultimate-39.json */; };
 		6007B57024913E66009FD263 /* CharacterAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6007B56F24913E65009FD263 /* CharacterAttributes.swift */; };
 		600C2D4B2493542500D0FD6C /* CharacterMovesScreenContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600C2D4A2493542500D0FD6C /* CharacterMovesScreenContentView.swift */; };
 		600C2D4D2493597300D0FD6C /* CharacterMovesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600C2D4C2493597300D0FD6C /* CharacterMovesScreenViewModel.swift */; };
@@ -69,6 +69,8 @@
 		60249042248BE116009D8E75 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249041248BE116009D8E75 /* Character.swift */; };
 		60249045248BE142009D8E75 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249044248BE142009D8E75 /* Networker.swift */; };
 		60453BBC248D6FB400224303 /* CharacterDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */; };
+		6046B23E249948660010CD9E /* CharacterTopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */; };
+		6046B24024994C060010CD9E /* CharacterAttributeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */; };
 		6075E27C248E9BF90038744B /* CharacterThumbnailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075E27B248E9BF90038744B /* CharacterThumbnailImage.swift */; };
 		6075E27E24901D3E0038744B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075E27D24901D3E0038744B /* Data.swift */; };
 		6075E28124901ECE0038744B /* DispatchQueue+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075E28024901ECE0038744B /* DispatchQueue+extensions.swift */; };
@@ -85,6 +87,8 @@
 		608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD91B248D177C00307B6C /* CoreDataManager.swift */; };
 		608FD923248D18D200307B6C /* CachedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */; };
 		608FD924248D18D200307B6C /* CachedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */; };
+		60947DE42496401B0064DF5C /* CharacterTopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60947DE32496401B0064DF5C /* CharacterTopList.swift */; };
+		60947DE6249642230064DF5C /* TopLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60947DE5249642230064DF5C /* TopLister.swift */; };
 		60BA09752490B319008CAD96 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BA09742490B319008CAD96 /* FavoriteButton.swift */; };
 		60C7CB4F248D5042007F43E8 /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7CB4E248D5042007F43E8 /* UrlImageModel.swift */; };
 		60C7CB51248D508B007F43E8 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7CB50248D508B007F43E8 /* ImageCache.swift */; };
@@ -94,50 +98,50 @@
 
 /* Begin PBXFileReference section */
 		6005000D249574570037C6DF /* ResponderHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderHolder.swift; sourceTree = "<group>"; };
-		6005FFB5249566110037C6DF /* character-ultimate-71.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-71.json"; sourceTree = "<group>"; };
-		6005FFB6249566110037C6DF /* character-ultimate-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-30.json"; sourceTree = "<group>"; };
-		6005FFB7249566110037C6DF /* character-ultimate-67.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-67.json"; sourceTree = "<group>"; };
-		6005FFB8249566110037C6DF /* character-ultimate-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-2.json"; sourceTree = "<group>"; };
-		6005FFB9249566110037C6DF /* character-ultimate-47.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-47.json"; sourceTree = "<group>"; };
-		6005FFBA249566110037C6DF /* character-ultimate-50.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-50.json"; sourceTree = "<group>"; };
-		6005FFBB249566110037C6DF /* character-ultimate-46.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-46.json"; sourceTree = "<group>"; };
-		6005FFBC249566110037C6DF /* character-ultimate-66.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-66.json"; sourceTree = "<group>"; };
-		6005FFBD249566110037C6DF /* character-ultimate-31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-31.json"; sourceTree = "<group>"; };
-		6005FFBE249566110037C6DF /* character-ultimate-70.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-70.json"; sourceTree = "<group>"; };
-		6005FFBF249566110037C6DF /* character-ultimate-16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-16.json"; sourceTree = "<group>"; };
-		6005FFC0249566110037C6DF /* character-ultimate-8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-8.json"; sourceTree = "<group>"; };
-		6005FFC1249566110037C6DF /* character-ultimate-57.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-57.json"; sourceTree = "<group>"; };
-		6005FFC2249566110037C6DF /* character-ultimate-77.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-77.json"; sourceTree = "<group>"; };
-		6005FFC3249566110037C6DF /* character-ultimate-20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-20.json"; sourceTree = "<group>"; };
-		6005FFC4249566110037C6DF /* character-ultimate-61.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-61.json"; sourceTree = "<group>"; };
-		6005FFC5249566110037C6DF /* character-ultimate-60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-60.json"; sourceTree = "<group>"; };
-		6005FFC6249566110037C6DF /* character-ultimate-76.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-76.json"; sourceTree = "<group>"; };
-		6005FFC7249566110037C6DF /* character-ultimate-40.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-40.json"; sourceTree = "<group>"; };
-		6005FFC8249566110037C6DF /* character-ultimate-17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-17.json"; sourceTree = "<group>"; };
-		6005FFC9249566110037C6DF /* character-ultimate-43.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-43.json"; sourceTree = "<group>"; };
-		6005FFCA249566110037C6DF /* character-ultimate-14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-14.json"; sourceTree = "<group>"; };
-		6005FFCB249566110037C6DF /* character-ultimate-79.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-79.json"; sourceTree = "<group>"; };
-		6005FFCC249566110037C6DF /* character-ultimate-59.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-59.json"; sourceTree = "<group>"; };
-		6005FFCD249566110037C6DF /* character-ultimate-63.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-63.json"; sourceTree = "<group>"; };
-		6005FFCE249566110037C6DF /* character-ultimate-22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-22.json"; sourceTree = "<group>"; };
-		6005FFCF249566110037C6DF /* character-ultimate-75.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-75.json"; sourceTree = "<group>"; };
-		6005FFD0249566110037C6DF /* character-ultimate-74.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-74.json"; sourceTree = "<group>"; };
-		6005FFD1249566110037C6DF /* character-ultimate-62.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-62.json"; sourceTree = "<group>"; };
-		6005FFD2249566110037C6DF /* character-ultimate-78.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-78.json"; sourceTree = "<group>"; };
-		6005FFD3249566110037C6DF /* character-ultimate-39.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-39.json"; sourceTree = "<group>"; };
-		6005FFD4249566110037C6DF /* character-ultimate-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-15.json"; sourceTree = "<group>"; };
-		6005FFD5249566110037C6DF /* character-ultimate-42.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-42.json"; sourceTree = "<group>"; };
-		6005FFD6249566110037C6DF /* character-ultimate-54.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-54.json"; sourceTree = "<group>"; };
-		6005FFD7249566110037C6DF /* character-ultimate-65.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-65.json"; sourceTree = "<group>"; };
-		6005FFD8249566110037C6DF /* character-ultimate-73.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-73.json"; sourceTree = "<group>"; };
-		6005FFD9249566110037C6DF /* character-ultimate-45.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-45.json"; sourceTree = "<group>"; };
-		6005FFDA249566110037C6DF /* character-ultimate-69.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-69.json"; sourceTree = "<group>"; };
-		6005FFDB249566110037C6DF /* character-ultimate-28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-28.json"; sourceTree = "<group>"; };
-		6005FFDC249566110037C6DF /* character-ultimate-68.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-68.json"; sourceTree = "<group>"; };
-		6005FFDD249566110037C6DF /* character-ultimate-13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-13.json"; sourceTree = "<group>"; };
-		6005FFDE249566110037C6DF /* character-ultimate-72.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-72.json"; sourceTree = "<group>"; };
-		6005FFDF249566110037C6DF /* character-ultimate-25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-25.json"; sourceTree = "<group>"; };
-		6005FFE0249566110037C6DF /* character-ultimate-64.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "character-ultimate-64.json"; sourceTree = "<group>"; };
+		6005FFB5249566110037C6DF /* characterAttributes-ultimate-71.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-71.json"; sourceTree = "<group>"; };
+		6005FFB6249566110037C6DF /* characterAttributes-ultimate-30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-30.json"; sourceTree = "<group>"; };
+		6005FFB7249566110037C6DF /* characterAttributes-ultimate-67.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-67.json"; sourceTree = "<group>"; };
+		6005FFB8249566110037C6DF /* characterAttributes-ultimate-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-2.json"; sourceTree = "<group>"; };
+		6005FFB9249566110037C6DF /* characterAttributes-ultimate-47.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-47.json"; sourceTree = "<group>"; };
+		6005FFBA249566110037C6DF /* characterAttributes-ultimate-50.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-50.json"; sourceTree = "<group>"; };
+		6005FFBB249566110037C6DF /* characterAttributes-ultimate-46.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-46.json"; sourceTree = "<group>"; };
+		6005FFBC249566110037C6DF /* characterAttributes-ultimate-66.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-66.json"; sourceTree = "<group>"; };
+		6005FFBD249566110037C6DF /* characterAttributes-ultimate-31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-31.json"; sourceTree = "<group>"; };
+		6005FFBE249566110037C6DF /* characterAttributes-ultimate-70.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-70.json"; sourceTree = "<group>"; };
+		6005FFBF249566110037C6DF /* characterAttributes-ultimate-16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-16.json"; sourceTree = "<group>"; };
+		6005FFC0249566110037C6DF /* characterAttributes-ultimate-8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-8.json"; sourceTree = "<group>"; };
+		6005FFC1249566110037C6DF /* characterAttributes-ultimate-57.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-57.json"; sourceTree = "<group>"; };
+		6005FFC2249566110037C6DF /* characterAttributes-ultimate-77.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-77.json"; sourceTree = "<group>"; };
+		6005FFC3249566110037C6DF /* characterAttributes-ultimate-20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-20.json"; sourceTree = "<group>"; };
+		6005FFC4249566110037C6DF /* characterAttributes-ultimate-61.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-61.json"; sourceTree = "<group>"; };
+		6005FFC5249566110037C6DF /* characterAttributes-ultimate-60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-60.json"; sourceTree = "<group>"; };
+		6005FFC6249566110037C6DF /* characterAttributes-ultimate-76.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-76.json"; sourceTree = "<group>"; };
+		6005FFC7249566110037C6DF /* characterAttributes-ultimate-40.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-40.json"; sourceTree = "<group>"; };
+		6005FFC8249566110037C6DF /* characterAttributes-ultimate-17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-17.json"; sourceTree = "<group>"; };
+		6005FFC9249566110037C6DF /* characterAttributes-ultimate-43.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-43.json"; sourceTree = "<group>"; };
+		6005FFCA249566110037C6DF /* characterAttributes-ultimate-14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-14.json"; sourceTree = "<group>"; };
+		6005FFCB249566110037C6DF /* characterAttributes-ultimate-79.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-79.json"; sourceTree = "<group>"; };
+		6005FFCC249566110037C6DF /* characterAttributes-ultimate-59.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-59.json"; sourceTree = "<group>"; };
+		6005FFCD249566110037C6DF /* characterAttributes-ultimate-63.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-63.json"; sourceTree = "<group>"; };
+		6005FFCE249566110037C6DF /* characterAttributes-ultimate-22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-22.json"; sourceTree = "<group>"; };
+		6005FFCF249566110037C6DF /* characterAttributes-ultimate-75.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-75.json"; sourceTree = "<group>"; };
+		6005FFD0249566110037C6DF /* characterAttributes-ultimate-74.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-74.json"; sourceTree = "<group>"; };
+		6005FFD1249566110037C6DF /* characterAttributes-ultimate-62.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-62.json"; sourceTree = "<group>"; };
+		6005FFD2249566110037C6DF /* characterAttributes-ultimate-78.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-78.json"; sourceTree = "<group>"; };
+		6005FFD3249566110037C6DF /* characterAttributes-ultimate-39.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-39.json"; sourceTree = "<group>"; };
+		6005FFD4249566110037C6DF /* characterAttributes-ultimate-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-15.json"; sourceTree = "<group>"; };
+		6005FFD5249566110037C6DF /* characterAttributes-ultimate-42.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-42.json"; sourceTree = "<group>"; };
+		6005FFD6249566110037C6DF /* characterAttributes-ultimate-54.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-54.json"; sourceTree = "<group>"; };
+		6005FFD7249566110037C6DF /* characterAttributes-ultimate-65.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-65.json"; sourceTree = "<group>"; };
+		6005FFD8249566110037C6DF /* characterAttributes-ultimate-73.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-73.json"; sourceTree = "<group>"; };
+		6005FFD9249566110037C6DF /* characterAttributes-ultimate-45.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-45.json"; sourceTree = "<group>"; };
+		6005FFDA249566110037C6DF /* characterAttributes-ultimate-69.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-69.json"; sourceTree = "<group>"; };
+		6005FFDB249566110037C6DF /* characterAttributes-ultimate-28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-28.json"; sourceTree = "<group>"; };
+		6005FFDC249566110037C6DF /* characterAttributes-ultimate-68.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-68.json"; sourceTree = "<group>"; };
+		6005FFDD249566110037C6DF /* characterAttributes-ultimate-13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-13.json"; sourceTree = "<group>"; };
+		6005FFDE249566110037C6DF /* characterAttributes-ultimate-72.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-72.json"; sourceTree = "<group>"; };
+		6005FFDF249566110037C6DF /* characterAttributes-ultimate-25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-25.json"; sourceTree = "<group>"; };
+		6005FFE0249566110037C6DF /* characterAttributes-ultimate-64.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "characterAttributes-ultimate-64.json"; sourceTree = "<group>"; };
 		6007B56F24913E65009FD263 /* CharacterAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributes.swift; sourceTree = "<group>"; };
 		600C2D4A2493542500D0FD6C /* CharacterMovesScreenContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMovesScreenContentView.swift; sourceTree = "<group>"; };
 		600C2D4C2493597300D0FD6C /* CharacterMovesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMovesScreenViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		60249041248BE116009D8E75 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		60249044248BE142009D8E75 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailScreenViewModel.swift; sourceTree = "<group>"; };
+		6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTopListViewModel.swift; sourceTree = "<group>"; };
+		6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributeSection.swift; sourceTree = "<group>"; };
 		6075E27B248E9BF90038744B /* CharacterThumbnailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterThumbnailImage.swift; sourceTree = "<group>"; };
 		6075E27D24901D3E0038744B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6075E28024901ECE0038744B /* DispatchQueue+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+extensions.swift"; sourceTree = "<group>"; };
@@ -172,6 +178,8 @@
 		608FD91B248D177C00307B6C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		608FD921248D18D200307B6C /* CachedImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CachedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		60947DE32496401B0064DF5C /* CharacterTopList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTopList.swift; sourceTree = "<group>"; };
+		60947DE5249642230064DF5C /* TopLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLister.swift; sourceTree = "<group>"; };
 		60BA09742490B319008CAD96 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		60C7CB4E248D5042007F43E8 /* UrlImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
 		60C7CB50248D508B007F43E8 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -194,50 +202,50 @@
 		6005FFB4249566110037C6DF /* characterAttributes */ = {
 			isa = PBXGroup;
 			children = (
-				6005FFB5249566110037C6DF /* character-ultimate-71.json */,
-				6005FFB6249566110037C6DF /* character-ultimate-30.json */,
-				6005FFB7249566110037C6DF /* character-ultimate-67.json */,
-				6005FFB8249566110037C6DF /* character-ultimate-2.json */,
-				6005FFB9249566110037C6DF /* character-ultimate-47.json */,
-				6005FFBA249566110037C6DF /* character-ultimate-50.json */,
-				6005FFBB249566110037C6DF /* character-ultimate-46.json */,
-				6005FFBC249566110037C6DF /* character-ultimate-66.json */,
-				6005FFBD249566110037C6DF /* character-ultimate-31.json */,
-				6005FFBE249566110037C6DF /* character-ultimate-70.json */,
-				6005FFBF249566110037C6DF /* character-ultimate-16.json */,
-				6005FFC0249566110037C6DF /* character-ultimate-8.json */,
-				6005FFC1249566110037C6DF /* character-ultimate-57.json */,
-				6005FFC2249566110037C6DF /* character-ultimate-77.json */,
-				6005FFC3249566110037C6DF /* character-ultimate-20.json */,
-				6005FFC4249566110037C6DF /* character-ultimate-61.json */,
-				6005FFC5249566110037C6DF /* character-ultimate-60.json */,
-				6005FFC6249566110037C6DF /* character-ultimate-76.json */,
-				6005FFC7249566110037C6DF /* character-ultimate-40.json */,
-				6005FFC8249566110037C6DF /* character-ultimate-17.json */,
-				6005FFC9249566110037C6DF /* character-ultimate-43.json */,
-				6005FFCA249566110037C6DF /* character-ultimate-14.json */,
-				6005FFCB249566110037C6DF /* character-ultimate-79.json */,
-				6005FFCC249566110037C6DF /* character-ultimate-59.json */,
-				6005FFCD249566110037C6DF /* character-ultimate-63.json */,
-				6005FFCE249566110037C6DF /* character-ultimate-22.json */,
-				6005FFCF249566110037C6DF /* character-ultimate-75.json */,
-				6005FFD0249566110037C6DF /* character-ultimate-74.json */,
-				6005FFD1249566110037C6DF /* character-ultimate-62.json */,
-				6005FFD2249566110037C6DF /* character-ultimate-78.json */,
-				6005FFD3249566110037C6DF /* character-ultimate-39.json */,
-				6005FFD4249566110037C6DF /* character-ultimate-15.json */,
-				6005FFD5249566110037C6DF /* character-ultimate-42.json */,
-				6005FFD6249566110037C6DF /* character-ultimate-54.json */,
-				6005FFD7249566110037C6DF /* character-ultimate-65.json */,
-				6005FFD8249566110037C6DF /* character-ultimate-73.json */,
-				6005FFD9249566110037C6DF /* character-ultimate-45.json */,
-				6005FFDA249566110037C6DF /* character-ultimate-69.json */,
-				6005FFDB249566110037C6DF /* character-ultimate-28.json */,
-				6005FFDC249566110037C6DF /* character-ultimate-68.json */,
-				6005FFDD249566110037C6DF /* character-ultimate-13.json */,
-				6005FFDE249566110037C6DF /* character-ultimate-72.json */,
-				6005FFDF249566110037C6DF /* character-ultimate-25.json */,
-				6005FFE0249566110037C6DF /* character-ultimate-64.json */,
+				6005FFB5249566110037C6DF /* characterAttributes-ultimate-71.json */,
+				6005FFB6249566110037C6DF /* characterAttributes-ultimate-30.json */,
+				6005FFB7249566110037C6DF /* characterAttributes-ultimate-67.json */,
+				6005FFB8249566110037C6DF /* characterAttributes-ultimate-2.json */,
+				6005FFB9249566110037C6DF /* characterAttributes-ultimate-47.json */,
+				6005FFBA249566110037C6DF /* characterAttributes-ultimate-50.json */,
+				6005FFBB249566110037C6DF /* characterAttributes-ultimate-46.json */,
+				6005FFBC249566110037C6DF /* characterAttributes-ultimate-66.json */,
+				6005FFBD249566110037C6DF /* characterAttributes-ultimate-31.json */,
+				6005FFBE249566110037C6DF /* characterAttributes-ultimate-70.json */,
+				6005FFBF249566110037C6DF /* characterAttributes-ultimate-16.json */,
+				6005FFC0249566110037C6DF /* characterAttributes-ultimate-8.json */,
+				6005FFC1249566110037C6DF /* characterAttributes-ultimate-57.json */,
+				6005FFC2249566110037C6DF /* characterAttributes-ultimate-77.json */,
+				6005FFC3249566110037C6DF /* characterAttributes-ultimate-20.json */,
+				6005FFC4249566110037C6DF /* characterAttributes-ultimate-61.json */,
+				6005FFC5249566110037C6DF /* characterAttributes-ultimate-60.json */,
+				6005FFC6249566110037C6DF /* characterAttributes-ultimate-76.json */,
+				6005FFC7249566110037C6DF /* characterAttributes-ultimate-40.json */,
+				6005FFC8249566110037C6DF /* characterAttributes-ultimate-17.json */,
+				6005FFC9249566110037C6DF /* characterAttributes-ultimate-43.json */,
+				6005FFCA249566110037C6DF /* characterAttributes-ultimate-14.json */,
+				6005FFCB249566110037C6DF /* characterAttributes-ultimate-79.json */,
+				6005FFCC249566110037C6DF /* characterAttributes-ultimate-59.json */,
+				6005FFCD249566110037C6DF /* characterAttributes-ultimate-63.json */,
+				6005FFCE249566110037C6DF /* characterAttributes-ultimate-22.json */,
+				6005FFCF249566110037C6DF /* characterAttributes-ultimate-75.json */,
+				6005FFD0249566110037C6DF /* characterAttributes-ultimate-74.json */,
+				6005FFD1249566110037C6DF /* characterAttributes-ultimate-62.json */,
+				6005FFD2249566110037C6DF /* characterAttributes-ultimate-78.json */,
+				6005FFD3249566110037C6DF /* characterAttributes-ultimate-39.json */,
+				6005FFD4249566110037C6DF /* characterAttributes-ultimate-15.json */,
+				6005FFD5249566110037C6DF /* characterAttributes-ultimate-42.json */,
+				6005FFD6249566110037C6DF /* characterAttributes-ultimate-54.json */,
+				6005FFD7249566110037C6DF /* characterAttributes-ultimate-65.json */,
+				6005FFD8249566110037C6DF /* characterAttributes-ultimate-73.json */,
+				6005FFD9249566110037C6DF /* characterAttributes-ultimate-45.json */,
+				6005FFDA249566110037C6DF /* characterAttributes-ultimate-69.json */,
+				6005FFDB249566110037C6DF /* characterAttributes-ultimate-28.json */,
+				6005FFDC249566110037C6DF /* characterAttributes-ultimate-68.json */,
+				6005FFDD249566110037C6DF /* characterAttributes-ultimate-13.json */,
+				6005FFDE249566110037C6DF /* characterAttributes-ultimate-72.json */,
+				6005FFDF249566110037C6DF /* characterAttributes-ultimate-25.json */,
+				6005FFE0249566110037C6DF /* characterAttributes-ultimate-64.json */,
 			);
 			path = characterAttributes;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 		6024903B248BE033009D8E75 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				60947DE2249640000064DF5C /* CharacterTopList */,
 				600C2D49249353ED00D0FD6C /* CharacterMoves */,
 				60C7CB52248D699E007F43E8 /* CharacterDetail */,
 				609F247D248BE45200E2EF5F /* Home */,
@@ -340,6 +349,7 @@
 				608FD91B248D177C00307B6C /* CoreDataManager.swift */,
 				60C7CB50248D508B007F43E8 /* ImageCache.swift */,
 				6005000D249574570037C6DF /* ResponderHolder.swift */,
+				60947DE5249642230064DF5C /* TopLister.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -352,6 +362,7 @@
 				60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */,
 				600C2D4C2493597300D0FD6C /* CharacterMovesScreenViewModel.swift */,
 				600C2D502494F75000D0FD6C /* UserDataModel.swift */,
+				6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,6 +421,7 @@
 				60BA09742490B319008CAD96 /* FavoriteButton.swift */,
 				60DC560A2490B60600205EC7 /* MovesSection.swift */,
 				600C2D4E2494F1C000D0FD6C /* CharacterAttributesRow.swift */,
+				6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -431,6 +443,14 @@
 				608FD922248D18D200307B6C /* CachedImage+CoreDataProperties.swift */,
 			);
 			path = CachedImage;
+			sourceTree = "<group>";
+		};
+		60947DE2249640000064DF5C /* CharacterTopList */ = {
+			isa = PBXGroup;
+			children = (
+				60947DE32496401B0064DF5C /* CharacterTopList.swift */,
+			);
+			path = CharacterTopList;
 			sourceTree = "<group>";
 		};
 		609F247D248BE45200E2EF5F /* Home */ = {
@@ -513,54 +533,54 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60050007249566110037C6DF /* character-ultimate-28.json in Resources */,
-				6005FFF1249566110037C6DF /* character-ultimate-60.json in Resources */,
-				60050004249566110037C6DF /* character-ultimate-73.json in Resources */,
-				6005FFF9249566110037C6DF /* character-ultimate-63.json in Resources */,
-				60050001249566110037C6DF /* character-ultimate-42.json in Resources */,
-				6005000B249566110037C6DF /* character-ultimate-25.json in Resources */,
-				6005FFFD249566110037C6DF /* character-ultimate-62.json in Resources */,
-				6005FFF5249566110037C6DF /* character-ultimate-43.json in Resources */,
-				60050006249566110037C6DF /* character-ultimate-69.json in Resources */,
-				6005FFFE249566110037C6DF /* character-ultimate-78.json in Resources */,
-				6005FFE9249566110037C6DF /* character-ultimate-31.json in Resources */,
-				6005FFFA249566110037C6DF /* character-ultimate-22.json in Resources */,
-				6005FFF0249566110037C6DF /* character-ultimate-61.json in Resources */,
-				6005FFF2249566110037C6DF /* character-ultimate-76.json in Resources */,
-				6005FFE7249566110037C6DF /* character-ultimate-46.json in Resources */,
-				60050000249566110037C6DF /* character-ultimate-15.json in Resources */,
-				6005FFE2249566110037C6DF /* character-ultimate-30.json in Resources */,
+				60050007249566110037C6DF /* characterAttributes-ultimate-28.json in Resources */,
+				6005FFF1249566110037C6DF /* characterAttributes-ultimate-60.json in Resources */,
+				60050004249566110037C6DF /* characterAttributes-ultimate-73.json in Resources */,
+				6005FFF9249566110037C6DF /* characterAttributes-ultimate-63.json in Resources */,
+				60050001249566110037C6DF /* characterAttributes-ultimate-42.json in Resources */,
+				6005000B249566110037C6DF /* characterAttributes-ultimate-25.json in Resources */,
+				6005FFFD249566110037C6DF /* characterAttributes-ultimate-62.json in Resources */,
+				6005FFF5249566110037C6DF /* characterAttributes-ultimate-43.json in Resources */,
+				60050006249566110037C6DF /* characterAttributes-ultimate-69.json in Resources */,
+				6005FFFE249566110037C6DF /* characterAttributes-ultimate-78.json in Resources */,
+				6005FFE9249566110037C6DF /* characterAttributes-ultimate-31.json in Resources */,
+				6005FFFA249566110037C6DF /* characterAttributes-ultimate-22.json in Resources */,
+				6005FFF0249566110037C6DF /* characterAttributes-ultimate-61.json in Resources */,
+				6005FFF2249566110037C6DF /* characterAttributes-ultimate-76.json in Resources */,
+				6005FFE7249566110037C6DF /* characterAttributes-ultimate-46.json in Resources */,
+				60050000249566110037C6DF /* characterAttributes-ultimate-15.json in Resources */,
+				6005FFE2249566110037C6DF /* characterAttributes-ultimate-30.json in Resources */,
 				60249033248BC152009D8E75 /* LaunchScreen.storyboard in Resources */,
 				60249030248BC152009D8E75 /* Preview Assets.xcassets in Resources */,
-				6005FFEE249566110037C6DF /* character-ultimate-77.json in Resources */,
-				6005000C249566110037C6DF /* character-ultimate-64.json in Resources */,
-				6005FFEB249566110037C6DF /* character-ultimate-16.json in Resources */,
-				60050003249566110037C6DF /* character-ultimate-65.json in Resources */,
-				6005FFE3249566110037C6DF /* character-ultimate-67.json in Resources */,
-				6005FFEF249566110037C6DF /* character-ultimate-20.json in Resources */,
-				6005FFE4249566110037C6DF /* character-ultimate-2.json in Resources */,
-				6005FFE1249566110037C6DF /* character-ultimate-71.json in Resources */,
+				6005FFEE249566110037C6DF /* characterAttributes-ultimate-77.json in Resources */,
+				6005000C249566110037C6DF /* characterAttributes-ultimate-64.json in Resources */,
+				6005FFEB249566110037C6DF /* characterAttributes-ultimate-16.json in Resources */,
+				60050003249566110037C6DF /* characterAttributes-ultimate-65.json in Resources */,
+				6005FFE3249566110037C6DF /* characterAttributes-ultimate-67.json in Resources */,
+				6005FFEF249566110037C6DF /* characterAttributes-ultimate-20.json in Resources */,
+				6005FFE4249566110037C6DF /* characterAttributes-ultimate-2.json in Resources */,
+				6005FFE1249566110037C6DF /* characterAttributes-ultimate-71.json in Resources */,
 				6024902D248BC152009D8E75 /* Assets.xcassets in Resources */,
-				6005FFE5249566110037C6DF /* character-ultimate-47.json in Resources */,
+				6005FFE5249566110037C6DF /* characterAttributes-ultimate-47.json in Resources */,
 				608FD8FB248C126000307B6C /* characters-smash4.json in Resources */,
-				6005FFFF249566110037C6DF /* character-ultimate-39.json in Resources */,
-				6005FFF7249566110037C6DF /* character-ultimate-79.json in Resources */,
-				60050008249566110037C6DF /* character-ultimate-68.json in Resources */,
-				6005FFEC249566110037C6DF /* character-ultimate-8.json in Resources */,
-				6005FFF6249566110037C6DF /* character-ultimate-14.json in Resources */,
-				6005FFFC249566110037C6DF /* character-ultimate-74.json in Resources */,
-				6005000A249566110037C6DF /* character-ultimate-72.json in Resources */,
-				60050002249566110037C6DF /* character-ultimate-54.json in Resources */,
-				6005FFF3249566110037C6DF /* character-ultimate-40.json in Resources */,
-				60050005249566110037C6DF /* character-ultimate-45.json in Resources */,
-				6005FFE8249566110037C6DF /* character-ultimate-66.json in Resources */,
-				6005FFF4249566110037C6DF /* character-ultimate-17.json in Resources */,
-				6005FFFB249566110037C6DF /* character-ultimate-75.json in Resources */,
-				6005FFEA249566110037C6DF /* character-ultimate-70.json in Resources */,
-				6005FFE6249566110037C6DF /* character-ultimate-50.json in Resources */,
-				60050009249566110037C6DF /* character-ultimate-13.json in Resources */,
-				6005FFF8249566110037C6DF /* character-ultimate-59.json in Resources */,
-				6005FFED249566110037C6DF /* character-ultimate-57.json in Resources */,
+				6005FFFF249566110037C6DF /* characterAttributes-ultimate-39.json in Resources */,
+				6005FFF7249566110037C6DF /* characterAttributes-ultimate-79.json in Resources */,
+				60050008249566110037C6DF /* characterAttributes-ultimate-68.json in Resources */,
+				6005FFEC249566110037C6DF /* characterAttributes-ultimate-8.json in Resources */,
+				6005FFF6249566110037C6DF /* characterAttributes-ultimate-14.json in Resources */,
+				6005FFFC249566110037C6DF /* characterAttributes-ultimate-74.json in Resources */,
+				6005000A249566110037C6DF /* characterAttributes-ultimate-72.json in Resources */,
+				60050002249566110037C6DF /* characterAttributes-ultimate-54.json in Resources */,
+				6005FFF3249566110037C6DF /* characterAttributes-ultimate-40.json in Resources */,
+				60050005249566110037C6DF /* characterAttributes-ultimate-45.json in Resources */,
+				6005FFE8249566110037C6DF /* characterAttributes-ultimate-66.json in Resources */,
+				6005FFF4249566110037C6DF /* characterAttributes-ultimate-17.json in Resources */,
+				6005FFFB249566110037C6DF /* characterAttributes-ultimate-75.json in Resources */,
+				6005FFEA249566110037C6DF /* characterAttributes-ultimate-70.json in Resources */,
+				6005FFE6249566110037C6DF /* characterAttributes-ultimate-50.json in Resources */,
+				60050009249566110037C6DF /* characterAttributes-ultimate-13.json in Resources */,
+				6005FFF8249566110037C6DF /* characterAttributes-ultimate-59.json in Resources */,
+				6005FFED249566110037C6DF /* characterAttributes-ultimate-57.json in Resources */,
 				608FD8F9248C103000307B6C /* characters-ultimate.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +597,7 @@
 				608FD91A248D174700307B6C /* CONFIG.swift in Sources */,
 				60BA09752490B319008CAD96 /* FavoriteButton.swift in Sources */,
 				60C7CB54248D69D1007F43E8 /* CharacterDetailScreenContentView.swift in Sources */,
+				60947DE42496401B0064DF5C /* CharacterTopList.swift in Sources */,
 				60249027248BC151009D8E75 /* AppDelegate.swift in Sources */,
 				600C2D4F2494F1C000D0FD6C /* CharacterAttributesRow.swift in Sources */,
 				608FD8F1248BFDA700307B6C /* RedGreenBlue.swift in Sources */,
@@ -596,6 +617,8 @@
 				608FD923248D18D200307B6C /* CachedImage+CoreDataClass.swift in Sources */,
 				60249040248BE0B2009D8E75 /* HomeScreenViewModel.swift in Sources */,
 				600C2D4B2493542500D0FD6C /* CharacterMovesScreenContentView.swift in Sources */,
+				60947DE6249642230064DF5C /* TopLister.swift in Sources */,
+				6046B23E249948660010CD9E /* CharacterTopListViewModel.swift in Sources */,
 				608FD918248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld in Sources */,
 				600C2D4D2493597300D0FD6C /* CharacterMovesScreenViewModel.swift in Sources */,
 				608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */,
@@ -604,6 +627,7 @@
 				6075E27C248E9BF90038744B /* CharacterThumbnailImage.swift in Sources */,
 				6007B57024913E66009FD263 /* CharacterAttributes.swift in Sources */,
 				600C2D542494F89500D0FD6C /* FavoritedCharacter+CoreDataClass.swift in Sources */,
+				6046B24024994C060010CD9E /* CharacterAttributeSection.swift in Sources */,
 				60C7CB4F248D5042007F43E8 /* UrlImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

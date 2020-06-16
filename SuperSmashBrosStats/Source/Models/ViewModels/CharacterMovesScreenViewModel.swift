@@ -20,6 +20,9 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     init(character: Character, kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.character = character
+        if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: .ultimate, characterId: character.details.ownerId) {
+            self.characterMoves = characterMoves
+        }
     }
 
     var categorizedCharacterMoves: [String: [CodableCharacterMoves]] {
@@ -28,11 +31,13 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     }
 
     func populateCharacterMoves() {
-        let characterId = self.character.details.ownerId
-        self.analys("Owner id: \(characterId)")
-        let game: Game = .ultimate
-        Networker.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
-            self?.handleCharacterMovesResult(game: game, characterId: characterId, result: result)
+        if self.characterMoves.isEmpty {
+            let characterId = self.character.details.ownerId
+            self.analys("Owner id: \(characterId)")
+            let game: Game = .ultimate
+            Networker.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
+                self?.handleCharacterMovesResult(game: game, characterId: characterId, result: result)
+            }
         }
     }
 

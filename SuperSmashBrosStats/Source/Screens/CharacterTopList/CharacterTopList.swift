@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct CharacterTopList: View {
-    @State private var topListItems = [String: [TopListItem]]()
-    @State private var showSortActionSheet = false
+    @ObservedObject
+    private var viewModel: CharacterTopListViewModel
 
     let attribute: CodableCharacterAttributes
 
@@ -18,13 +18,14 @@ struct CharacterTopList: View {
 
     init(attribute: CodableCharacterAttributes) {
         self.attribute = attribute
+        self.viewModel = CharacterTopListViewModel(attributes: attribute)
     }
 
     var body: some View {
         List {
-            ForEach(self.topListItems.keys.sorted(), id: \.self) { key in
+            ForEach(self.viewModel.topListItems.keys.sorted(), id: \.self) { key in
                 Section(header: Text(key).font(.headline)) {
-                    ForEach(self.topListItems[key]!, id: \.self) { (item: TopListItem) in
+                    ForEach(self.viewModel.topListItems[key] ?? [], id: \.self) { (item: TopListItem) in
                         HStack {
                             Text(item.owner)
                                 .foregroundColor(self.attribute.owner == item.owner ? .accentColor : .primary)
@@ -35,30 +36,54 @@ struct CharacterTopList: View {
             }
         }
         .onAppear(perform: self.onCharacterTopListAppear)
-        .actionSheet(isPresented: self.$showSortActionSheet, content: {
-            ActionSheet(title: Text("Sort Attributes By"), buttons: [
-                .default(Text("Descending"), action: {
-                    self.topLister.setSortingMethod(to: .descending)
-                    self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
-                }),
-                .default(Text("Ascending"), action: {
-                    self.topLister.setSortingMethod(to: .ascending)
-                    self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
-                })
-                ,
-                .cancel()
-            ])
-        })
+        .actionSheet(isPresented: self.$viewModel.showSortActionSheet, content: self.sortAttributesByActionSheet)
         .navigationBarTitle(Text(self.attribute.name), displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            self.showSortActionSheet = true
-        }) {
+        .navigationBarItems(trailing: Button(action: self.viewModel.sortButtonAction) {
             Image(systemName: "arrow.up.arrow.down")
         })
     }
 
     private func onCharacterTopListAppear() {
-        self.topListItems = self.topLister.getTopListItems(of: self.attribute.name, game: Game.ultimate.rawValue)
+        self.viewModel.populateTopListItems()
+    }
+
+    private func sortAttributesByActionSheet() -> ActionSheet {
+        return ActionSheet(title: Text("Sort Attributes By"), buttons: [
+            .default(Text("Descending"), action: {
+                self.viewModel.setSortingMethod(to: .descending)
+            }),
+            .default(Text("Ascending"), action: {
+                self.viewModel.setSortingMethod(to: .ascending)
+            })
+            ,
+            .cancel()
+        ])
+    }
+}
+
+final class CharacterTopListViewModel: ObservableObject {
+    @Published var topListItems = [String: [TopListItem]]()
+    @Published var showSortActionSheet = false
+
+    let attributes: CodableCharacterAttributes
+
+    private let topLister = TopLister.shared
+
+    init(attributes: CodableCharacterAttributes) {
+        self.attributes = attributes
+    }
+
+    func populateTopListItems() {
+        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
+    }
+
+    func setSortingMethod(to sortingMethod: SortListMethod) {
+        self.topLister.setSortingMethod(to: sortingMethod)
+        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
+    }
+
+    func sortButtonAction() {
+        self.showSortActionSheet = true
     }
 }
 

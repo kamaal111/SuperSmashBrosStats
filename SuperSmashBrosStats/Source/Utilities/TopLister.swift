@@ -83,6 +83,8 @@ class TopLister {
             return a > b
         case .ascending:
             return a < b
+        case .defaultSort:
+            return false
         }
     }
 
@@ -117,6 +119,7 @@ enum TopListItemValueType {
 enum SortListMethod {
     case descending
     case ascending
+    case defaultSort
 }
 
 struct TopListItem: Hashable {

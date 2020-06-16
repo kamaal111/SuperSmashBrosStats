@@ -24,15 +24,10 @@ struct CharacterTopList: View {
     var body: some View {
         List {
             ForEach(self.viewModel.topListItems.keys.sorted(), id: \.self) { key in
-                Section(header: Text(key).font(.headline)) {
-                    ForEach(self.viewModel.topListItems[key] ?? [], id: \.self) { (item: TopListItem) in
-                        HStack {
-                            Text(item.owner)
-                                .foregroundColor(self.attribute.owner == item.owner ? .accentColor : .primary)
-                            Text(item.value)
-                        }
-                    }
-                }
+                CharacterAttributeSection(
+                    topListItems: self.viewModel.topListItems,
+                    key: key,
+                    attributeOwner: self.attribute.owner)
             }
         }
         .onAppear(perform: self.onCharacterTopListAppear)
@@ -54,36 +49,9 @@ struct CharacterTopList: View {
             }),
             .default(Text("Ascending"), action: {
                 self.viewModel.setSortingMethod(to: .ascending)
-            })
-            ,
+            }),
             .cancel()
         ])
-    }
-}
-
-final class CharacterTopListViewModel: ObservableObject {
-    @Published var topListItems = [String: [TopListItem]]()
-    @Published var showSortActionSheet = false
-
-    let attributes: CodableCharacterAttributes
-
-    private let topLister = TopLister.shared
-
-    init(attributes: CodableCharacterAttributes) {
-        self.attributes = attributes
-    }
-
-    func populateTopListItems() {
-        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
-    }
-
-    func setSortingMethod(to sortingMethod: SortListMethod) {
-        self.topLister.setSortingMethod(to: sortingMethod)
-        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
-    }
-
-    func sortButtonAction() {
-        self.showSortActionSheet = true
     }
 }
 

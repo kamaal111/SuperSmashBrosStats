@@ -33,14 +33,14 @@ class TopListerTests: XCTestCase {
         guard let key = topList.keys.first,
             let weightClass = topList[key],
             let firstInWeightClass = weightClass.first,
-            let lastInWeightClass = weightClass.last else { return XCTFail() }
+            let lastInWeightClass = weightClass.last else { return XCTFail("Failed to unwrap values") }
         XCTAssertEqual(firstInWeightClass.owner, "Bowser")
         XCTAssertEqual(lastInWeightClass.owner, "Pichu")
         self.topLister.setSortingMethod(to: .ascending)
         let reversedTopList = self.topLister.getTopListItems(of: "Weight", game: "ultimate")
         guard let reversedWeightClass = reversedTopList[key],
             let firstInReversedWeightClass = reversedWeightClass.first,
-            let lastInReversedWeightClass = reversedWeightClass.last else { return XCTFail() }
+            let lastInReversedWeightClass = reversedWeightClass.last else { return XCTFail("Failed to unwrap values") }
         XCTAssertEqual(firstInReversedWeightClass.owner, "Pichu")
         XCTAssertEqual(lastInReversedWeightClass.owner, "Bowser")
     }

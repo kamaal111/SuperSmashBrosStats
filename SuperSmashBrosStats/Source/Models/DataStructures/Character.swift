@@ -12,7 +12,7 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
     let colorTheme: String
     let displayName: String
     let name: String
-    let id: String
+    let id: String // swiftlint:disable:this identifier_name
     let ownerId: Int
     let fullUrl: String
     let mainImageUrl: String
@@ -28,7 +28,7 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
         case colorTheme = "ColorTheme"
         case displayName = "DisplayName"
         case name = "Name"
-        case id = "InstanceId"
+        case id = "InstanceId" // swiftlint:disable:this identifier_name
         case ownerId = "OwnerId"
         case fullUrl = "FullUrl"
         case mainImageUrl = "MainImageUrl"
@@ -41,7 +41,7 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
         let ultimate: CodableRelatedLinks?
         let smash4: CodableRelatedLinks?
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case ultimate = "Ultimate"
             case smash4 = "Smash4"
         }
@@ -51,7 +51,7 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
         let itSelf: String
         let moves: String
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case itSelf = "Self"
             case moves = "Moves"
         }
@@ -59,10 +59,11 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
 }
 
 struct Character: Hashable, Identifiable {
-    let id: String
+    let id: String // swiftlint:disable:this identifier_name
     let details: CodableCharacter
     var cachedThumbnailUrl: Data?
 
+    // swiftlint:disable:next identifier_name
     init(id: String, details: CodableCharacter, cachedThumbnailUrl: Data? = nil) {
         self.id = id
         self.details = details

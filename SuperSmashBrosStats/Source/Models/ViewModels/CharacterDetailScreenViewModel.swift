@@ -21,7 +21,9 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     init(character: Character, kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.character = character
-        if let characterAttributes = ResponderHolder.shared.getCharacterAttributes(game: .ultimate, characterId: character.details.ownerId) {
+        if let characterAttributes = ResponderHolder.shared.getCharacterAttributes(
+            game: .ultimate,
+            characterId: character.details.ownerId) {
             self.characterAttributes = characterAttributes
         }
     }
@@ -47,6 +49,7 @@ final class CharacterDetailScreenViewModel: ObservableObject {
         }
     }
 
+    // swiftlint:disable:next line_length
     private func handleCharacterAttributesResult(game: Game, characterId: Int, result: Result<[CodableCharacterAttributes], Error>) {
         switch result {
         case .failure(let failure):

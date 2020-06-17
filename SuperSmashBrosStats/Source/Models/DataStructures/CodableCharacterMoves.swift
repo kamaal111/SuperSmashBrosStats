@@ -9,7 +9,7 @@
 import Foundation
 
 struct CodableCharacterMoves: Codable, Hashable, Identifiable {
-    let id: String
+    let id: String // swiftlint:disable:this identifier_name
     let name: String
     let ownerId: Int
     let owner: String
@@ -34,7 +34,7 @@ struct CodableCharacterMoves: Codable, Hashable, Identifiable {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case id = "InstanceId"
+        case id = "InstanceId" // swiftlint:disable:this identifier_name
         case name = "Name"
         case ownerId = "OwnerId"
         case owner = "Owner"
@@ -56,7 +56,7 @@ struct CodableCharacterMoves: Codable, Hashable, Identifiable {
         let ultimate: CodableRelatedLinks?
         let smash4: CodableRelatedLinks?
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case ultimate = "Ultimate"
             case smash4 = "Smash4"
         }
@@ -66,7 +66,7 @@ struct CodableCharacterMoves: Codable, Hashable, Identifiable {
         let itSelf: String?
         let character: String?
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case itSelf = "Self"
             case character = "Character"
         }

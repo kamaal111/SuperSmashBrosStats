@@ -9,7 +9,7 @@
 import Foundation
 
 struct CodableCharacterAttributes: Codable, Hashable, Identifiable {
-    let id: String
+    let id: String // swiftlint:disable:this identifier_name
     let name: String
     let ownerId: Int
     let owner: String
@@ -18,7 +18,7 @@ struct CodableCharacterAttributes: Codable, Hashable, Identifiable {
     let related: CodableRelated
 
     private enum CodingKeys: String, CodingKey {
-        case id = "InstanceId"
+        case id = "InstanceId" // swiftlint:disable:this identifier_name
         case name = "Name"
         case ownerId = "OwnerId"
         case owner = "Owner"
@@ -33,7 +33,7 @@ struct CodableCharacterAttributes: Codable, Hashable, Identifiable {
         let ownerId: Int
         let name: String
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case value = "Value"
             case owner = "Owner"
             case ownerId = "OwnerId"
@@ -45,16 +45,16 @@ struct CodableCharacterAttributes: Codable, Hashable, Identifiable {
         let ultimate: CodableRelatedLinks?
         let smash4: CodableRelatedLinks?
 
-        private enum CodingKeys: String, CodingKey {
+        private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
             case ultimate = "Ultimate"
             case smash4 = "Smash4"
         }
 
-        struct CodableRelatedLinks: Codable, Hashable {
+        struct CodableRelatedLinks: Codable, Hashable { // swiftlint:disable:this nesting
             let itSelf: String?
             let character: String?
 
-            private enum CodingKeys: String, CodingKey {
+            private enum CodingKeys: String, CodingKey { // swiftlint:disable:this nesting
                 case itSelf = "Self"
                 case character = "Character"
             }

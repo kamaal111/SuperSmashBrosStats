@@ -25,19 +25,21 @@ struct HomeScreenContentView: View {
                         .font(.body)
                 }
                 Section(header: Text("Characters").font(.headline)) {
-                    ForEach(self.viewModel.filteredCharacters(favoritedCharacters: self.userData.favoritedCharacters)) { (character: Character) in
-                        NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
-                            CharacterRow(
-                                characterWithImage: character,
-                                isFavorited: self.userData.checkIfCharacterIsFavorite(
-                                    characterId: character.details.ownerId,
-                                    game: character.details.game))
-                        }
+                    ForEach(self.viewModel.filteredCharacters(
+                        favoritedCharacters: self.userData.favoritedCharacters)) { (character: Character) in
+                            NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
+                                CharacterRow(
+                                    characterWithImage: character,
+                                    isFavorited: self.userData.checkIfCharacterIsFavorite(
+                                        characterId: character.details.ownerId,
+                                        game: character.details.game))
+                            }
                     }
                 }
             }
             if self.viewModel.characters.isEmpty {
                 Text("Loading...")
+                    .bold()
             }
         }
         .onAppear(perform: self.onHomeScreenContentViewAppear)

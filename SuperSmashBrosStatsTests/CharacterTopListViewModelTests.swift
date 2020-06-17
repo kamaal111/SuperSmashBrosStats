@@ -25,21 +25,21 @@ class CharacterTopListViewModelTests: XCTestCase {
     }
 
     func testIfViewModelPopulates() throws {
-        guard let viewModel = self.viewModel else { return XCTFail() }
+        guard let viewModel = self.viewModel else { return XCTFail("Failed to load viewmodel") }
         XCTAssertTrue(viewModel.topListItems.isEmpty)
         viewModel.populateTopListItems()
         XCTAssertFalse(viewModel.topListItems.isEmpty)
     }
 
     func testIfShowSortActionSheetToggles() {
-        guard let viewModel = self.viewModel else { return XCTFail() }
+        guard let viewModel = self.viewModel else { return XCTFail("Failed to load viewmodel") }
         XCTAssertFalse(viewModel.showSortActionSheet)
         viewModel.sortButtonAction()
         XCTAssertTrue(viewModel.showSortActionSheet)
     }
 
     func testIfSortingMethodGetsSet() {
-        guard let viewModel = self.viewModel else { return XCTFail() }
+        guard let viewModel = self.viewModel else { return XCTFail("Failed to load viewmodel") }
         XCTAssert(self.topLister.getSortingMethod() == .descending)
         XCTAssert(self.topLister.getSortingMethod() != .ascending)
         XCTAssert(self.topLister.getSortingMethod() != .defaultSort)

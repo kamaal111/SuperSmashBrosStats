@@ -35,10 +35,12 @@ final class HomeScreenViewModel: ObservableObject {
     func populateCharacters(cachedImages: [CachedImage]) {
         Networker.getCharacters(game: .ultimate) { [weak self] result in
             switch result {
-            case .failure(_):
-                self?.analyse("Failed to get characters")
+            case .failure(let failure):
+                self?.analyse("*** Failed to get characters -> \(failure)")
             case .success(let characters):
-                let modifiedCharacters = self?.modifyCharacters(characters: characters, cachedImages: cachedImages) ?? []
+                guard let modifiedCharacters = self?.modifyCharacters(
+                    characters: characters,
+                    cachedImages: cachedImages) else { return }
                 DispatchQueue.main.async {
                     self?.characters = modifiedCharacters
                 }

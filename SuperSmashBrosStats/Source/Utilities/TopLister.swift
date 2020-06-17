@@ -32,7 +32,12 @@ class TopLister {
         }
     }
 
-    static let shared = TopLister()
+    static var shared = TopLister()
+
+    func resetData() {
+        self.topListItems = [:]
+        self.sortMethod = .descending
+    }
 
     func getTopListItems(of attribute: String, game: String) -> [String: [TopListItem]] {
         guard let filesList = self.topListFiles[game] else { return [:] }

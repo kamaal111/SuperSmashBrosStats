@@ -184,6 +184,7 @@
 		60613013249AA7DB00B682A1 /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
 		60613014249AABC200B682A1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60613016249AAC9B00B682A1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		60613018249AADFA00B682A1 /* before_build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = before_build.sh; sourceTree = "<group>"; };
 		6075E27B248E9BF90038744B /* CharacterThumbnailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterThumbnailImage.swift; sourceTree = "<group>"; };
 		6075E27D24901D3E0038744B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6075E28024901ECE0038744B /* DispatchQueue+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+extensions.swift"; sourceTree = "<group>"; };
@@ -425,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				60613013249AA7DB00B682A1 /* test.sh */,
+				60613018249AADFA00B682A1 /* before_build.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -527,6 +529,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60249037248BC152009D8E75 /* Build configuration list for PBXNativeTarget "SuperSmashBrosStats" */;
 			buildPhases = (
+				60613019249AAE8F00B682A1 /* ShellScript */,
 				6024901F248BC151009D8E75 /* Sources */,
 				60249020248BC151009D8E75 /* Frameworks */,
 				60249021248BC151009D8E75 /* Resources */,
@@ -669,6 +672,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60613019249AAE8F00B682A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nsh Scripts/before_build.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6024901F248BC151009D8E75 /* Sources */ = {

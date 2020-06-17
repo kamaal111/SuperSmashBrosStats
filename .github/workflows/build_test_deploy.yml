@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - develop
       - "release/**"
 jobs:
   buildAndTest:

@@ -14,8 +14,8 @@ jobs:
         scheme: ["SuperSmashBrosStats"]
         destination:
           [
-            "platform=iOS Simulator,OS=13.4.1,name=iPad Pro (12.9-inch) (4th generation)",
-            "platform=iOS Simulator,OS=13.4.1,name=iPhone 11 Pro Max",
+            "platform=iOS Simulator,OS=13.5,name=iPad Pro (12.9-inch) (4th generation)",
+            "platform=iOS Simulator,OS=13.5,name=iPhone 11 Pro Max",
           ]
     steps:
       - uses: actions/checkout@v1

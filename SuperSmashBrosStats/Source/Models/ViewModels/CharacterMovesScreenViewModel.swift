@@ -20,7 +20,9 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     init(character: Character, kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.character = character
-        if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: .ultimate, characterId: character.details.ownerId) {
+        if let characterMoves = ResponderHolder.shared.getCharacterMoves(
+            game: .ultimate,
+            characterId: character.details.ownerId) {
             self.characterMoves = characterMoves
         }
     }
@@ -41,12 +43,16 @@ final class CharacterMovesScreenViewModel: ObservableObject {
         }
     }
 
+    // swiftlint:disable:next line_length
     private func handleCharacterMovesResult(game: Game, characterId: Int, result: Result<[CodableCharacterMoves], Error>) {
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")
         case .success(let characterMoves):
-            ResponderHolder.shared.setCharacterMoves(game: game, characterId: characterId, characterMoves: characterMoves)
+            ResponderHolder.shared.setCharacterMoves(
+                game: game,
+                characterId: characterId,
+                characterMoves: characterMoves)
             DispatchQueue.main.async {
                 self.characterMoves = characterMoves
             }

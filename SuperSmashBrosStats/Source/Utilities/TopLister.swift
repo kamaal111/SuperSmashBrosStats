@@ -18,7 +18,8 @@ class TopLister {
 
     private init() {
         let path = Bundle.main.resourcePath!
-        let items = try! FileManager.default.contentsOfDirectory(atPath: path)
+        guard let items = try? FileManager.default.contentsOfDirectory(atPath: path)
+            else { fatalError("Could not get content of directory") }
         items.forEach {
             if $0.hasPrefix("characterAttributes-") {
                 let splittedTextFileName = $0.split(separator: "-")
@@ -26,7 +27,8 @@ class TopLister {
                 if self.topListFiles[game] == nil { self.topListFiles[game] = [] }
                 let characterId = Int(splittedTextFileName[2].split(separator: ".")[0])
                 if let unwrappedCharacterId = characterId {
-                    self.topListFiles[game]?.append(TopListFile(fileName: $0, game: game, characterId: unwrappedCharacterId))
+                    let topListFile = TopListFile(fileName: $0, game: game, characterId: unwrappedCharacterId)
+                    self.topListFiles[game]?.append(topListFile)
                 }
             }
         }
@@ -45,11 +47,17 @@ class TopLister {
         filesList.forEach { file in
             let characterId = file.characterId
             if let game = Game(rawValue: file.game) {
-                if let characterAttributes = self.responderHolder.getCharacterAttributes(game: game, characterId: characterId) {
+                if let characterAttributes = self.responderHolder.getCharacterAttributes(
+                    game: game,
+                    characterId: characterId) {
                     self.setTopList(characterAttributes: characterAttributes, attribute: attribute)
                 } else {
-                    let characterAttributes: [CodableCharacterAttributes] = load("characterAttributes-\(game)-\(characterId).json")
-                    self.responderHolder.setCharacterAttributes(game: game, characterId: characterId, characterAttributes: characterAttributes)
+                    let path = "characterAttributes-\(game)-\(characterId).json"
+                    let characterAttributes: [CodableCharacterAttributes] = load(path)
+                    self.responderHolder.setCharacterAttributes(
+                        game: game,
+                        characterId: characterId,
+                        characterAttributes: characterAttributes)
                     self.setTopList(characterAttributes: characterAttributes, attribute: attribute)
                 }
             }
@@ -67,27 +75,28 @@ class TopLister {
 
     private func categorizeTopList(topList: [TopListItem]) -> [String: [TopListItem]] {
         let categorizedTopList = Dictionary(grouping: topList) { $0.valueName }
-            .mapValues { $0.sorted(by: self.sortTopListBy(a:b:)) }
+            .mapValues { $0.sorted(by: self.sortTopListBy(valueA:valueB:)) }
         return categorizedTopList
     }
 
-    private func sortTopListBy(a: TopListItem, b: TopListItem) -> Bool {
-        switch a.valueType {
+    private func sortTopListBy(valueA: TopListItem, valueB: TopListItem) -> Bool {
+        switch valueA.valueType {
         case .normalNumber:
-            guard let valueA = Double(a.value), let valueB = Double(b.value) else { return false }
-            return self.compareForSort(a: valueA, b: valueB)
+            guard let valueA = Double(valueA.value), let valueB = Double(valueB.value) else { return false }
+            return self.compareForSort(valueA: valueA, valueB: valueB)
         case .percentage, .times:
-            guard let valueA = Double(a.value.dropLast()), let valueB = Double(b.value.dropLast()) else { return false }
-            return self.compareForSort(a: valueA, b: valueB)
+            guard let valueA = Double(valueA.value.dropLast()), let valueB = Double(valueB.value.dropLast())
+                else { return false }
+            return self.compareForSort(valueA: valueA, valueB: valueB)
         }
     }
 
-    private func compareForSort(a: Double, b: Double) -> Bool {
+    private func compareForSort(valueA: Double, valueB: Double) -> Bool {
         switch self.sortMethod {
         case .descending:
-            return a > b
+            return valueA > valueB
         case .ascending:
-            return a < b
+            return valueA < valueB
         case .defaultSort:
             return false
         }
@@ -95,21 +104,25 @@ class TopLister {
 
     private func setTopList(characterAttributes: [CodableCharacterAttributes], attribute: String) {
         var uniqueAttributeNames = [String]()
-        for attributes in characterAttributes where attributes.name == attribute && !uniqueAttributeNames.contains(attributes.name) {
-            let ownerName = attributes.owner
-            if self.topListItems[attribute] == nil { self.topListItems[attribute] = [] }
-            for value in attributes.values where !value.value.isEmpty {
-                var valueType: TopListItemValueType = .normalNumber
-                if value.value.hasSuffix("x") { valueType = .times }
-                else if value.value.hasSuffix("%") { valueType = .percentage }
-                let topListItem = TopListItem(
-                    owner: ownerName,
-                    valueName: value.name,
-                    value: value.value,
-                    valueType: valueType)
-                self.topListItems[attribute]?.append(topListItem)
-                uniqueAttributeNames.append(attributes.name)
-            }
+        for attributes in characterAttributes
+            where attributes.name == attribute && !uniqueAttributeNames.contains(attributes.name) {
+                let ownerName = attributes.owner
+                if self.topListItems[attribute] == nil { self.topListItems[attribute] = [] }
+                for value in attributes.values where !value.value.isEmpty {
+                    var valueType: TopListItemValueType = .normalNumber
+                    if value.value.hasSuffix("x") {
+                        valueType = .times
+                    } else if value.value.hasSuffix("%") {
+                        valueType = .percentage
+                    }
+                    let topListItem = TopListItem(
+                        owner: ownerName,
+                        valueName: value.name,
+                        value: value.value,
+                        valueType: valueType)
+                    self.topListItems[attribute]?.append(topListItem)
+                    uniqueAttributeNames.append(attributes.name)
+                }
         }
     }
 

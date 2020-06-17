@@ -9,5 +9,5 @@
 import Foundation
 
 struct CONFIG {
-    static let MAIN_PERSISTANT_CONTAINER_NAME = "SuperSmashBrosStats"
+    static let MAIN_PERSISTANT_CONTAINER_NAME = "SuperSmashBrosStats" // swiftlint:disable:this identifier_name
 }

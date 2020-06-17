@@ -16,7 +16,7 @@ enum Game: String {
 struct Networker {
     static private let baseUrl = "http://127.0.0.1:4000/v1/api"
 
-    static func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> ()) {
+    static func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> Void) {
         DispatchQueue.apiCallThread.async {
             switch game {
             case .smash4:
@@ -27,37 +27,46 @@ struct Networker {
         }
     }
 
-    static func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> ()) {
+    // swiftlint:disable:next line_length
+    static func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void) {
         DispatchQueue.apiCallThread.async {
             if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: game, characterId: characterId) {
                 completion(.success(characterMoves))
             } else {
-                Self.get([CodableCharacterMoves].self, from: "/characters/\(game.rawValue)/moves/\(characterId)") { result in
+                Self.get(
+                [CodableCharacterMoves].self,
+                from: "/characters/\(game.rawValue)/moves/\(characterId)") { result in
                     completion(result)
                 }
             }
         }
     }
 
-    static func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> ()) {
+    // swiftlint:disable:next line_length
+    static func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void) {
         DispatchQueue.apiCallThread.async {
-            if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(game: game, characterId: characterId) {
+            if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(
+                game: game,
+                characterId: characterId) {
                 completion(.success(characterAttribute))
             } else {
                 switch game {
                 case .smash4:
-                    Self.get([CodableCharacterAttributes].self, from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
+                    Self.get(
+                    [CodableCharacterAttributes].self,
+                    from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
                         completion(result)
                     }
                 case .ultimate:
-                    let characterData: [CodableCharacterAttributes] = load("characterAttributes-\(game.rawValue)-\(characterId).json")
+                    let path = "characterAttributes-\(game.rawValue)-\(characterId).json"
+                    let characterData: [CodableCharacterAttributes] = load(path)
                     completion(.success(characterData))
                 }
             }
         }
     }
 
-    static func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> ()) {
+    static func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> Void) {
         DispatchQueue.loadImageThread.async {
             guard let url = URL(string: imageUrl) else {
                 completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
@@ -68,7 +77,7 @@ struct Networker {
                     completion(.failure(error))
                     return
                 }
-                guard let _ = response as? HTTPURLResponse else {
+                guard (response as? HTTPURLResponse) != nil else {
                     completion(.failure(NSError(domain: "response code error", code: 400, userInfo: nil)))
                     return
                 }
@@ -82,7 +91,8 @@ struct Networker {
         }
     }
 
-    static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> ()) {
+    // swiftlint:disable:next line_length
+    static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: "\(Self.baseUrl)\(path)") else {
             completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
             return

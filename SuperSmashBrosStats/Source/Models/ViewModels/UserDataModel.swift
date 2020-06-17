@@ -39,7 +39,8 @@ final class UserDataModel: ObservableObject {
         let favoriteCharacterToDelete = self.findFavoriteCharacter(characterId: characterId, game: game)
         if let unwrappedFavoriteCharacterToDelete = favoriteCharacterToDelete {
             try? self.coreDataManager.delete(unwrappedFavoriteCharacterToDelete)
-            guard let index = self.favoritedCharacters.firstIndex(of: unwrappedFavoriteCharacterToDelete) else { return }
+            guard let index = self.favoritedCharacters.firstIndex(of: unwrappedFavoriteCharacterToDelete)
+                else { return }
             self.favoritedCharacters.remove(at: index)
         } else {
             let favoriteCharacter = FavoritedCharacter.insert(

@@ -68,7 +68,9 @@ struct CharacterDetailScreenContentView: View {
 
     private var favoritedStarColor: Color {
         let characterDetails = self.character.details
-        let isFavoriteColor = self.userData.favoritedStarColor(characterId: characterDetails.ownerId, game: characterDetails.game)
+        let isFavoriteColor = self.userData.favoritedStarColor(
+            characterId: characterDetails.ownerId,
+            game: characterDetails.game)
         return isFavoriteColor
     }
 

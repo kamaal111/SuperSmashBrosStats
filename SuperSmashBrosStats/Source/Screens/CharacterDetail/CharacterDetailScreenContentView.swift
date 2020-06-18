@@ -27,7 +27,7 @@ struct CharacterDetailScreenContentView: View {
             ZStack {
                 self.backgroundColor
                 UrlImageView(
-                    imageUrl: self.character.details.mainImageUrl,
+                    imageUrl: self.character.details.thumbnailUrl,
                     cachedDataImage: nil,
                     placeHolderColor: self.backgroundColor)
             }

@@ -26,6 +26,29 @@ struct CodableCharacterMoves: Codable, Hashable, Identifiable {
     let game: String
     let related: CodableRelated
 
+    var unwrappedMoveStats: [String: String] {
+        var moveStats = [
+            "Angle": self.angle,
+            "Base Damage": self.baseDamage,
+            "Base Knock Back": self.baseKnockBackSetKnockback,
+            "Is Weight Dependent": self.isWeightDependent ? "Yes" : "No",
+            "Knockback Growth": self.knockbackGrowth
+        ]
+        if let autoCancel = self.autoCancel {
+            moveStats["Auto Cancel"] = autoCancel
+        }
+        if let firstActionableFrame = self.firstActionableFrame {
+            moveStats["First Actionable Frame"] = firstActionableFrame
+        }
+        if let hitboxActive = self.hitboxActive {
+            moveStats["Hitbox Active"] = hitboxActive
+        }
+        if let landingLeg = self.landingLag {
+            moveStats["Landing Leg"] = landingLeg
+        }
+        return moveStats
+    }
+
     enum MoveType: String, CaseIterable, Codable, Hashable {
         case ground
         case aerial

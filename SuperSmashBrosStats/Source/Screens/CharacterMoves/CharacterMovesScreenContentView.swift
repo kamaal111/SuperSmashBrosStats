@@ -21,11 +21,11 @@ struct CharacterMovesScreenContentView: View {
     var body: some View {
         VStack {
             ZStack {
-                backgroundColor
+                self.backgroundColor
                 UrlImageView(
-                    imageUrl: self.character.details.mainImageUrl,
-                    cachedDataImage: nil,
-                    placeHolderColor: backgroundColor)
+                    imageUrl: self.character.details.thumbnailUrl,
+                    cachedDataImage: self.character.cachedThumbnailUrl,
+                    placeHolderColor: self.backgroundColor)
             }
             .frame(height: 200)
             VStack(alignment: .leading) {
@@ -36,7 +36,7 @@ struct CharacterMovesScreenContentView: View {
                 }
             }
             List {
-                ForEach(self.viewModel.categorizedCharacterMoves.keys.sorted(), id: \.self) { key in
+                ForEach(self.sortedCategoryKeys, id: \.self) { key in
                     MovesSection(characterMoves: self.viewModel.categorizedCharacterMoves[key] ?? [])
                 }
             }
@@ -49,6 +49,10 @@ struct CharacterMovesScreenContentView: View {
     private var backgroundColor: Color {
         let colorThemeRGB = self.character.details.colorThemeRGB
         return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
+    }
+
+    private var sortedCategoryKeys: [String] {
+        self.viewModel.categorizedCharacterMoves.keys.sorted()
     }
 
     private func onCharacterMovesScreenContentViewAppear() {

@@ -19,9 +19,15 @@ final class UrlImageModel: ObservableObject {
     private let coreDataManager = CoreDataManager.shared
 
     private var kowalskiAnalysis: Bool
+    private let networker: Networkable?
 
-    init(urlString: String?, cachedDataImage: Data?, kowalskiAnalysis: Bool = false) {
+    init(
+        urlString: String?,
+        cachedDataImage: Data?,
+        networker: Networkable = Networker(),
+        kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+        self.networker = networker
         self.urlString = urlString
         self.cachedDataImage = cachedDataImage
         let loaded = loadImageFromCache()
@@ -44,7 +50,7 @@ final class UrlImageModel: ObservableObject {
                 self.image = image
             }
         } else {
-            Networker.loadImage(from: urlString) { [weak self] result in
+            self.networker?.loadImage(from: urlString) { [weak self] result in
                 switch result {
                 case .failure(let failure):
                     self?.analyse("*** Failed to load image of \(urlString) -> \(failure)")

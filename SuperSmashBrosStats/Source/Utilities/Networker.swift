@@ -13,10 +13,26 @@ enum Game: String {
     case smash4
 }
 
-struct Networker {
-    static private let baseUrl = "http://127.0.0.1:4000/v1/api"
+protocol Networkable {
 
-    static func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> Void) {
+    func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> Void)
+
+    func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void)
+    // swiftlint:disable:previous line_length
+
+    func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void)
+    // swiftlint:disable:previous line_length
+
+    func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> Void)
+
+}
+
+struct Networker: Networkable {
+    private let baseUrl = "http://127.0.0.1:4000/v1/api"
+
+    init() { }
+
+    func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> Void) {
         DispatchQueue.apiCallThread.async {
             switch game {
             case .smash4:
@@ -27,13 +43,13 @@ struct Networker {
         }
     }
 
-    static func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void) {
+    func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void) {
         // swiftlint:disable:previous line_length
         DispatchQueue.apiCallThread.async {
             if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: game, characterId: characterId) {
                 completion(.success(characterMoves))
             } else {
-                Self.get(
+                self.get(
                 [CodableCharacterMoves].self,
                 from: "/characters/\(game.rawValue)/moves/\(characterId)") { result in
                     completion(result)
@@ -42,7 +58,7 @@ struct Networker {
         }
     }
 
-    static func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void) {
+    func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void) {
         // swiftlint:disable:previous line_length
         DispatchQueue.apiCallThread.async {
             if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(
@@ -52,7 +68,7 @@ struct Networker {
             } else {
                 switch game {
                 case .smash4:
-                    Self.get(
+                    self.get(
                     [CodableCharacterAttributes].self,
                     from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
                         completion(result)
@@ -66,7 +82,7 @@ struct Networker {
         }
     }
 
-    static func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> Void) {
         DispatchQueue.loadImageThread.async {
             guard let url = URL(string: imageUrl) else {
                 completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
@@ -91,9 +107,8 @@ struct Networker {
         }
     }
 
-    static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> Void) {
-        // swiftlint:disable:previous line_length
-        guard let url = URL(string: "\(Self.baseUrl)\(path)") else {
+    private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: "\(self.baseUrl)\(path)") else {
             completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
             return
         }

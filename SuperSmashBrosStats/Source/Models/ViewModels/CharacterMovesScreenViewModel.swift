@@ -16,9 +16,11 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     var character: Character
 
     private var kowalskiAnalysis: Bool
+    private let networker: Networkable?
 
-    init(character: Character, kowalskiAnalysis: Bool = false) {
+    init(character: Character, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+        self.networker = networker
         self.character = character
         if let characterMoves = ResponderHolder.shared.getCharacterMoves(
             game: .ultimate,
@@ -36,7 +38,7 @@ final class CharacterMovesScreenViewModel: ObservableObject {
             let characterId = self.character.details.ownerId
             self.analys("Owner id: \(characterId)")
             let game: Game = .ultimate
-            Networker.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
+            self.networker?.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
                 self?.handleCharacterMovesResult(game: game, characterId: characterId, result: result)
             }
         }

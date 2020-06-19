@@ -17,6 +17,11 @@ class ResponderHolder {
 
     static let shared = ResponderHolder()
 
+    func reset() {
+        self.characterMoves = [:]
+        self.characterAttributes = [:]
+    }
+
     func getCharacterMoves(game: Game, characterId: Int) -> [CodableCharacterMoves]? {
         return self.characterMoves["\(game.rawValue)-\(characterId)"]
     }

@@ -28,8 +28,7 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     }
 
     var categorizedCharacterMoves: [String: [CodableCharacterMoves]] {
-        let characterMoves = self.characterMoves
-        return Dictionary(grouping: characterMoves, by: { $0.moveType.rawValue })
+        return Dictionary(grouping: self.characterMoves, by: { $0.moveType.rawValue })
     }
 
     func populateCharacterMoves() {

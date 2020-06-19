@@ -27,8 +27,8 @@ struct Networker {
         }
     }
 
-    // swiftlint:disable:next line_length
     static func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void) {
+        // swiftlint:disable:previous line_length
         DispatchQueue.apiCallThread.async {
             if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: game, characterId: characterId) {
                 completion(.success(characterMoves))
@@ -42,8 +42,8 @@ struct Networker {
         }
     }
 
-    // swiftlint:disable:next line_length
     static func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void) {
+        // swiftlint:disable:previous line_length
         DispatchQueue.apiCallThread.async {
             if let characterAttribute = ResponderHolder.shared.getCharacterAttributes(
                 game: game,
@@ -91,8 +91,8 @@ struct Networker {
         }
     }
 
-    // swiftlint:disable:next line_length
     static private func get<T: Codable>(_ type: T.Type, from path: String, completion: @escaping (Result<T, Error>) -> Void) {
+        // swiftlint:disable:previous line_length
         guard let url = URL(string: "\(Self.baseUrl)\(path)") else {
             completion(.failure(NSError(domain: "url error", code: 400, userInfo: nil)))
             return

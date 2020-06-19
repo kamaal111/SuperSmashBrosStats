@@ -44,8 +44,8 @@ final class CharacterMovesScreenViewModel: ObservableObject {
         }
     }
 
-    // swiftlint:disable:next line_length
     private func handleCharacterMovesResult(game: Game, characterId: Int, result: Result<[CodableCharacterMoves], Error>) {
+        // swiftlint:disable:previous line_length
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")

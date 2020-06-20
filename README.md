@@ -1,7 +1,7 @@
 # Super Smash Bros Stats
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c17202f29ff24c1d89ecca74ed4b914f)](https://www.codacy.com/manual/kamaal111/SuperSmashBrosStats?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kamaal111/SuperSmashBrosStats&amp;utm_campaign=Badge_Grade)
-![build/test/deploy](https://github.com/kamaal111/SuperSmashBrosStats/workflows/build/test/deploy/badge.svg?branch=master)
+![CI](https://github.com/kamaal111/SuperSmashBrosStats/workflows/CI/badge.svg)
 
 ```
 MIT License

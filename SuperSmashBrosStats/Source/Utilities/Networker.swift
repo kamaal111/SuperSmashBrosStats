@@ -13,20 +13,6 @@ enum Game: String {
     case smash4
 }
 
-protocol Networkable {
-
-    func getCharacters(game: Game, completion: @escaping (Result<[CodableCharacter], Error>) -> Void)
-
-    func getCharacterMoves(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterMoves], Error>) -> Void)
-    // swiftlint:disable:previous line_length
-
-    func getCharacterAttributes(game: Game, characterId: Int, completion:  @escaping (Result<[CodableCharacterAttributes], Error>) -> Void)
-    // swiftlint:disable:previous line_length
-
-    func loadImage(from imageUrl: String, completion: @escaping (Result<Data, Error>) -> Void)
-
-}
-
 struct Networker: Networkable {
     private let baseUrl = "http://127.0.0.1:4000/v1/api"
 

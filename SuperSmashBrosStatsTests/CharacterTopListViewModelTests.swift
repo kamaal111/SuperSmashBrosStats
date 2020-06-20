@@ -17,7 +17,7 @@ class CharacterTopListViewModelTests: XCTestCase {
     let topLister = TopLister.shared
 
     override func setUpWithError() throws {
-        self.viewModel = CharacterTopListViewModel(attributes: attributes[0])
+        self.viewModel = CharacterTopListViewModel(attributes: attributes[0], game: .ultimate)
     }
 
     override func tearDownWithError() throws {

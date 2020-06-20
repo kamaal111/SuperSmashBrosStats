@@ -1,5 +1,5 @@
 //
-//  HomeScreenViewModelTests.swift
+//  CharacterListScreenViewModelTests.swift
 //  SuperSmashBrosStatsTests
 //
 //  Created by Kamaal Farah on 20/06/2020.
@@ -9,12 +9,12 @@
 import XCTest
 @testable import SuperSmashBrosStats
 
-class HomeScreenViewModelTests: XCTestCase {
+class CharacterListScreenViewModelTests: XCTestCase {
 
-    var viewModel: HomeScreenViewModel?
+    var viewModel: CharacterListScreenViewModel?
 
     override func setUpWithError() throws {
-        self.viewModel = HomeScreenViewModel(networker: MockNetworker())
+        self.viewModel = CharacterListScreenViewModel(game: .ultimate, networker: MockNetworker())
     }
 
     override func tearDownWithError() throws {

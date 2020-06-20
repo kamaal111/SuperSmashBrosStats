@@ -17,9 +17,11 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     var character: Character
 
     private var kowalskiAnalysis: Bool
+    private let networker: Networkable?
 
-    init(character: Character, kowalskiAnalysis: Bool = false) {
+    init(character: Character, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+        self.networker = networker
         self.character = character
         if let characterAttributes = ResponderHolder.shared.getCharacterAttributes(
             game: .ultimate,
@@ -43,7 +45,7 @@ final class CharacterDetailScreenViewModel: ObservableObject {
             let characterId = self.character.details.ownerId
             self.analys("Owner id: \(characterId)")
             let game: Game = .ultimate
-            Networker.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
+            self.networker?.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
                 self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
             }
         }

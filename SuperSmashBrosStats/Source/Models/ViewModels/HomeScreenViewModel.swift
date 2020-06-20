@@ -15,9 +15,11 @@ final class HomeScreenViewModel: ObservableObject {
     @Published var showFavoritesOnly = false
 
     private var kowalskiAnalysis: Bool
+    private var networker: Networkable?
 
-    init(kowalskiAnalysis: Bool = false) {
+    init(networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
+        self.networker = networker
     }
 
     func filteredCharacters(favoritedCharacters: [FavoritedCharacter]) -> [Character] {
@@ -33,7 +35,7 @@ final class HomeScreenViewModel: ObservableObject {
     }
 
     func populateCharacters(cachedImages: [CachedImage]) {
-        Networker.getCharacters(game: .ultimate) { [weak self] result in
+        self.networker?.getCharacters(game: .ultimate) { [weak self] result in
             switch result {
             case .failure(let failure):
                 self?.analyse("*** Failed to get characters -> \(failure)")

@@ -27,8 +27,8 @@ struct CharacterDetailScreenContentView: View {
             ZStack {
                 self.backgroundColor
                 UrlImageView(
-                    imageUrl: self.character.details.mainImageUrl,
-                    cachedDataImage: nil,
+                    imageUrl: self.character.details.thumbnailUrl,
+                    cachedDataImage: self.character.cachedThumbnailUrl,
                     placeHolderColor: self.backgroundColor)
             }
             .frame(maxHeight: 200)
@@ -68,10 +68,10 @@ struct CharacterDetailScreenContentView: View {
 
     private var favoritedStarColor: Color {
         let characterDetails = self.character.details
-        let isFavoriteColor = self.userData.favoritedStarColor(
+        let favoriteColor = self.userData.favoritedStarColor(
             characterId: characterDetails.ownerId,
             game: characterDetails.game)
-        return isFavoriteColor
+        return favoriteColor
     }
 
     private func favoriteAction() {

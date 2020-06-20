@@ -10,13 +10,13 @@ import SwiftUI
 
 struct UrlImageView: View {
     @ObservedObject
-    private var urlImageModal: UrlImageModel
+    private var urlImageModel: UrlImageModel
 
     private var cachedDataImage: Data?
     private var placeHolderColor: Color
 
     init(imageUrl: String?, cachedDataImage: Data?, placeHolderColor: Color) {
-        self.urlImageModal = UrlImageModel(urlString: imageUrl, cachedDataImage: cachedDataImage)
+        self.urlImageModel = UrlImageModel(urlString: imageUrl, cachedDataImage: cachedDataImage)
         self.placeHolderColor = placeHolderColor
     }
 
@@ -27,7 +27,7 @@ struct UrlImageView: View {
     }
 
     var image: Image {
-        if let urlImage = self.urlImageModal.image {
+        if let urlImage = self.urlImageModel.image {
             return Image(uiImage: urlImage)
         }
         return Self.defaultImage

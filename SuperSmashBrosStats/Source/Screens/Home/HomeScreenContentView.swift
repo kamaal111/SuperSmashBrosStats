@@ -24,26 +24,41 @@ struct HomeScreenContentView: View {
                     Text("Favorites Only")
                         .font(.body)
                 }
+                TextField("Search:", text: self.$viewModel.searchBarText)
                 Section(header: Text("Characters").font(.headline)) {
-                    ForEach(self.viewModel.filteredCharacters(
-                        favoritedCharacters: self.userData.favoritedCharacters)) { (character: Character) in
-                            NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
-                                CharacterRow(
-                                    characterWithImage: character,
-                                    isFavorited: self.userData.checkIfCharacterIsFavorite(
-                                        characterId: character.details.ownerId,
-                                        game: character.details.game))
-                            }
+                    if !self.viewModel.loadingCharacters {
+                        Text("Loading...")
+                            .bold()
+                    } else if self.shouldShowNoFavoriteText {
+                        Text("No characters in your favorites list")
+                            .bold()
+                    } else if self.filteredCharacters.isEmpty {
+                        Text("No characters found with the name \(self.viewModel.searchBarText)")
+                            .bold()
+                    } else {
+                        ForEach(self.filteredCharacters) { (character: Character) in
+                                NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
+                                    CharacterRow(
+                                        characterWithImage: character,
+                                        isFavorited: self.userData.checkIfCharacterIsFavorite(
+                                            characterId: character.details.ownerId,
+                                            game: character.details.game))
+                                }
+                        }
                     }
                 }
-            }
-            if self.viewModel.characters.isEmpty {
-                Text("Loading...")
-                    .bold()
             }
         }
         .onAppear(perform: self.onHomeScreenContentViewAppear)
         .navigationBarTitle(Text("SSBU Roster"))
+    }
+
+    private var shouldShowNoFavoriteText: Bool {
+        return self.viewModel.showFavoritesOnly && self.filteredCharacters.isEmpty
+    }
+
+    private var filteredCharacters: [Character] {
+        return self.viewModel.filteredCharacters(favoritedCharacters: self.userData.favoritedCharacters)
     }
 
     private func onHomeScreenContentViewAppear() {

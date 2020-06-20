@@ -35,12 +35,9 @@ class CharacterMovesScreenViewModelTests: XCTestCase {
         var exception = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { exception = true }
         let fillCharacterMovesExpection = self.expectation(description: "wait for the characterMoves to fill")
-        var times = 0
-        let start: CFAbsoluteTime = CFAbsoluteTimeGetCurrent()
         DispatchQueue(label: "fill-moves", qos: .background).async {
             while !exception {
                 autoreleasepool {
-                    times += 1
                     if !viewModel.characterMoves.isEmpty {
                         exception = true
                         fillCharacterMovesExpection.fulfill()
@@ -49,9 +46,6 @@ class CharacterMovesScreenViewModelTests: XCTestCase {
             }
         }
         waitForExpectations(timeout: 2, handler: nil)
-        let diff = CFAbsoluteTimeGetCurrent() - start
-        print("Took \(diff) seconds") // Just for fun
-        print("Times \(times) looped") // Just for fun
         XCTAssertFalse(viewModel.characterMoves.isEmpty)
         XCTAssertFalse(viewModel.categorizedCharacterMoves.isEmpty)
     }

@@ -13,6 +13,8 @@ final class HomeScreenViewModel: ObservableObject {
 
     @Published var characters = [Character]()
     @Published var showFavoritesOnly = false
+    @Published var loadingCharacters = true
+    @Published var searchBarText = ""
 
     private var kowalskiAnalysis: Bool
     private var networker: Networkable?
@@ -22,14 +24,27 @@ final class HomeScreenViewModel: ObservableObject {
         self.networker = networker
     }
 
+    func clearSearchBarText() {
+        self.searchBarText = ""
+    }
+
     func filteredCharacters(favoritedCharacters: [FavoritedCharacter]) -> [Character] {
-        if !self.showFavoritesOnly { return self.characters }
-        return self.characters.filter { (character: Character) in
+        let searchBarText = self.searchBarText.filter { !$0.isWhitespace }
+        if !self.showFavoritesOnly && searchBarText.isEmpty { return self.characters }
+        let characters = self.characters.filter { character in
+            if searchBarText.isEmpty { return true }
+            let characterDetails = character.details
+            let trimmedCharacterName = characterDetails.displayName.filter { !$0.isWhitespace }
+            if trimmedCharacterName.lowercased().contains(searchBarText.lowercased()) { return true }
+            return false
+        }
+        if !self.showFavoritesOnly { return characters }
+        return characters.filter { character in
             let characterDetails = character.details
             let characterId = characterDetails.ownerId
             let game = characterDetails.game
             return favoritedCharacters.contains(where: {
-                Int($0.characterId) == characterId && $0.game == game
+                return Int($0.characterId) == characterId && $0.game == game
             })
         }
     }
@@ -44,6 +59,7 @@ final class HomeScreenViewModel: ObservableObject {
                     characters: characters,
                     cachedImages: cachedImages) else { return }
                 DispatchQueue.main.async {
+                    self?.loadingCharacters = false
                     self?.characters = modifiedCharacters
                 }
             }

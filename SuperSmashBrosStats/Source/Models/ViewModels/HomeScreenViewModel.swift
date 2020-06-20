@@ -13,7 +13,7 @@ final class HomeScreenViewModel: ObservableObject {
 
     @Published var characters = [Character]()
     @Published var showFavoritesOnly = false
-    @Published var loadingCharacters = false
+    @Published var loadingCharacters = true
     @Published var searchBarText = ""
 
     private var kowalskiAnalysis: Bool
@@ -22,6 +22,10 @@ final class HomeScreenViewModel: ObservableObject {
     init(networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.networker = networker
+    }
+
+    func clearSearchBarText() {
+        self.searchBarText = ""
     }
 
     func filteredCharacters(favoritedCharacters: [FavoritedCharacter]) -> [Character] {
@@ -55,7 +59,7 @@ final class HomeScreenViewModel: ObservableObject {
                     characters: characters,
                     cachedImages: cachedImages) else { return }
                 DispatchQueue.main.async {
-                    self?.loadingCharacters = true
+                    self?.loadingCharacters = false
                     self?.characters = modifiedCharacters
                 }
             }

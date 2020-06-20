@@ -26,7 +26,7 @@ struct HomeScreenContentView: View {
                 }
                 TextField("Search:", text: self.$viewModel.searchBarText)
                 Section(header: Text("Characters").font(.headline)) {
-                    if !self.viewModel.loadingCharacters {
+                    if self.viewModel.loadingCharacters {
                         Text("Loading...")
                             .bold()
                     } else if self.shouldShowNoFavoriteText {

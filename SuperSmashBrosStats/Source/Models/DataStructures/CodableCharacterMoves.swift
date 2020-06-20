@@ -27,9 +27,10 @@ struct CodableCharacterMoves: Codable, Hashable, Identifiable {
     let related: CodableRelated
 
     var unwrappedMoveStats: [String: String] {
+        let baseDamage = String(self.baseDamage.split(separator: "\n")[0])
         var moveStats = [
+            "Base Damage": baseDamage,
             "Angle": self.angle,
-            "Base Damage": self.baseDamage,
             "Base Knock Back": self.baseKnockBackSetKnockback,
             "Is Weight Dependent": self.isWeightDependent ? "Yes" : "No",
             "Knockback Growth": self.knockbackGrowth

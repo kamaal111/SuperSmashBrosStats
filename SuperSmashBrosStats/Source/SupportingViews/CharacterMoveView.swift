@@ -18,21 +18,15 @@ struct CharacterMoveView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text(self.move.name)
+                        .font(.body)
                         .foregroundColor(.accentColor)
-                    HStack {
-                        Text("Base damage:")
-                        Text(self.move.baseDamage)
-                    }
                     if self.expandMovesDetails {
                         ForEach(self.move.unwrappedMoveStats.keys.sorted(), id: \.self) { key in
-                            HStack {
-                                Text("\(key):")
-                                Text(self.move.unwrappedMoveStats[key] ?? "")
-                            }
+                            Text("\(key): \(self.move.unwrappedMoveStats[key] ?? "")")
+                                .font(.body)
                         }
                     }
                 }
-                .font(.body)
                 Spacer()
                 VStack {
                     Image(systemName: "chevron.right")

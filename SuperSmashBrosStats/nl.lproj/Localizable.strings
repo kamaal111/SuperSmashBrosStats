@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  SuperSmashBrosStats
+
+  Created by Kamaal Farah on 21/06/2020.
+  Copyright © 2020 Kamaal. All rights reserved.
+*/
+
+"SUPER_SMASH_STATS" = "Super Smash Stats";
+"FAVORITES_ONLY" = "Alleen Favorieten";
+"SEARCH" = "Zoek";
+"CHARACTERS" = "Vechters";
+"LOADING" = "Laden";
+"NO_CHARACTERS_IN_FAVORITES" = "Geen vechters in je favorietenlijst";
+"NO_CHARACTERS_WITH_NAME" = "Geen vechters gevonden met de naam ksdl %@";
+"SMASH_4_ROSTER" = "Smash 4 Rooster";
+"SMASH_ULTIMATE_ROSTER" = "Smash Ultimate Rooster";
+"CHARACTER_MOVES" = "Vechters Aanvallen";
+"ATTRIBUTES" = "Kenmerken";
+"SORT_ATTRIBUTES_BY" = "Kenmerken sorteren op";
+"DESCENDING" = "Aflopend";
+"ASCENDING" = "Oplopend";

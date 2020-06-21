@@ -27,19 +27,21 @@ struct CharacterListScreenContentView: View {
     var body: some View {
         List {
             Toggle(isOn: self.$viewModel.showFavoritesOnly) {
-                Text("Favorites Only")
+                Text(localized: .FAVORITES_ONLY)
                     .font(.body)
             }
-            TextField("Search:", text: self.$viewModel.searchBarText)
-            Section(header: Text("Characters").font(.headline)) {
+            TextField("\(Localizer.getLocalizableString(of: .SEARCH)):", text: self.$viewModel.searchBarText)
+            Section(header: Text(localized: .CHARACTERS).font(.headline)) {
                 if self.viewModel.loadingCharacters {
-                    Text("Loading...")
+                    Text("\(Localizer.getLocalizableString(of: .LOADING))...")
                         .bold()
                 } else if self.shouldShowNoFavoriteText {
-                    Text("No characters in your favorites list")
+                    Text(localized: .NO_CHARACTERS_IN_FAVORITES)
                         .bold()
                 } else if self.filteredCharacters.isEmpty {
-                    Text("No characters found with the name \(self.viewModel.searchBarText)")
+                    Text(Localizer.getLocalizableString(
+                        of: .NO_CHARACTERS_WITH_NAME,
+                        with: [self.viewModel.searchBarText]))
                         .bold()
                 } else {
                     ForEach(self.filteredCharacters) { (character: Character) in
@@ -71,9 +73,9 @@ struct CharacterListScreenContentView: View {
     private var titleText: String {
         switch self.game {
         case .smash4:
-            return "Smash 4 Roster"
+            return Localizer.getLocalizableString(of: .SMASH_4_ROSTER)
         case .ultimate:
-            return "Smash Ultimate Roster"
+            return Localizer.getLocalizableString(of: .SMASH_ULTIMATE_ROSTER)
         }
     }
 

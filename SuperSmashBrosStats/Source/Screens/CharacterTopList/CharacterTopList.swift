@@ -43,11 +43,11 @@ struct CharacterTopList: View {
     }
 
     private func sortAttributesByActionSheet() -> ActionSheet {
-        return ActionSheet(title: Text("Sort Attributes By"), buttons: [
-            .default(Text("Descending"), action: {
+        return ActionSheet(title: Text(localized: .SORT_ATTRIBUTES_BY), buttons: [
+            .default(Text(localized: .DESCENDING), action: {
                 self.viewModel.setSortingMethod(to: .descending)
             }),
-            .default(Text("Ascending"), action: {
+            .default(Text(localized: .ASCENDING), action: {
                 self.viewModel.setSortingMethod(to: .ascending)
             }),
             .cancel()

@@ -28,7 +28,7 @@ struct CharacterThumbnailImage: View {
 
     private var colorTheme: Color {
         let rgb = self.character.details.colorThemeRGB
-        return Color(red: rgb.red / 255, green: rgb.green / 255, blue: rgb.blue / 255)
+        return rgb
     }
 }
 

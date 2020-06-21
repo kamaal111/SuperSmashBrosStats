@@ -53,7 +53,7 @@ class TopLister {
                     self.setTopList(characterAttributes: characterAttributes, attribute: attribute)
                 } else {
                     let path = "characterattributes-\(game)-\(characterId).json"
-                    let characterAttributes: [CodableCharacterAttributes] = load(path)
+                    let characterAttributes: [CodableCharacterAttributes] = Bundle.load(path)
                     self.responderHolder.setCharacterAttributes(
                         game: game,
                         characterId: characterId,

@@ -9,6 +9,7 @@
 import UIKit
 
 class ImageCache {
+
     private var cache = NSCache<NSString, UIImage>()
 
     private static var imageCache = ImageCache()
@@ -24,4 +25,5 @@ class ImageCache {
     static func getImageCache() -> ImageCache {
         return imageCache
     }
+
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Kamaal. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 struct CodableCharacter: Codable, Hashable, Identifiable {
     let colorTheme: String
@@ -20,8 +20,9 @@ struct CodableCharacter: Codable, Hashable, Identifiable {
     let game: String
     let related: CodableRelated
 
-    var colorThemeRGB: RedGreenBlue {
-        return ColorHelper.hexToRGB(hexString: colorTheme)
+    var colorThemeRGB: Color {
+        let rgb = ColorHelper.hexToRGB(hexString: colorTheme)
+        return Color(red: rgb.red / 255, green: rgb.green / 255, blue: rgb.blue / 255)
     }
 
     private enum CodingKeys: String, CodingKey {

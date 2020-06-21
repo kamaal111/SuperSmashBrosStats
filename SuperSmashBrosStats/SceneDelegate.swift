@@ -57,7 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // swiftlint:disable:next line_length
     func settingsScreenNavigationController(managedObjectContext: NSManagedObjectContext, userDataModel: UserDataModel) -> UINavigationController {
-        let contentView = SettingsScreenContentView()
+        let viewModel = SettingsScreenViewModel()
+        let contentView = SettingsScreenContentView(viewModel: viewModel)
             .environment(\.managedObjectContext, managedObjectContext)
             .environmentObject(userDataModel)
         let hostinController = UIHostingController(rootView: contentView)
@@ -65,7 +66,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.tabBarItem = UITabBarItem(
             title: Localizer.getLocalizableString(of: .SETTINGS),
-            image: UIImage(systemName: "ellipsis"),
+            image: UIImage(systemName: "slider.horizontal.3"),
             tag: 1)
         return navigationController
     }

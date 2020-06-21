@@ -59,6 +59,7 @@ struct CharacterListScreenContentView: View {
             }
         }
         .onAppear(perform: self.onCharacterListContentViewAppear)
+        .onDisappear(perform: self.onCharacterListContentViewDisappear)
         .navigationBarTitle(Text(self.titleText), displayMode: .inline)
     }
 
@@ -80,6 +81,7 @@ struct CharacterListScreenContentView: View {
     }
 
     private func onCharacterListContentViewAppear() {
+        UITableView.appearance().separatorStyle = .none
         if self.viewModel.characters.isEmpty {
             do {
                 guard let cachedImages = try self.coreDataManager.fetch(CachedImage.self) else { return }
@@ -90,6 +92,10 @@ struct CharacterListScreenContentView: View {
                 print("Could not retrieve chached images from core data", error)
             }
         }
+    }
+
+    private func onCharacterListContentViewDisappear() {
+        UITableView.appearance().separatorStyle = .singleLine
     }
 }
 

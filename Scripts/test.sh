@@ -14,4 +14,4 @@ DESTINATION_DEVICE='iPhone 11 Pro Max'
 DESTINATION_NAME="name=$DESTINATION_DEVICE"
 DESTINATION="platform=$DESTINATION_PLATFORM,OS=13.5,$DESTINATION_NAME"
 
-xcodebuild test -project $XCODE_PROJECT -scheme $SCHEME -destination "$DESTINATION"
+xcodebuild test -project $XCODE_PROJECT -scheme $SCHEME -destination "$DESTINATION" | xcpretty

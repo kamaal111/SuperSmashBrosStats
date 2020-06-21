@@ -35,11 +35,9 @@ struct Networker: Networkable {
             if let characterMoves = ResponderHolder.shared.getCharacterMoves(game: game, characterId: characterId) {
                 completion(.success(characterMoves))
             } else {
-                self.get(
-                [CodableCharacterMoves].self,
-                from: "/characters/\(game.rawValue)/moves/\(characterId)") { result in
-                    completion(result)
-                }
+                let path = "charactermoves-\(game.rawValue)-\(characterId).json"
+                let characterMoves: [CodableCharacterMoves] = load(path)
+                completion(.success(characterMoves))
             }
         }
     }
@@ -52,18 +50,9 @@ struct Networker: Networkable {
                 characterId: characterId) {
                 completion(.success(characterAttribute))
             } else {
-                switch game {
-                case .smash4:
-                    self.get(
-                    [CodableCharacterAttributes].self,
-                    from: "/characters/\(game.rawValue)/characterattributes/\(characterId)") { result in
-                        completion(result)
-                    }
-                case .ultimate:
-                    let path = "characterAttributes-\(game.rawValue)-\(characterId).json"
-                    let characterData: [CodableCharacterAttributes] = load(path)
-                    completion(.success(characterData))
-                }
+                let path = "characterattributes-\(game.rawValue)-\(characterId).json"
+                let characterData: [CodableCharacterAttributes] = load(path)
+                completion(.success(characterData))
             }
         }
     }

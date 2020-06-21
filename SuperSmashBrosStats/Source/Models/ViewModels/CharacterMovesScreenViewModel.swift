@@ -14,16 +14,18 @@ final class CharacterMovesScreenViewModel: ObservableObject {
     @Published var characterMoves = [CodableCharacterMoves]()
 
     var character: Character
+    var game: Game
 
     private var kowalskiAnalysis: Bool
     private let networker: Networkable?
 
-    init(character: Character, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
+    init(character: Character, game: Game, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.networker = networker
         self.character = character
+        self.game = game
         if let characterMoves = ResponderHolder.shared.getCharacterMoves(
-            game: .ultimate,
+            game: game,
             characterId: character.details.ownerId) {
             self.characterMoves = characterMoves
         }
@@ -37,21 +39,19 @@ final class CharacterMovesScreenViewModel: ObservableObject {
         if self.characterMoves.isEmpty {
             let characterId = self.character.details.ownerId
             self.analys("Owner id: \(characterId)")
-            let game: Game = .ultimate
-            self.networker?.getCharacterMoves(game: game, characterId: characterId) { [weak self] result in
-                self?.handleCharacterMovesResult(game: game, characterId: characterId, result: result)
+            self.networker?.getCharacterMoves(game: self.game, characterId: characterId) { [weak self] result in
+                self?.handleCharacterMovesResult(characterId: characterId, result: result)
             }
         }
     }
 
-    private func handleCharacterMovesResult(game: Game, characterId: Int, result: Result<[CodableCharacterMoves], Error>) {
-        // swiftlint:disable:previous line_length
+    private func handleCharacterMovesResult(characterId: Int, result: Result<[CodableCharacterMoves], Error>) {
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")
         case .success(let characterMoves):
             ResponderHolder.shared.setCharacterMoves(
-                game: game,
+                game: self.game,
                 characterId: characterId,
                 characterMoves: characterMoves)
             DispatchQueue.main.async {

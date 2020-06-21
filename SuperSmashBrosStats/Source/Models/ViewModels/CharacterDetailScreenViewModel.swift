@@ -15,16 +15,18 @@ final class CharacterDetailScreenViewModel: ObservableObject {
     @Published var settingFavorite = false
 
     var character: Character
+    var game: Game
 
     private var kowalskiAnalysis: Bool
     private let networker: Networkable?
 
-    init(character: Character, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
+    init(character: Character, game: Game, networker: Networkable = Networker(), kowalskiAnalysis: Bool = false) {
         self.kowalskiAnalysis = kowalskiAnalysis
         self.networker = networker
         self.character = character
+        self.game = game
         if let characterAttributes = ResponderHolder.shared.getCharacterAttributes(
-            game: .ultimate,
+            game: game,
             characterId: character.details.ownerId) {
             self.characterAttributes = characterAttributes
         }
@@ -44,22 +46,21 @@ final class CharacterDetailScreenViewModel: ObservableObject {
         if self.characterAttributes.isEmpty {
             let characterId = self.character.details.ownerId
             self.analys("Owner id: \(characterId)")
-            let game: Game = .ultimate
-            self.networker?.getCharacterAttributes(game: game, characterId: characterId) { [weak self] result in
-                self?.handleCharacterAttributesResult(game: game, characterId: characterId, result: result)
+            self.networker?.getCharacterAttributes(game: self.game, characterId: characterId) { [weak self] result in
+                self?.handleCharacterAttributesResult(characterId: characterId, result: result)
             }
         }
     }
 
     // swiftlint:disable:next line_length
-    private func handleCharacterAttributesResult(game: Game, characterId: Int, result: Result<[CodableCharacterAttributes], Error>) {
+    private func handleCharacterAttributesResult(characterId: Int, result: Result<[CodableCharacterAttributes], Error>) {
         switch result {
         case .failure(let failure):
             self.analys("*** Failure -> \(failure)")
         case .success(let characterAttributes):
             DispatchQueue.main.async {
                 ResponderHolder.shared.setCharacterAttributes(
-                    game: game,
+                    game: self.game,
                     characterId: characterId,
                     characterAttributes: characterAttributes)
                 self.characterAttributes = characterAttributes

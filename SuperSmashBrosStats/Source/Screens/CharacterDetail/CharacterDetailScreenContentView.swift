@@ -16,10 +16,12 @@ struct CharacterDetailScreenContentView: View {
     private var viewModel: CharacterDetailScreenViewModel
 
     var character: Character
+    var game: Game
 
-    init(character: Character) {
+    init(character: Character, game: Game) {
         self.character = character
-        self.viewModel = CharacterDetailScreenViewModel(character: character, kowalskiAnalysis: true)
+        self.game = game
+        self.viewModel = CharacterDetailScreenViewModel(character: character, game: game, kowalskiAnalysis: true)
     }
 
     var body: some View {
@@ -44,14 +46,16 @@ struct CharacterDetailScreenContentView: View {
                 .padding(.vertical, 8)
             }
             List {
-                NavigationLink(destination: CharacterMovesScreenContentView(character: self.character)) {
+                NavigationLink(destination: CharacterMovesScreenContentView(
+                    character: self.character,
+                    game: self.game)) {
                     Text("Character Moves")
                         .font(.body)
                         .foregroundColor(.accentColor)
                 }
                 Section(header: Text("Statistics").font(.headline)) {
                     ForEach(self.viewModel.uniqueAttributes) { (stats: CodableCharacterAttributes) in
-                        CharacterAttributesRow(stats: stats)
+                        CharacterAttributesRow(stats: stats, game: self.game)
                     }
                 }
             }
@@ -89,7 +93,9 @@ struct CharacterDetailScreenContentView: View {
 struct CharacterDetailScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CharacterDetailScreenContentView(character: Character(id: "bla", details: ultimateCharactersData[0]))
+            CharacterDetailScreenContentView(
+                character: Character(id: "bla", details: ultimateCharactersData[0]),
+                game: .ultimate)
         }
     }
 }

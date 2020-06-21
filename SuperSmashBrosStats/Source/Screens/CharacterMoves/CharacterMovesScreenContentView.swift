@@ -14,9 +14,9 @@ struct CharacterMovesScreenContentView: View {
 
     var character: Character
 
-    init(character: Character) {
+    init(character: Character, game: Game) {
         self.character = character
-        self.viewModel = CharacterMovesScreenViewModel(character: character, kowalskiAnalysis: true)
+        self.viewModel = CharacterMovesScreenViewModel(character: character, game: game, kowalskiAnalysis: true)
     }
     var body: some View {
         VStack {
@@ -62,6 +62,8 @@ struct CharacterMovesScreenContentView: View {
 
 struct CharacterMovesScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterMovesScreenContentView(character: Character(id: "bla", details: ultimateCharactersData[0]))
+        CharacterMovesScreenContentView(
+            character: Character(id: "bla", details: ultimateCharactersData[0]),
+            game: .ultimate)
     }
 }

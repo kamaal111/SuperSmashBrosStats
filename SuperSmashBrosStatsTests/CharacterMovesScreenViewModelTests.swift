@@ -21,7 +21,10 @@ class CharacterMovesScreenViewModelTests: XCTestCase {
             id: self.character.id,
             details: self.character,
             cachedThumbnailUrl: nil)
-        self.viewModel = CharacterMovesScreenViewModel(character: character, networker: MockNetworker())
+        self.viewModel = CharacterMovesScreenViewModel(
+            character: character,
+            game: .ultimate,
+            networker: MockNetworker())
     }
 
     override func tearDownWithError() throws {

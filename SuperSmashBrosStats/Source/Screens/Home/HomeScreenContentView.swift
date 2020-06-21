@@ -9,64 +9,44 @@
 import SwiftUI
 
 struct HomeScreenContentView: View {
+    @Environment(\.colorScheme)
+    private var colorScheme
+
     @EnvironmentObject
     private var userData: UserDataModel
 
     @ObservedObject
     var viewModel: HomeScreenViewModel
 
-    private let coreDataManager = CoreDataManager.shared
-
     var body: some View {
-        ZStack {
-            List {
-                Toggle(isOn: self.$viewModel.showFavoritesOnly) {
-                    Text("Favorites Only")
-                        .font(.body)
-                }
-                TextField("Search:", text: self.$viewModel.searchBarText)
-                Section(header: Text("Characters").font(.headline)) {
-                    if self.viewModel.loadingCharacters {
-                        Text("Loading...")
-                            .bold()
-                    } else if self.shouldShowNoFavoriteText {
-                        Text("No characters in your favorites list")
-                            .bold()
-                    } else if self.filteredCharacters.isEmpty {
-                        Text("No characters found with the name \(self.viewModel.searchBarText)")
-                            .bold()
-                    } else {
-                        ForEach(self.filteredCharacters) { (character: Character) in
-                                NavigationLink(destination: CharacterDetailScreenContentView(character: character)) {
-                                    CharacterRow(
-                                        characterWithImage: character,
-                                        isFavorited: self.userData.checkIfCharacterIsFavorite(
-                                            characterId: character.details.ownerId,
-                                            game: character.details.game))
-                                }
-                        }
-                    }
-                }
+        VStack {
+            NavigationLink(destination: CharacterListScreenContentView(game: .smash4)
+                .environmentObject(self.userData)) {
+                    Image("smash4logo")
+                        .renderingMode(.original)
+                        .resizable()
+                        .frame(height: Self.imageHeight)
+            }
+            NavigationLink(destination: CharacterListScreenContentView(game: .ultimate)
+                .environmentObject(self.userData)) {
+                    self.ultimateLogoImage
             }
         }
-        .onAppear(perform: self.onHomeScreenContentViewAppear)
-        .navigationBarTitle(Text("SSBU Roster"))
+        .padding(.horizontal, 20)
+        .navigationBarTitle(Text("Super Smash Stats"), displayMode: .large)
     }
 
-    private var shouldShowNoFavoriteText: Bool {
-        return self.viewModel.showFavoritesOnly && self.filteredCharacters.isEmpty
-    }
-
-    private var filteredCharacters: [Character] {
-        return self.viewModel.filteredCharacters(favoritedCharacters: self.userData.favoritedCharacters)
-    }
-
-    private func onHomeScreenContentViewAppear() {
-        do {
-            let cachedImages = try self.coreDataManager.fetch(CachedImage.self)
-            self.viewModel.populateCharacters(cachedImages: cachedImages!)
-        } catch {
-            print("Could not retrieve chached images from core data", error)
+    private var ultimateLogoImage: some View {
+        let image = Image("ultimatelogo")
+            .renderingMode(.original)
+            .resizable()
+            .frame(height: Self.imageHeight)
+        if self.colorScheme == .dark {
+            return AnyView(image.colorInvert())
+        } else {
+            return AnyView(image)
         }
     }
+
+    static private let imageHeight: CGFloat = 200
 }

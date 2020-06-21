@@ -21,7 +21,7 @@ class TopLister {
         guard let items = try? FileManager.default.contentsOfDirectory(atPath: path)
             else { fatalError("Could not get content of directory") }
         items.forEach {
-            if $0.hasPrefix("characterAttributes-") {
+            if $0.hasPrefix("characterattributes-") {
                 let splittedTextFileName = $0.split(separator: "-")
                 let game = String(splittedTextFileName[1])
                 if self.topListFiles[game] == nil { self.topListFiles[game] = [] }
@@ -52,7 +52,7 @@ class TopLister {
                     characterId: characterId) {
                     self.setTopList(characterAttributes: characterAttributes, attribute: attribute)
                 } else {
-                    let path = "characterAttributes-\(game)-\(characterId).json"
+                    let path = "characterattributes-\(game)-\(characterId).json"
                     let characterAttributes: [CodableCharacterAttributes] = load(path)
                     self.responderHolder.setCharacterAttributes(
                         game: game,

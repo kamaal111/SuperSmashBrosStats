@@ -16,9 +16,9 @@ struct CharacterTopList: View {
 
     private let topLister = TopLister.shared
 
-    init(attribute: CodableCharacterAttributes) {
+    init(attribute: CodableCharacterAttributes, game: Game) {
         self.attribute = attribute
-        self.viewModel = CharacterTopListViewModel(attributes: attribute)
+        self.viewModel = CharacterTopListViewModel(attributes: attribute, game: game)
     }
 
     var body: some View {

@@ -13,20 +13,22 @@ final class CharacterTopListViewModel: ObservableObject {
     @Published var showSortActionSheet = false
 
     let attributes: CodableCharacterAttributes
+    var game: Game
 
     private let topLister = TopLister.shared
 
-    init(attributes: CodableCharacterAttributes) {
+    init(attributes: CodableCharacterAttributes, game: Game) {
         self.attributes = attributes
+        self.game = game
     }
 
     func populateTopListItems() {
-        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
+        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: self.game.rawValue)
     }
 
     func setSortingMethod(to sortingMethod: SortListMethod) {
         self.topLister.setSortingMethod(to: sortingMethod)
-        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: Game.ultimate.rawValue)
+        self.topListItems = self.topLister.getTopListItems(of: self.attributes.name, game: self.game.rawValue)
     }
 
     func sortButtonAction() {

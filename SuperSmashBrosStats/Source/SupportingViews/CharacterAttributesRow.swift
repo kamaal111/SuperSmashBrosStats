@@ -10,9 +10,10 @@ import SwiftUI
 
 struct CharacterAttributesRow: View {
     var stats: CodableCharacterAttributes
+    var game: Game
 
     var body: some View {
-        NavigationLink(destination: CharacterTopList(attribute: self.stats)) {
+        NavigationLink(destination: CharacterTopList(attribute: self.stats, game: self.game)) {
             VStack(alignment: .leading) {
                 Text(self.stats.name)
                     .font(.body)

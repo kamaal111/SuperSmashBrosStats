@@ -17,21 +17,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = homeScreenViewController()
+            window.rootViewController = self.tabBarController()
             self.window = window
             window.makeKeyAndVisible()
         }
     }
 
-    func homeScreenViewController() -> UIViewController {
-        let viewModel = HomeScreenViewModel()
+    func tabBarController() -> UITabBarController {
         let userDataModel = UserDataModel()
+        let homeScreenViewController = self.homeScreenViewController(userDataModel: userDataModel)
+        let settingsScreenViewController = self.settingsScreenViewController(userDataModel: userDataModel)
+        let tabBarContoller = UITabBarController()
+        tabBarContoller.setViewControllers([homeScreenViewController, settingsScreenViewController], animated: true)
+        return tabBarContoller
+    }
+
+    func homeScreenViewController(userDataModel: UserDataModel) -> UINavigationController {
+        let viewModel = HomeScreenViewModel()
         let contentView = HomeScreenContentView(viewModel: viewModel)
             .environment(\.managedObjectContext, CoreDataManager.shared.context!)
             .environmentObject(userDataModel)
         let hostinController = UIHostingController(rootView: contentView)
         let navigationController = UINavigationController(rootViewController: hostinController)
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.tabBarItem = UITabBarItem(
+            title: "Stats",
+            image: UIImage(systemName: "s.circle"),
+            tag: 0)
+        return navigationController
+    }
+
+    func settingsScreenViewController(userDataModel: UserDataModel) -> UINavigationController {
+        let contentView = SettingsScreenContentView()
+            .environmentObject(userDataModel)
+        let hostinController = UIHostingController(rootView: contentView)
+        let navigationController = UINavigationController(rootViewController: hostinController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.tabBarItem = UITabBarItem(
+            title: "Settings",
+            image: UIImage(systemName: "ellipsis"),
+            tag: 1)
         return navigationController
     }
 

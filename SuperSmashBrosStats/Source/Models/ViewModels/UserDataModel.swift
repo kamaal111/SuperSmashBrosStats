@@ -16,7 +16,6 @@ final class UserDataModel: ObservableObject {
     private var coreDataManager = CoreDataManager.shared
 
     init() {
-        print("get initialized")
         if let favoritedCharacters = try? self.coreDataManager.fetch(FavoritedCharacter.self) {
             self.favoritedCharacters = favoritedCharacters
         }

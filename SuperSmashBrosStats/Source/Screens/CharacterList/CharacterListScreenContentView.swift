@@ -80,14 +80,15 @@ struct CharacterListScreenContentView: View {
     }
 
     private func onCharacterListContentViewAppear() {
-        print("onCharacterListContentViewAppear", self.viewModel.characters.count)
-        do {
-            guard let cachedImages = try self.coreDataManager.fetch(CachedImage.self) else { return }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.viewModel.populateCharacters(cachedImages: cachedImages)
-//            }
-        } catch {
-            print("Could not retrieve chached images from core data", error)
+        if self.viewModel.characters.isEmpty {
+            do {
+                guard let cachedImages = try self.coreDataManager.fetch(CachedImage.self) else { return }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.viewModel.populateCharacters(cachedImages: cachedImages)
+                }
+            } catch {
+                print("Could not retrieve chached images from core data", error)
+            }
         }
     }
 }

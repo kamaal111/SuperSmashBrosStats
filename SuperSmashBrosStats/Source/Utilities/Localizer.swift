@@ -34,4 +34,6 @@ enum LocalizableKeys: String {
     case SORT_ATTRIBUTES_BY
     case DESCENDING
     case ASCENDING
+    case STATS
+    case SETTINGS
 }

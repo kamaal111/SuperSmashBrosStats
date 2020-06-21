@@ -33,7 +33,7 @@ struct HomeScreenContentView: View {
             }
         }
         .padding(.horizontal, 20)
-        .navigationBarTitle(Text("Super Smash Stats"), displayMode: .large)
+        .navigationBarTitle(Text(localized: .SUPER_SMASH_STATS), displayMode: .large)
     }
 
     private var ultimateLogoImage: some View {

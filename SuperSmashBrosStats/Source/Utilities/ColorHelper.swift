@@ -9,6 +9,8 @@
 import Foundation
 
 struct ColorHelper {
+    private init() {}
+
     static func hexToRGB(hexString: String) -> RedGreenBlue {
         var hex = hexString.uppercased()
 

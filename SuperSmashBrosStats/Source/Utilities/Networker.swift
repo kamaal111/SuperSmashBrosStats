@@ -36,7 +36,7 @@ struct Networker: Networkable {
                 completion(.success(characterMoves))
             } else {
                 let path = "charactermoves-\(game.rawValue)-\(characterId).json"
-                let characterMoves: [CodableCharacterMoves] = load(path)
+                let characterMoves: [CodableCharacterMoves] = Bundle.load(path)
                 completion(.success(characterMoves))
             }
         }
@@ -51,7 +51,7 @@ struct Networker: Networkable {
                 completion(.success(characterAttribute))
             } else {
                 let path = "characterattributes-\(game.rawValue)-\(characterId).json"
-                let characterData: [CodableCharacterAttributes] = load(path)
+                let characterData: [CodableCharacterAttributes] = Bundle.load(path)
                 completion(.success(characterData))
             }
         }

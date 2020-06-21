@@ -48,7 +48,7 @@ struct CharacterMovesScreenContentView: View {
 
     private var backgroundColor: Color {
         let colorThemeRGB = self.character.details.colorThemeRGB
-        return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
+        return colorThemeRGB
     }
 
     private var sortedCategoryKeys: [String] {

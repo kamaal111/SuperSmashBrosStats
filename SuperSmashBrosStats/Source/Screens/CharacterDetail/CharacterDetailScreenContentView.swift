@@ -49,11 +49,11 @@ struct CharacterDetailScreenContentView: View {
                 NavigationLink(destination: CharacterMovesScreenContentView(
                     character: self.character,
                     game: self.game)) {
-                    Text("Character Moves")
-                        .font(.body)
-                        .foregroundColor(.accentColor)
+                        Text(localized: .CHARACTER_MOVES)
+                            .font(.body)
+                            .foregroundColor(.accentColor)
                 }
-                Section(header: Text("Statistics").font(.headline)) {
+                Section(header: Text(localized: .ATTRIBUTES).font(.headline)) {
                     ForEach(self.viewModel.uniqueAttributes) { (stats: CodableCharacterAttributes) in
                         CharacterAttributesRow(stats: stats, game: self.game)
                     }
@@ -67,7 +67,7 @@ struct CharacterDetailScreenContentView: View {
 
     private var backgroundColor: Color {
         let colorThemeRGB = self.character.details.colorThemeRGB
-        return Color(red: colorThemeRGB.red / 255, green: colorThemeRGB.green / 255, blue: colorThemeRGB.blue / 255)
+        return colorThemeRGB
     }
 
     private var favoritedStarColor: Color {

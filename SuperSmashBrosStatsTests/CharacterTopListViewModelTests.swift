@@ -13,7 +13,7 @@ import Foundation
 class CharacterTopListViewModelTests: XCTestCase {
 
     var viewModel: CharacterTopListViewModel?
-    let attributes: [CodableCharacterAttributes] = SuperSmashBrosStats.load("characterAttributes-ultimate-2.json")
+    let attributes: [CodableCharacterAttributes] = SuperSmashBrosStats.load("characterattributes-ultimate-2.json")
     let topLister = TopLister.shared
 
     override func setUpWithError() throws {

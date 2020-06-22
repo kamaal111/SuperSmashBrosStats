@@ -227,6 +227,7 @@
 		601BF6B2249E3CA6005B1EE0 /* CharacterListScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601BF6B1249E3CA6005B1EE0 /* CharacterListScreenViewModelTests.swift */; };
 		601BF6B5249E4C8C005B1EE0 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601BF6B4249E4C8C005B1EE0 /* Networkable.swift */; };
 		601BF6B7249E5190005B1EE0 /* CharacterListScreenContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601BF6B6249E5190005B1EE0 /* CharacterListScreenContentView.swift */; };
+		601F0A2924A11C450054E75B /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601F0A2824A11C450054E75B /* MailView.swift */; };
 		601F8A2D249E59340027E185 /* CharacterListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601F8A2C249E59340027E185 /* CharacterListScreenViewModel.swift */; };
 		601FDD2B249958E900175A0C /* TopListerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601FDD2A249958E900175A0C /* TopListerTests.swift */; };
 		60249027248BC151009D8E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249026248BC151009D8E75 /* AppDelegate.swift */; };
@@ -245,6 +246,7 @@
 		60573AF9249FBC8200EEE317 /* SettingsScreenContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60573AF8249FBC8200EEE317 /* SettingsScreenContentView.swift */; };
 		60573AFB249FE2D800EEE317 /* SettingsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60573AFA249FE2D800EEE317 /* SettingsScreenViewModel.swift */; };
 		60573AFD249FE53100EEE317 /* SettingsRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60573AFC249FE53100EEE317 /* SettingsRows.swift */; };
+		60573B00249FEA7700EEE317 /* KamaalUI in Frameworks */ = {isa = PBXBuildFile; productRef = 60573AFF249FEA7700EEE317 /* KamaalUI */; };
 		60613015249AABC200B682A1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60613014249AABC200B682A1 /* README.md */; };
 		60613017249AAC9B00B682A1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 60613016249AAC9B00B682A1 /* LICENSE */; };
 		6075E27C248E9BF90038744B /* CharacterThumbnailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075E27B248E9BF90038744B /* CharacterThumbnailImage.swift */; };
@@ -507,6 +509,7 @@
 		601BF6B1249E3CA6005B1EE0 /* CharacterListScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreenViewModelTests.swift; sourceTree = "<group>"; };
 		601BF6B4249E4C8C005B1EE0 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		601BF6B6249E5190005B1EE0 /* CharacterListScreenContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreenContentView.swift; sourceTree = "<group>"; };
+		601F0A2824A11C450054E75B /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		601F8A2C249E59340027E185 /* CharacterListScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListScreenViewModel.swift; sourceTree = "<group>"; };
 		601FDD2A249958E900175A0C /* TopListerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListerTests.swift; sourceTree = "<group>"; };
 		60249023248BC151009D8E75 /* SuperSmashBrosStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSmashBrosStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -564,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				608FD914248D16E500307B6C /* PersistanceManager in Frameworks */,
+				60573B00249FEA7700EEE317 /* KamaalUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1041,7 @@
 				6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */,
 				60065458249BFE2D003D6EE9 /* CharacterMoveView.swift */,
 				60573AFC249FE53100EEE317 /* SettingsRows.swift */,
+				601F0A2824A11C450054E75B /* MailView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1103,6 +1108,7 @@
 			name = SuperSmashBrosStats;
 			packageProductDependencies = (
 				608FD913248D16E500307B6C /* PersistanceManager */,
+				60573AFF249FEA7700EEE317 /* KamaalUI */,
 			);
 			productName = SuperSmashBrosStats;
 			productReference = 60249023248BC151009D8E75 /* SuperSmashBrosStats.app */;
@@ -1157,6 +1163,7 @@
 			mainGroup = 6024901A248BC151009D8E75;
 			packageReferences = (
 				608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */,
+				60573AFE249FEA7700EEE317 /* XCRemoteSwiftPackageReference "KamaalUI" */,
 			);
 			productRefGroup = 60249024248BC151009D8E75 /* Products */;
 			projectDirPath = "";
@@ -1432,6 +1439,7 @@
 				60947DE42496401B0064DF5C /* CharacterTopList.swift in Sources */,
 				60249027248BC151009D8E75 /* AppDelegate.swift in Sources */,
 				60573AFD249FE53100EEE317 /* SettingsRows.swift in Sources */,
+				601F0A2924A11C450054E75B /* MailView.swift in Sources */,
 				600C2D4F2494F1C000D0FD6C /* CharacterAttributesRow.swift in Sources */,
 				608FD8F1248BFDA700307B6C /* RedGreenBlue.swift in Sources */,
 				60249045248BE142009D8E75 /* Networker.swift in Sources */,
@@ -1747,6 +1755,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		60573AFE249FEA7700EEE317 /* XCRemoteSwiftPackageReference "KamaalUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/KamaalUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kamaal111/PersistanceManager.git";
@@ -1758,6 +1774,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		60573AFF249FEA7700EEE317 /* KamaalUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60573AFE249FEA7700EEE317 /* XCRemoteSwiftPackageReference "KamaalUI" */;
+			productName = KamaalUI;
+		};
 		608FD913248D16E500307B6C /* PersistanceManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 608FD912248D16E500307B6C /* XCRemoteSwiftPackageReference "PersistanceManager" */;

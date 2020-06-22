@@ -81,7 +81,6 @@ struct CharacterListScreenContentView: View {
     }
 
     private func onCharacterListContentViewAppear() {
-        UITableView.appearance().separatorStyle = .none
         if self.viewModel.characters.isEmpty {
             do {
                 guard let cachedImages = try self.coreDataManager.fetch(CachedImage.self) else { return }
@@ -94,9 +93,7 @@ struct CharacterListScreenContentView: View {
         }
     }
 
-    private func onCharacterListContentViewDisappear() {
-        UITableView.appearance().separatorStyle = .singleLine
-    }
+    private func onCharacterListContentViewDisappear() { }
 }
 
 //struct CharacterListScreenContentView_Previews: PreviewProvider {

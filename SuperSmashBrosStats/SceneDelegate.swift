@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,21 +18,56 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = homeScreenViewController()
+            window.rootViewController = self.tabBarController()
             self.window = window
             window.makeKeyAndVisible()
         }
     }
 
-    func homeScreenViewController() -> UIViewController {
-        let viewModel = HomeScreenViewModel()
+    func tabBarController() -> UITabBarController {
+        guard let context = CoreDataManager.shared.context else { fatalError("Can't get context from core data") }
         let userDataModel = UserDataModel()
+        let homeScreenNavigationController = self.homeScreenNavigationController(
+            managedObjectContext: context,
+            userDataModel: userDataModel)
+        let settingsScreenNavigationController = self.settingsScreenNavigationController(
+            managedObjectContext: context,
+            userDataModel: userDataModel)
+        let tabBarContoller = UITabBarController()
+        let controllers = [homeScreenNavigationController, settingsScreenNavigationController]
+        tabBarContoller.setViewControllers(controllers, animated: true)
+        return tabBarContoller
+    }
+
+    // swiftlint:disable:next line_length
+    func homeScreenNavigationController(managedObjectContext: NSManagedObjectContext, userDataModel: UserDataModel) -> UINavigationController {
+        let viewModel = HomeScreenViewModel()
         let contentView = HomeScreenContentView(viewModel: viewModel)
-            .environment(\.managedObjectContext, CoreDataManager.shared.context!)
+            .environment(\.managedObjectContext, managedObjectContext)
             .environmentObject(userDataModel)
         let hostinController = UIHostingController(rootView: contentView)
         let navigationController = UINavigationController(rootViewController: hostinController)
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.tabBarItem = UITabBarItem(
+            title: Localizer.getLocalizableString(of: .STATS),
+            image: UIImage(systemName: "s.circle"),
+            tag: 0)
+        return navigationController
+    }
+
+    // swiftlint:disable:next line_length
+    func settingsScreenNavigationController(managedObjectContext: NSManagedObjectContext, userDataModel: UserDataModel) -> UINavigationController {
+        let viewModel = SettingsScreenViewModel()
+        let contentView = SettingsScreenContentView(viewModel: viewModel)
+            .environment(\.managedObjectContext, managedObjectContext)
+            .environmentObject(userDataModel)
+        let hostinController = UIHostingController(rootView: contentView)
+        let navigationController = UINavigationController(rootViewController: hostinController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.tabBarItem = UITabBarItem(
+            title: Localizer.getLocalizableString(of: .SETTINGS),
+            image: UIImage(systemName: "slider.horizontal.3"),
+            tag: 1)
         return navigationController
     }
 

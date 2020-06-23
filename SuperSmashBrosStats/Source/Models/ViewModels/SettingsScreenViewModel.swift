@@ -11,9 +11,12 @@ import MessageUI
 
 final class SettingsScreenViewModel: ObservableObject {
 
-    @Published var showLanguageActionSheet = false
-    @Published var showAppColorSheet = false
-    @Published var showFeedbackSheet = false
+    @Published var showSheet = false
+    @Published var currentSheet: SettingsSheet = .appColor
+
+    @Published var showActionSheet = false
+    @Published var currentActionSheet: SettingsActionSheet = .language
+
     @Published var mailResult: Result<MFMailComposeResult, Error>?
 
     var versionNumberText: String {
@@ -21,15 +24,27 @@ final class SettingsScreenViewModel: ObservableObject {
     }
 
     func languageSettingsAction() {
-        self.showLanguageActionSheet = true
+        self.currentActionSheet = .language
+        self.showActionSheet = true
     }
 
     func appColorSettingsAction() {
-        self.showAppColorSheet = true
+        self.currentSheet = .appColor
+        self.showSheet = true
     }
 
     func shareFeedbackSettingsAction() {
-        self.showFeedbackSheet = true
+        self.currentSheet = .mail
+        self.showSheet = true
     }
 
+}
+
+enum SettingsSheet {
+    case mail
+    case appColor
+}
+
+enum SettingsActionSheet {
+    case language
 }

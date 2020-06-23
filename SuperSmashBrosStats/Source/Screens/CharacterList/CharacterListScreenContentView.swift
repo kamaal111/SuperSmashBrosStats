@@ -20,6 +20,8 @@ struct CharacterListScreenContentView: View {
     init(game: Game) {
         self.viewModel = CharacterListScreenViewModel(game: game)
         self.game = game
+        guard let cachedImages = try? self.coreDataManager.fetch(CachedImage.self) else { return }
+        self.viewModel.populateCharacters(cachedImages: cachedImages)
     }
 
     private let coreDataManager = CoreDataManager.shared
@@ -48,11 +50,7 @@ struct CharacterListScreenContentView: View {
                         NavigationLink(destination: CharacterDetailScreenContentView(
                             character: character,
                             game: self.game)) {
-                                CharacterRow(
-                                    characterWithImage: character,
-                                    isFavorited: self.userData.checkIfCharacterIsFavorite(
-                                        characterId: character.details.ownerId,
-                                        game: character.details.game))
+                                CharacterRow(characterWithImage: character)
                             }
                     }
                 }
@@ -80,18 +78,7 @@ struct CharacterListScreenContentView: View {
         }
     }
 
-    private func onCharacterListContentViewAppear() {
-        if self.viewModel.characters.isEmpty {
-            do {
-                guard let cachedImages = try self.coreDataManager.fetch(CachedImage.self) else { return }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.viewModel.populateCharacters(cachedImages: cachedImages)
-                }
-            } catch {
-                print("Could not retrieve chached images from core data", error)
-            }
-        }
-    }
+    private func onCharacterListContentViewAppear() { }
 
     private func onCharacterListContentViewDisappear() { }
 }

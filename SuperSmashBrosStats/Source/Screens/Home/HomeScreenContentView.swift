@@ -20,13 +20,15 @@ struct HomeScreenContentView: View {
 
     var body: some View {
         VStack {
-            NavigationLink(destination: CharacterListScreenContentView(game: .smash4)) {
+            NavigationLink(destination: CharacterListScreenContentView(game: .smash4)
+                .environmentObject(self.userData)) {
                     Image("smash4logo")
                         .renderingMode(.original)
                         .resizable()
                         .frame(height: Self.imageHeight)
             }
-            NavigationLink(destination: CharacterListScreenContentView(game: .ultimate)) {
+            NavigationLink(destination: CharacterListScreenContentView(game: .ultimate)
+                .environmentObject(self.userData)) {
                     self.ultimateLogoImage
             }
         }

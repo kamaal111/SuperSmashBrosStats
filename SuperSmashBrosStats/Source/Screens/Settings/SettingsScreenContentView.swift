@@ -22,7 +22,7 @@ struct SettingsScreenContentView: View {
                 AppColorSettingsRow(action: self.viewModel.appColorSettingsAction)
             }
             ShareFeedbackSettingsRow(action: self.viewModel.shareFeedbackSettingsAction)
-            VersionSettingsRow(version: self.viewModel.versionNumberText)
+            VersionSettingsRow(version: self.viewModel.versionText)
         }
         .listStyle(GroupedListStyle())
         .environment(\.horizontalSizeClass, .regular)

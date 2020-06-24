@@ -19,8 +19,9 @@ final class SettingsScreenViewModel: ObservableObject {
 
     @Published var mailResult: Result<MFMailComposeResult, Error>?
 
-    var versionNumberText: String {
-        return "1"
+    var versionText: String {
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return "" }
+        return version
     }
 
     func languageSettingsAction() {

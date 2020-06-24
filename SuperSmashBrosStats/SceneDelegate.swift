@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 .environment(\.managedObjectContext, context)
                 .environmentObject(userDataModel)
             window.rootViewController = UIHostingController(rootView: contentView)
+            window.tintColor = .getAppColor(from: LocalStorageHelper.getString(from: .appColor))
             self.window = window
             window.makeKeyAndVisible()
         }

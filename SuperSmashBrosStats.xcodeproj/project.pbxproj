@@ -248,6 +248,9 @@
 		60573AFB249FE2D800EEE317 /* SettingsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60573AFA249FE2D800EEE317 /* SettingsScreenViewModel.swift */; };
 		60573AFD249FE53100EEE317 /* SettingsRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60573AFC249FE53100EEE317 /* SettingsRows.swift */; };
 		60573B00249FEA7700EEE317 /* KamaalUI in Frameworks */ = {isa = PBXBuildFile; productRef = 60573AFF249FEA7700EEE317 /* KamaalUI */; };
+		60605BBF24A327A900D11F10 /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60605BBE24A327A900D11F10 /* ColorPallete.swift */; };
+		60605BC124A3283600D11F10 /* LocalStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60605BC024A3283600D11F10 /* LocalStorageHelper.swift */; };
+		60605BC324A328B200D11F10 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60605BC224A328B200D11F10 /* UIColor+extensions.swift */; };
 		60613015249AABC200B682A1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 60613014249AABC200B682A1 /* README.md */; };
 		60613017249AAC9B00B682A1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 60613016249AAC9B00B682A1 /* LICENSE */; };
 		6075E27C248E9BF90038744B /* CharacterThumbnailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075E27B248E9BF90038744B /* CharacterThumbnailImage.swift */; };
@@ -534,6 +537,9 @@
 		60573AF8249FBC8200EEE317 /* SettingsScreenContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenContentView.swift; sourceTree = "<group>"; };
 		60573AFA249FE2D800EEE317 /* SettingsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenViewModel.swift; sourceTree = "<group>"; };
 		60573AFC249FE53100EEE317 /* SettingsRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRows.swift; sourceTree = "<group>"; };
+		60605BBE24A327A900D11F10 /* ColorPallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
+		60605BC024A3283600D11F10 /* LocalStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageHelper.swift; sourceTree = "<group>"; };
+		60605BC224A328B200D11F10 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 		60613013249AA7DB00B682A1 /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
 		60613014249AABC200B682A1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60613016249AAC9B00B682A1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -935,6 +941,8 @@
 				6005000D249574570037C6DF /* ResponderHolder.swift */,
 				60947DE5249642230064DF5C /* TopLister.swift */,
 				6010D606249F8ABA00F46362 /* Localizer.swift */,
+				60605BBE24A327A900D11F10 /* ColorPallete.swift */,
+				60605BC024A3283600D11F10 /* LocalStorageHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1019,6 +1027,7 @@
 			children = (
 				6075E28024901ECE0038744B /* DispatchQueue+extensions.swift */,
 				6010D608249F8C6300F46362 /* Text+extensions.swift */,
+				60605BC224A328B200D11F10 /* UIColor+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1455,6 +1464,7 @@
 				600C2D512494F75000D0FD6C /* UserDataModel.swift in Sources */,
 				6075E28124901ECE0038744B /* DispatchQueue+extensions.swift in Sources */,
 				60065459249BFE2D003D6EE9 /* CharacterMoveView.swift in Sources */,
+				60605BC324A328B200D11F10 /* UIColor+extensions.swift in Sources */,
 				601BF6B5249E4C8C005B1EE0 /* Networkable.swift in Sources */,
 				608FD8FD248C37F400307B6C /* CodableCharacterMoves.swift in Sources */,
 				60C7CB51248D508B007F43E8 /* ImageCache.swift in Sources */,
@@ -1467,9 +1477,11 @@
 				601F8A2D249E59340027E185 /* CharacterListScreenViewModel.swift in Sources */,
 				60249040248BE0B2009D8E75 /* HomeScreenViewModel.swift in Sources */,
 				600C2D4B2493542500D0FD6C /* CharacterMovesScreenContentView.swift in Sources */,
+				60605BBF24A327A900D11F10 /* ColorPallete.swift in Sources */,
 				60947DE6249642230064DF5C /* TopLister.swift in Sources */,
 				6046B23E249948660010CD9E /* CharacterTopListViewModel.swift in Sources */,
 				608FD918248D173100307B6C /* SuperSmashBrosStats.xcdatamodeld in Sources */,
+				60605BC124A3283600D11F10 /* LocalStorageHelper.swift in Sources */,
 				600C2D4D2493597300D0FD6C /* CharacterMovesScreenViewModel.swift in Sources */,
 				6010D607249F8ABA00F46362 /* Localizer.swift in Sources */,
 				608FD91C248D177C00307B6C /* CoreDataManager.swift in Sources */,

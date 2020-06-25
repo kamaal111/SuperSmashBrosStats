@@ -24,6 +24,12 @@ final class SettingsScreenViewModel: ObservableObject {
         return version
     }
 
+    var currentAppColor: String {
+        guard let appColor = LocalStorageHelper.getString(from: .appColor)
+        else { return AppColors.blueAppColor.rawValue }
+        return appColor
+    }
+
     func languageSettingsAction() {
         self.currentActionSheet = .language
         self.showActionSheet = true

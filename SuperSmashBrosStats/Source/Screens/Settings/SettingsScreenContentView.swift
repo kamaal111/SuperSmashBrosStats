@@ -36,7 +36,8 @@ struct SettingsScreenContentView: View {
         switch self.viewModel.currentSheet {
         case .appColor:
             return AnyView(
-                AppColorView(action: self.viewModel.saveColorOption(of:))
+                AppColorView(currentAppColor: self.viewModel.currentAppColor,
+                             action: self.viewModel.saveColorOption(of:))
             )
         case .mail:
             return AnyView(

@@ -242,6 +242,7 @@
 		60249045248BE142009D8E75 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249044248BE142009D8E75 /* Networker.swift */; };
 		6030637A24A32D89004034D7 /* AppColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030637924A32D89004034D7 /* AppColorView.swift */; };
 		604142CE24A5384700692DE7 /* Grabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604142CD24A5384700692DE7 /* Grabber.swift */; };
+		604142D024A53F3700692DE7 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604142CF24A53F3700692DE7 /* Logo.swift */; };
 		60453BBC248D6FB400224303 /* CharacterDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */; };
 		6046B23E249948660010CD9E /* CharacterTopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */; };
 		6046B24024994C060010CD9E /* CharacterAttributeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */; };
@@ -532,6 +533,7 @@
 		60249044248BE142009D8E75 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		6030637924A32D89004034D7 /* AppColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorView.swift; sourceTree = "<group>"; };
 		604142CD24A5384700692DE7 /* Grabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grabber.swift; sourceTree = "<group>"; };
+		604142CF24A53F3700692DE7 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailScreenViewModel.swift; sourceTree = "<group>"; };
 		6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTopListViewModel.swift; sourceTree = "<group>"; };
 		6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributeSection.swift; sourceTree = "<group>"; };
@@ -879,6 +881,7 @@
 				6024903A248BE025009D8E75 /* Source */,
 				60249026248BC151009D8E75 /* AppDelegate.swift */,
 				60249028248BC151009D8E75 /* SceneDelegate.swift */,
+				604142CF24A53F3700692DE7 /* Logo.swift */,
 				608FD919248D174700307B6C /* CONFIG.swift */,
 				6010D60C249F8D3B00F46362 /* Localizable.strings */,
 				6024902C248BC152009D8E75 /* Assets.xcassets */,
@@ -1477,6 +1480,7 @@
 				60573AFB249FE2D800EEE317 /* SettingsScreenViewModel.swift in Sources */,
 				601BF6B7249E5190005B1EE0 /* CharacterListScreenContentView.swift in Sources */,
 				6030637A24A32D89004034D7 /* AppColorView.swift in Sources */,
+				604142D024A53F3700692DE7 /* Logo.swift in Sources */,
 				600C2D512494F75000D0FD6C /* UserDataModel.swift in Sources */,
 				6075E28124901ECE0038744B /* DispatchQueue+extensions.swift in Sources */,
 				60065459249BFE2D003D6EE9 /* CharacterMoveView.swift in Sources */,

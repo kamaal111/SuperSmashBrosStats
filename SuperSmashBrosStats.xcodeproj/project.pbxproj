@@ -852,12 +852,13 @@
 		6024901A248BC151009D8E75 = {
 			isa = PBXGroup;
 			children = (
+				60249025248BC151009D8E75 /* Shared */,
+				60DFBE8624A532670041683D /* iOS-iPadOS */,
+				6046B24624994D270010CD9E /* SuperSmashBrosStatsTests */,
+				60613012249AA7BF00B682A1 /* Scripts */,
+				60249024248BC151009D8E75 /* Products */,
 				60613014249AABC200B682A1 /* README.md */,
 				60613016249AAC9B00B682A1 /* LICENSE */,
-				60249025248BC151009D8E75 /* SuperSmashBrosStats */,
-				60613012249AA7BF00B682A1 /* Scripts */,
-				6046B24624994D270010CD9E /* SuperSmashBrosStatsTests */,
-				60249024248BC151009D8E75 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -870,7 +871,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		60249025248BC151009D8E75 /* SuperSmashBrosStats */ = {
+		60249025248BC151009D8E75 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				6024903A248BE025009D8E75 /* Source */,
@@ -880,10 +881,9 @@
 				6010D60C249F8D3B00F46362 /* Localizable.strings */,
 				6024902C248BC152009D8E75 /* Assets.xcassets */,
 				60249031248BC152009D8E75 /* LaunchScreen.storyboard */,
-				60249034248BC152009D8E75 /* Info.plist */,
 				6024902E248BC152009D8E75 /* Preview Content */,
 			);
-			path = SuperSmashBrosStats;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		6024902E248BC152009D8E75 /* Preview Content */ = {
@@ -1102,6 +1102,14 @@
 				60C7CB53248D69D1007F43E8 /* CharacterDetailScreenContentView.swift */,
 			);
 			path = CharacterDetail;
+			sourceTree = "<group>";
+		};
+		60DFBE8624A532670041683D /* iOS-iPadOS */ = {
+			isa = PBXGroup;
+			children = (
+				60249034248BC152009D8E75 /* Info.plist */,
+			);
+			path = "iOS-iPadOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1667,10 +1675,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SuperSmashBrosStats/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Shared/Preview Content\"";
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SuperSmashBrosStats/Info.plist;
+				INFOPLIST_FILE = "iOS-iPadOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1688,10 +1696,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SuperSmashBrosStats/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Shared/Preview Content\"";
 				DEVELOPMENT_TEAM = DXUKH9VF73;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SuperSmashBrosStats/Info.plist;
+				INFOPLIST_FILE = "iOS-iPadOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

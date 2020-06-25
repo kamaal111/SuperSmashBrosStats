@@ -19,7 +19,7 @@ struct ContentView: View {
                             Image(systemName: "s.circle")
                             Text(localized: .STATS)
                         }.tag(0)
-                    SettingsScreenContentView()
+                    NavigationView { SettingsScreenContentView() }
                         .tabItem {
                             Image(systemName: "slider.horizontal.3")
                             Text(localized: .SETTINGS)

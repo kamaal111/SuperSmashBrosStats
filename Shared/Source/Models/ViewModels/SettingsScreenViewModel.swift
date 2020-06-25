@@ -15,9 +15,10 @@ final class SettingsScreenViewModel: ObservableObject {
     @Published var currentSheet: SettingsSheet = .appColor
 
     @Published var showActionSheet = false
-    @Published var currentActionSheet: SettingsActionSheet = .language
 
     @Published var mailResult: Result<MFMailComposeResult, Error>?
+
+    init() { }
 
     var versionText: String {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return "" }
@@ -28,11 +29,6 @@ final class SettingsScreenViewModel: ObservableObject {
         guard let appColor = LocalStorageHelper.getString(from: .appColor)
         else { return AppColors.blueAppColor.rawValue }
         return appColor
-    }
-
-    func languageSettingsAction() {
-        self.currentActionSheet = .language
-        self.showActionSheet = true
     }
 
     func appColorSettingsAction() {

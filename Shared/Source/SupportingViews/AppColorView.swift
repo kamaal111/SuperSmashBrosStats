@@ -14,11 +14,14 @@ struct AppColorView: View {
 
     var body: some View {
         VStack {
+            Grabber()
+                .padding(.top, 16)
             Text("App Color")
                 .font(.title)
+                .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 16)
-                .padding(.top, 24)
+                .padding(.top, 8)
             ForEach(appColors) { (option: ColorOption) in
                 AppColorViewButton(option: option,
                                    isCurrentColor: self.checkIsCurrentColor(optionName: option.name.rawValue),

@@ -18,7 +18,6 @@ struct SettingsScreenContentView: View {
     var body: some View {
         List {
             Section(header: Text("")) {
-                LanguageSettingsRow(action: self.viewModel.languageSettingsAction)
                 AppColorSettingsRow(action: self.viewModel.appColorSettingsAction)
             }
             ShareFeedbackSettingsRow(action: self.viewModel.shareFeedbackSettingsAction)

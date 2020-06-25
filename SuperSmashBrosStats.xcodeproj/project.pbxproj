@@ -240,6 +240,7 @@
 		60249040248BE0B2009D8E75 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6024903F248BE0B2009D8E75 /* HomeScreenViewModel.swift */; };
 		60249042248BE116009D8E75 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249041248BE116009D8E75 /* Character.swift */; };
 		60249045248BE142009D8E75 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60249044248BE142009D8E75 /* Networker.swift */; };
+		6030637A24A32D89004034D7 /* AppColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030637924A32D89004034D7 /* AppColorView.swift */; };
 		60453BBC248D6FB400224303 /* CharacterDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */; };
 		6046B23E249948660010CD9E /* CharacterTopListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */; };
 		6046B24024994C060010CD9E /* CharacterAttributeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */; };
@@ -528,6 +529,7 @@
 		6024903F248BE0B2009D8E75 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		60249041248BE116009D8E75 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		60249044248BE142009D8E75 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		6030637924A32D89004034D7 /* AppColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorView.swift; sourceTree = "<group>"; };
 		60453BBB248D6FB400224303 /* CharacterDetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailScreenViewModel.swift; sourceTree = "<group>"; };
 		6046B23D249948660010CD9E /* CharacterTopListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTopListViewModel.swift; sourceTree = "<group>"; };
 		6046B23F24994C060010CD9E /* CharacterAttributeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAttributeSection.swift; sourceTree = "<group>"; };
@@ -1054,6 +1056,7 @@
 				60065458249BFE2D003D6EE9 /* CharacterMoveView.swift */,
 				60573AFC249FE53100EEE317 /* SettingsRows.swift */,
 				601F0A2824A11C450054E75B /* MailView.swift */,
+				6030637924A32D89004034D7 /* AppColorView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -1461,6 +1464,7 @@
 				60DC560B2490B60600205EC7 /* MovesSection.swift in Sources */,
 				60573AFB249FE2D800EEE317 /* SettingsScreenViewModel.swift in Sources */,
 				601BF6B7249E5190005B1EE0 /* CharacterListScreenContentView.swift in Sources */,
+				6030637A24A32D89004034D7 /* AppColorView.swift in Sources */,
 				600C2D512494F75000D0FD6C /* UserDataModel.swift in Sources */,
 				6075E28124901ECE0038744B /* DispatchQueue+extensions.swift in Sources */,
 				60065459249BFE2D003D6EE9 /* CharacterMoveView.swift in Sources */,

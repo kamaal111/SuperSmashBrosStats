@@ -39,6 +39,16 @@ final class SettingsScreenViewModel: ObservableObject {
         self.showSheet = true
     }
 
+    func saveColorOption(of color: ColorOption) {
+        LocalStorageHelper.save(this: color.name.rawValue, from: .appColor)
+        UIApplication.shared.windows.forEach { window in
+            if window.isKeyWindow {
+                window.tintColor = .getAppColor(from: color.name.rawValue)
+            }
+        }
+        self.showSheet = false
+    }
+
 }
 
 enum SettingsSheet {

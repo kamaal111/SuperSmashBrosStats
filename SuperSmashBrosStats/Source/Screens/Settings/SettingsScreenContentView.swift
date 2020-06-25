@@ -36,35 +36,13 @@ struct SettingsScreenContentView: View {
         switch self.viewModel.currentSheet {
         case .appColor:
             return AnyView(
-                VStack {
-                    ForEach(appColors) { (option: ColorOption) in
-                        Button(action: { self.saveColorOption(of: option) }) {
-                            HStack {
-                                Text(option.name.rawValue)
-                                Spacer()
-                                option.color
-                                    .frame(width: 32, height: 32)
-                                    .cornerRadius(8)
-                            }
-                        }
-                    }
-                }
+                AppColorView(action: self.viewModel.saveColorOption(of:))
             )
         case .mail:
             return AnyView(
                 MailView(showFeedbackSheet: self.$viewModel.showSheet, mailResult: self.$viewModel.mailResult)
             )
         }
-    }
-
-    private func saveColorOption(of color: ColorOption) {
-        LocalStorageHelper.save(this: color.name.rawValue, from: .appColor)
-        UIApplication.shared.windows.forEach { window in
-            if window.isKeyWindow {
-                window.tintColor = .getAppColor(from: color.name.rawValue)
-            }
-        }
-        self.viewModel.showSheet = false
     }
 }
 

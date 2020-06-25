@@ -16,7 +16,7 @@ struct HomeScreenContentView: View {
     private var userData: UserDataModel
 
     @ObservedObject
-    var viewModel: HomeScreenViewModel
+    private var viewModel = HomeScreenViewModel()
 
     var body: some View {
         VStack {

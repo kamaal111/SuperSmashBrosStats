@@ -7,30 +7,41 @@
 //
 
 import SwiftUI
-import MessageUI
-import KamaalUI
 
 struct SettingsScreenContentView: View {
     @EnvironmentObject
     private var userData: UserDataModel
 
     @ObservedObject
-    var viewModel: SettingsScreenViewModel
+    private var viewModel = SettingsScreenViewModel()
 
     var body: some View {
         List {
             Section(header: Text("")) {
-                LanguageSettingsRow(action: self.viewModel.languageSettingsAction)
                 AppColorSettingsRow(action: self.viewModel.appColorSettingsAction)
             }
             ShareFeedbackSettingsRow(action: self.viewModel.shareFeedbackSettingsAction)
-            VersionSettingsRow(version: self.viewModel.versionNumberText)
+            VersionSettingsRow(version: self.viewModel.versionText)
         }
         .listStyle(GroupedListStyle())
         .environment(\.horizontalSizeClass, .regular)
         .navigationBarTitle(Text(localized: .SETTINGS), displayMode: .large)
-        .sheet(isPresented: self.$viewModel.showFeedbackSheet) {
-            MailView(showFeedbackSheet: self.$viewModel.showFeedbackSheet, mailResult: self.$viewModel.mailResult)
+        .sheet(isPresented: self.$viewModel.showSheet) {
+            self.currentSheet()
+        }
+    }
+
+    private func currentSheet() -> some View {
+        switch self.viewModel.currentSheet {
+        case .appColor:
+            return AnyView(
+                AppColorView(currentAppColor: self.viewModel.currentAppColor,
+                             action: self.viewModel.saveColorOption(of:))
+            )
+        case .mail:
+            return AnyView(
+                MailView(showFeedbackSheet: self.$viewModel.showSheet, mailResult: self.$viewModel.mailResult)
+            )
         }
     }
 }
@@ -38,7 +49,7 @@ struct SettingsScreenContentView: View {
 struct SettingsScreenContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsScreenContentView(viewModel: SettingsScreenViewModel())
+            SettingsScreenContentView()
         }
 //        .colorScheme(.dark)
     }

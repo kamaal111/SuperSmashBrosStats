@@ -8,21 +8,6 @@
 
 import SwiftUI
 
-struct LanguageSettingsRow: View {
-    var action: () -> Void
-
-    var body: some View {
-        Button(action: self.action) {
-            HStack {
-                Text("Language")
-                    .foregroundColor(.primary)
-                Spacer()
-                Text("English")
-            }
-        }
-    }
-}
-
 struct AppColorSettingsRow: View {
     var action: () -> Void
 

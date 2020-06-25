@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct CharacterRow: View {
+    @EnvironmentObject
+    private var userData: UserDataModel
+
     var characterWithImage: Character
-    var isFavorited: Bool
 
     var body: some View {
         HStack {
@@ -21,5 +23,11 @@ struct CharacterRow: View {
             Image(systemName: "star.fill")
                 .foregroundColor(self.isFavorited ? .yellow : .gray)
         }
+    }
+
+    private var isFavorited: Bool {
+        return self.userData.checkIfCharacterIsFavorite(
+            characterId: characterWithImage.details.ownerId,
+            game: characterWithImage.details.game)
     }
 }

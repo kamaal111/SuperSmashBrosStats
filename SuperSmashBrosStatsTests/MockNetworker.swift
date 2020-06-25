@@ -41,7 +41,7 @@ struct MockNetworker: Networkable {
     func getCharacterAttributes(game: Game, characterId: Int, completion: @escaping (Result<[CodableCharacterAttributes], Error>) -> Void) {
         // swiftlint:disable:previous line_length
         let path = "characterattributes-\(game.rawValue)-\(characterId).json"
-        let characterData: [CodableCharacterAttributes] = load(path)
+        let characterData: [CodableCharacterAttributes] = Bundle.load(path)
         completion(.success(characterData))
     }
 

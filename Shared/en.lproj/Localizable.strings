@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  SuperSmashBrosStats
+
+  Created by Kamaal Farah on 21/06/2020.
+  Copyright © 2020 Kamaal. All rights reserved.
+*/
+
+"SUPER_SMASH_STATS" = "Super Smash Stats";
+"FAVORITES_ONLY" = "Favorites Only";
+"SEARCH" = "Search";
+"CHARACTERS" = "Characters";
+"LOADING" = "Loading";
+"NO_CHARACTERS_IN_FAVORITES" = "No characters in your favorites list";
+"NO_CHARACTERS_WITH_NAME" = "No characters found with the name %@";
+"SMASH_4_ROSTER" = "Smash 4 Roster";
+"SMASH_ULTIMATE_ROSTER" = "Smash Ultimate Roster";
+"CHARACTER_MOVES" = "Character Moves";
+"ATTRIBUTES" = "Attributes";
+"SORT_ATTRIBUTES_BY" = "Sort Attributes By";
+"DESCENDING" = "Descending";
+"ASCENDING" = "Ascending";
+"STATS" = "Stats";
+"SETTINGS" = "Settings";

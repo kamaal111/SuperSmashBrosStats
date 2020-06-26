@@ -14,7 +14,7 @@ struct Logo: View {
             Circle()
                 .foregroundColor(.red)
                 .frame(width: 160, height: 160)
-            Text("SSB Stats")
+            Text(localized: .SUPER_SMASH_STATS)
                 .font(.system(size: 26, weight: .semibold, design: .monospaced))
                 .foregroundColor(.white)
         }
